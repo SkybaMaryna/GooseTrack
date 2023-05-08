@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { App } from 'components/App';
 import './index.css';
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
+import { BrowserRouter } from 'react-router-dom';
 const Global = createGlobalStyle`
 *,
 *::before,
@@ -44,12 +45,13 @@ a {
 p {
   padding: 0;
   margin: 0;
-}`
+}`;
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
-    <Global/>
+    <BrowserRouter basename="/GooseTrack">
+      <App />
+      <Global />
+    </BrowserRouter>
   </React.StrictMode>
 );
-
