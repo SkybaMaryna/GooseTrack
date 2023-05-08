@@ -4,6 +4,9 @@ import { App } from 'components/App';
 import './index.css';
 import { createGlobalStyle } from 'styled-components';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { persistor, store } from 'redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
 const Global = createGlobalStyle`
 *,
 *::before,
@@ -49,9 +52,13 @@ p {
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/GooseTrack">
-      <App />
-      <Global />
-    </BrowserRouter>
+    <PersistGate loading={null} persistor={persistor}>
+      <BrowserRouter basename="/GooseTrack">
+        <Provider store={store}>
+          <App />
+        </Provider>
+        <Global />
+      </BrowserRouter>
+    </PersistGate>
   </React.StrictMode>
 );

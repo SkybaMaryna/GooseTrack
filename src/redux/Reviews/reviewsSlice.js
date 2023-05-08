@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import fetchReviews from './reviewsOperations';
+import { fetchReviews } from './reviewsOperations';
 
 const initialState = {
   reviews: [],
@@ -26,4 +26,4 @@ const reviewsSlice = createSlice({
   },
 });
 
-export const todoReducer = reviewsSlice.reducer;
+export const reviewsReducer = reviewsSlice.reducer;

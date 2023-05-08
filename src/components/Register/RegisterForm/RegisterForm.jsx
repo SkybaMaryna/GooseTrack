@@ -22,7 +22,7 @@ const RegisterForm = () => {
     >
       {() => (
         <Form>
-          <h2>Loge In</h2>
+          <h2>Sign Up</h2>
           <label>Name</label>
 					<Field type='text' name='name' />
 					<ErrorMessage name='name' component='div' />
@@ -32,7 +32,7 @@ const RegisterForm = () => {
           <label>Password</label>
           <Field type="password" name="password" />
           <ErrorMessage name="password" component="div" />
-          <button type="submit">Log In</button>
+          <button type="submit">Sign Up</button>
         </Form>
       )}
     </Formik>

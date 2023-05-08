@@ -27,4 +27,4 @@ const tasksSlice = createSlice({
   },
 });
 
-export const todoReducer = tasksSlice.reducer;
+export const tasksReducer = tasksSlice.reducer;
