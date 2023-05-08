@@ -1,5 +1,8 @@
-const { createSlice } = require("@reduxjs/toolkit")
-import { registerThunk, logoutThunk, loginThunk, refreshThunk, getUserInfoThunk, updateUserThunk } from './authOperations'
+import { createSlice } from "@reduxjs/toolkit"
+import { getUserInfoThunk, loginThunk, logoutThunk, refreshThunk, registerThunk, updateUserThunk } from "./authOperations"
+
+
+
 
 
 
@@ -23,7 +26,7 @@ const authSlice = createSlice({
             state.refreshToken = payload.refreshToken
             state.isLoggedIn = true
             state.isLoading = false
-            state.error - null
+            state.error = null
         },
         [registerThunk.pending]: (state)=>{
             state.isLoading = true
@@ -38,7 +41,7 @@ const authSlice = createSlice({
             state.refreshToken = payload.refreshToken
             state.isLoggedIn = true
             state.isLoading = false
-            state.error - null
+            state.error = null
         },
         [loginThunk.pending]: (state)=>{
             state.isLoading = true
@@ -106,3 +109,5 @@ const authSlice = createSlice({
 
     }
 })
+
+export const authReducer = authSlice.reducer;
