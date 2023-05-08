@@ -13,6 +13,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { authReducer } from './Auth/authSlice';
 
 const persistConfig = {
   key: 'token',
@@ -23,7 +24,7 @@ const persistConfig = {
 
 export const store = configureStore({
   reducer: {
-    // auth: persistReducer(persistConfig, authReducer),
+    auth: persistReducer(persistConfig, authReducer),
     tasks: tasksReducer,
     reviews: reviewsReducer,
   },
