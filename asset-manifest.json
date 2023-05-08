@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/GooseTrack/static/css/main.51c30038.css",
-    "main.js": "/GooseTrack/static/js/main.894fd0ff.js",
+    "main.js": "/GooseTrack/static/js/main.41ce2a36.js",
     "static/media/CoolveticaRg-Italic.woff2": "/GooseTrack/static/media/CoolveticaRg-Italic.79a33230881475ee387d.woff2",
     "static/media/CoolveticaRg-Regular.woff2": "/GooseTrack/static/media/CoolveticaRg-Regular.bab07d35bc068a7cca87.woff2",
     "index.html": "/GooseTrack/index.html",
     "main.51c30038.css.map": "/GooseTrack/static/css/main.51c30038.css.map",
-    "main.894fd0ff.js.map": "/GooseTrack/static/js/main.894fd0ff.js.map"
+    "main.41ce2a36.js.map": "/GooseTrack/static/js/main.41ce2a36.js.map"
   },
   "entrypoints": [
     "static/css/main.51c30038.css",
-    "static/js/main.894fd0ff.js"
+    "static/js/main.41ce2a36.js"
   ]
 }
