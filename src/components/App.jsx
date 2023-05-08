@@ -17,11 +17,8 @@ export const App = () => {
           <Route index element={<HomePage />} />
           <Route path="account" element={<AccountPage />} />
           <Route path="calendar" element={<CalendarPage />}>
-            <Route path="calendar/day/:currentDay" element={<ChoosedMonth />} />
-            <Route
-              path="calendar/month/:currentDate"
-              element={<ChoosedDay />}
-            />
+            <Route path="day/:currentDay" element={<ChoosedMonth />} />
+            <Route path="month/:currentDate" element={<ChoosedDay />} />
             <Route />
           </Route>
         </Route>
