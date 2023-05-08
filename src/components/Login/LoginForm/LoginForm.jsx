@@ -18,7 +18,7 @@ const LoginForm = () => {
     >
       {() => (
         <Form>
-          <h2>Loge In</h2>
+          <h2>Log In</h2>
           <label>Email</label>
           <Field type="email" name="email" />
           <ErrorMessage name="email" component="div" />
