@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/GooseTrack/static/css/main.3404d35e.css",
-    "main.js": "/GooseTrack/static/js/main.d9ba5b20.js",
+    "main.js": "/GooseTrack/static/js/main.7759bdd1.js",
     "index.html": "/GooseTrack/index.html",
     "main.3404d35e.css.map": "/GooseTrack/static/css/main.3404d35e.css.map",
-    "main.d9ba5b20.js.map": "/GooseTrack/static/js/main.d9ba5b20.js.map"
+    "main.7759bdd1.js.map": "/GooseTrack/static/js/main.7759bdd1.js.map"
   },
   "entrypoints": [
     "static/css/main.3404d35e.css",
-    "static/js/main.d9ba5b20.js"
+    "static/js/main.7759bdd1.js"
   ]
 }
