@@ -52,3 +52,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Global/>
   </React.StrictMode>
 );
+
