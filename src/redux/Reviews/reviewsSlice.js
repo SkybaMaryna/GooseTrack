@@ -26,4 +26,4 @@ const reviewsSlice = createSlice({
   },
 });
 
-export const todoReducer = reviewsSlice.reducer;
+export const reviewsReducer = reviewsSlice.reducer;
