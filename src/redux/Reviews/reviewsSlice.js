@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import fetchReviews from './reviewsOperations';
+import { fetchReviews } from './reviewsOperations';
 
 const initialState = {
   reviews: [],
