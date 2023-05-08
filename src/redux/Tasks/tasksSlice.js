@@ -16,7 +16,7 @@ const tasksSlice = createSlice({
       state.loading = true;
     },
     [fetchTasks.fulfilled]: (state, { payload }) => {
-      state.items = payload;
+      state.tasks = payload;
       state.loading = false;
       state.error = null;
     },
