@@ -1,3 +1,4 @@
+
 import AuthNavigate from "components/shared/AuthNavigate/AuthNavigate";
 
 const HomePage = () => {
@@ -70,7 +71,6 @@ const HomePage = () => {
     </picture>
     </div>
     </section>;
-
 };
 
 export default HomePage;
