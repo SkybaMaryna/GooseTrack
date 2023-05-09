@@ -5,4 +5,5 @@ export const StyledSideBar = styled.div`
   flex-direction: column;
   justify-content: space-between;
   padding: 24px;
+  outline: solid red 2px;
 `;

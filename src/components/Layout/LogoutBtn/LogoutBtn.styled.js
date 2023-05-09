@@ -7,7 +7,6 @@ export const Button = styled.button`
   font-size: 14px;
   line-height: 1.29;
   font-weight: 600;
-  margin-left: 20px;
   width: 121px;
   height: 49px;
   color: var(--mainWhite);
