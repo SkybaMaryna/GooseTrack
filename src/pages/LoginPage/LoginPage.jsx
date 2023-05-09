@@ -1,9 +1,11 @@
-
+import LoginForm from "components/Login/LoginForm/LoginForm";
+import { StyledDiv } from "./LoginPageStyled";
 
 const LoginPage = ()=> {
   return <>
-  <div>Login Page</div>
-  
+  <StyledDiv>
+    <LoginForm/>
+  </StyledDiv>
   </>
 }
 export default LoginPage;
