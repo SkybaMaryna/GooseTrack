@@ -18,4 +18,5 @@ const ButtonLogOut = () => {
     </Button>
   );
 };
+
 export default ButtonLogOut;
