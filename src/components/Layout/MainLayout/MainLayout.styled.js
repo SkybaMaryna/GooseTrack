@@ -16,3 +16,7 @@ export const StyledContainer = styled.div`
     max-width: 1440px;
   }
 `;
+
+export const StyledMain = styled.main`
+  display: flex;
+`;

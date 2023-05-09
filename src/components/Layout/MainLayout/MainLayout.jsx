@@ -4,12 +4,15 @@ import { getUserInfoThunk } from 'redux/Auth/authOperations';
 import { useEffect } from 'react';
 import Header from '../Header/Header';
 import SideBar from '../SideBar/SideBar';
-import { StyledContainer } from './MainLayout.styled';
-import { selectUser } from 'redux/Auth/authSelectors';
+import { StyledContainer, StyledMain } from './MainLayout.styled';
+import { selectIsLoggedIn, selectUser } from 'redux/Auth/authSelectors';
+import { useMediaRules } from 'hooks/mediaRules';
 
 const MainLayout = () => {
   const user = useSelector(selectUser);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
   const dispatch = useDispatch();
+  const { isDesktop } = useMediaRules();
 
   useEffect(() => {
     if (user === null) {
@@ -19,13 +22,11 @@ const MainLayout = () => {
 
   return (
     <StyledContainer>
-      <header>
-        <Header />
-      </header>
-      <main>
-        <SideBar />
+      <header>{isLoggedIn && <Header />}</header>
+      <StyledMain>
+        {isLoggedIn && isDesktop && <SideBar />}
         <Outlet />
-      </main>
+      </StyledMain>
     </StyledContainer>
   );
 };
