@@ -1,8 +1,11 @@
+import AuthNavigate from 'components/shared/AuthNavigate/AuthNavigate';
 
 const HomePage = () => {
-  return <div>HomePage
-  
-  </div>;
+  return (
+    <div>
+      <AuthNavigate />
+    </div>
+  );
 };
 
 export default HomePage;
