@@ -1,8 +1,7 @@
-import { ErrorMessage, Field, Form} from 'formik';
 import { useDispatch } from 'react-redux';
 import { loginThunk } from 'redux/Auth/authOperations';
 import * as Yup from 'yup';
-import { StyledForm, StyledFormInsight, StyledTitle, StyledLabel, StyledInput, StyledButton, StyledError } from './LoginFormStyled';
+import { StyledForm, StyledFormInsight, StyledTitle, StyledLabel, StyledInput , StyledButton, StyledError } from './LoginFormStyled';
 import { FiLogIn } from 'react-icons/fi';
 
 
@@ -27,10 +26,10 @@ const LoginForm = () => {
         <StyledFormInsight>
           <StyledTitle>Log In</StyledTitle>
           <StyledLabel>Email</StyledLabel>
-          <StyledInput type="email" name="email"/>
+          <StyledInput  type="email" name="email" placeholder="Your e-mail..."/>
           <StyledError name="email" component="div" />
           <StyledLabel>Password</StyledLabel>
-          <StyledInput type="password" name="password" />
+          <StyledInput  type="password" name="password" placeholder="......."/>
           <StyledError name="password" component="div" />
           <StyledButton type="submit">Log In  <FiLogIn /></StyledButton>
         </StyledFormInsight>

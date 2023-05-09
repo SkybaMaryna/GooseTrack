@@ -1,13 +1,14 @@
-import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { registerThunk } from 'redux/Auth/authOperations';
 import * as Yup from 'yup';
+import { StyledButton, StyledError, StyledForm, StyledFormInsight, StyledInput, StyledLabel, StyledTitle } from './RegisterFormStyled';
+import { FiLogIn } from 'react-icons/fi';
 
 const RegisterForm = () => {
   const dispatch = useDispatch()
 
   return (
-    <Formik
+    <StyledForm
       initialValues={{
         name: '',
         email: '',
@@ -26,21 +27,21 @@ const RegisterForm = () => {
       }}
     >
       {() => (
-        <Form>
-          <h2>Sign Up</h2>
-          <label>Name</label>
-					<Field type='text' name='name' />
-					<ErrorMessage name='name' component='div' />
-          <label>Email</label>
-          <Field type="email" name="email" />
-          <ErrorMessage name="email" component="div" />
-          <label>Password</label>
-          <Field type="password" name="password" />
-          <ErrorMessage name="password" component="div" />
-          <button type="submit">Sign Up</button>
-        </Form>
+        <StyledFormInsight>
+          <StyledTitle>Sign Up</StyledTitle>
+          <StyledLabel>Name</StyledLabel>
+					<StyledInput type='text' name='name' placeholder="Enter your name"/>
+					<StyledError name='name' component='div' />
+          <StyledLabel>Email</StyledLabel>
+          <StyledInput type="email" name="email" placeholder="Email"/>
+          <StyledError name="email" component="div" />
+          <StyledLabel>Password</StyledLabel>
+          <StyledInput type="password" name="password" placeholder="......" />
+          <StyledError name="password" component="div" />
+          <StyledButton type="submit">Sign Up   <FiLogIn /></StyledButton>
+        </StyledFormInsight>
       )}
-    </Formik>
+    </StyledForm>
   );
 };
 
