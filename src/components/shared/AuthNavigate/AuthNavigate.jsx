@@ -11,7 +11,7 @@ import {
 const AuthNavigate = () => {
   return (
     <LinksBox>
-      <StyledNavLink to="/registration">Sign Up</StyledNavLink>
+      <StyledNavLink to="/register">Sign Up</StyledNavLink>
       <NavLink to="/login">
         <ButtonLogIN>
           Log in
