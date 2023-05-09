@@ -1,7 +1,11 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { useDispatch } from 'react-redux';
+import { registerThunk } from 'redux/Auth/authOperations';
 import * as Yup from 'yup';
 
 const RegisterForm = () => {
+  const dispatch = useDispatch()
+
   return (
     <Formik
       initialValues={{
@@ -17,7 +21,8 @@ const RegisterForm = () => {
         password: Yup.string().required('Please provide a valid password'),
       })}
       onSubmit={values => {
-        console.log(values);
+        console.log(values)
+        dispatch(registerThunk(values));
       }}
     >
       {() => (

@@ -1,34 +1,41 @@
-import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { ErrorMessage, Field, Form} from 'formik';
+import { useDispatch } from 'react-redux';
+import { loginThunk } from 'redux/Auth/authOperations';
 import * as Yup from 'yup';
+import { StyledForm, StyledFormInsight, StyledTitle, StyledLabel, StyledInput, StyledButton, StyledError } from './LoginFormStyled';
+import { FiLogIn } from 'react-icons/fi';
+
 
 const LoginForm = () => {
+  const dispatch = useDispatch()
   return (
-    <Formik
+    <StyledForm
       initialValues={{
         email: '',
         password: '',
       }}
       validationSchema={Yup.object({
         email: Yup.string().email('It is not email').required('Required'),
-        password: Yup.string().required('Please provide a valid password'),
+        password: Yup.string().required('This is an error email'),
       })}
       onSubmit={values => {
         console.log(values);
+        dispatch(loginThunk(values))
       }}
     >
       {() => (
-        <Form>
-          <h2>Log In</h2>
-          <label>Email</label>
-          <Field type="email" name="email" />
-          <ErrorMessage name="email" component="div" />
-          <label>Password</label>
-          <Field type="password" name="password" />
-          <ErrorMessage name="password" component="div" />
-          <button type="submit">Log In</button>
-        </Form>
+        <StyledFormInsight>
+          <StyledTitle>Log In</StyledTitle>
+          <StyledLabel>Email</StyledLabel>
+          <StyledInput type="email" name="email"/>
+          <StyledError name="email" component="div" />
+          <StyledLabel>Password</StyledLabel>
+          <StyledInput type="password" name="password" />
+          <StyledError name="password" component="div" />
+          <StyledButton type="submit">Log In  <FiLogIn /></StyledButton>
+        </StyledFormInsight>
       )}
-    </Formik>
+    </StyledForm>
   );
 };
 
