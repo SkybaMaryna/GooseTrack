@@ -1,13 +1,20 @@
-import LoginForm from "components/Login/LoginForm/LoginForm";
-import RegisterForm from "components/Register/RegisterForm/RegisterForm";
+import { useSelector } from 'react-redux';
+import { Outlet } from 'react-router-dom';
+import Header from '../Header/Header';
+import SideBar from '../SideBar/SideBar';
+import { StyledContainer } from './MainLayout.styled';
 
 const MainLayout = () => {
   return (
-    <>
-    <div className='text-red text-4xl'>MainLayout</div>
-    <LoginForm/>
-    <RegisterForm/>
-    </>
+    <StyledContainer>
+      <header>
+        <Header />
+      </header>
+      <main>
+        <SideBar />
+        <Outlet />
+      </main>
+    </StyledContainer>
   );
 };
 
