@@ -12,7 +12,7 @@ const MainLayout = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (Object.keys(user).length === 0) {
+    if (user === null) {
       dispatch(getUserInfoThunk());
     }
   }, [dispatch, user]);

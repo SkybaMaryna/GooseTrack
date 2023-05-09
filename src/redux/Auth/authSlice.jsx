@@ -9,7 +9,7 @@ import {
 } from './authOperations';
 
 const initialState = {
-  user: {},
+  user: null,
   accessToken: '',
   refreshToken: '',
   isLoggedIn: false,
@@ -80,7 +80,7 @@ const authSlice = createSlice({
       state.error = payload;
     },
     [getUserInfoThunk.fulfilled]: (state, { payload }) => {
-      state.user = payload.user;
+      state.user = payload;
       state.isLoggedIn = true;
       state.isLoading = false;
       state.error = null;
