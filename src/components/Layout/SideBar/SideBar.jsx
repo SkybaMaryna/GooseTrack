@@ -1,12 +1,13 @@
 import UserNav from '../UserNav/UserNav';
 import ButtonLogOut from '../LogoutBtn/LogoutBtn';
+import { StyledSideBar } from './SideBar.styled';
 
 const SideBar = () => {
   return (
-    <div>
+    <StyledSideBar>
       <UserNav />
       <ButtonLogOut />
-    </div>
+    </StyledSideBar>
   );
 };
 export default SideBar;
