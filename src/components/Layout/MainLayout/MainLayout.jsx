@@ -1,7 +1,7 @@
-import AuthNavigate from "components/shared/AuthNavigate/AuthNavigate";
+  import HomePage from "pages/HomePage/HomePage";
 
 const MainLayout = () => {
-  return <div>MainLayout</div>;
+  return <div><HomePage/></div>;
 };
 
 export default MainLayout;
