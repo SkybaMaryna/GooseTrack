@@ -1,15 +1,11 @@
 import UserNav from '../UserNav/UserNav';
-import LogoutBtn from '../LogoutBtn/LogoutBtn';
-import { useDispatch } from 'react-redux';
-import { logoutThunk } from 'redux/Auth/authOperations';
+import ButtonLogOut from '../LogoutBtn/LogoutBtn';
 
 const SideBar = () => {
-  const dispatch = useDispatch();
-
   return (
     <div>
       <UserNav />
-      <LogoutBtn onClick={dispatch(logoutThunk())} />
+      <ButtonLogOut />
     </div>
   );
 };
