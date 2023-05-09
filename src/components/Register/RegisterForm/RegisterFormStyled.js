@@ -9,7 +9,11 @@ align-items: center;
 gap: 18px;
 `
 export const StyledFormInsight = styled(Form)`
-max-width: 335px;
+position: absolute; 
+top: 50%; 
+left: 50%;
+transform: translate(-50%, -50%);
+width: 335px;
 display: flex;
 background-color: white;
 flex-direction: column;
@@ -23,7 +27,7 @@ padding-bottom: 40px;
 padding-right: 24px;
 
 @media screen and (min-width: 768px) {
-    max-width: 480px;
+    width: 480px;
     padding-left: 40px;
     padding-right: 40px;
   }
