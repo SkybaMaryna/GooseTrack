@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Herosection = styled.section`
+  width: 100%;
   background-color: var(--mainBlue);
   margin-top: 0;
   margin-bottom: 64px;
@@ -17,10 +18,15 @@ export const Herosection = styled.section`
 `;
 export const HeroGooseImg = styled.img`
   margin: 0 auto 32px auto;
-  width: 150px;
-  height: 149px;
+  width: 142px;
+  height: 142px;
+  @media screen and (min-width: 768px) {
+    width: 150px;
+    height: 149px;
+  }
 `;
-export const HeroTitle = styled.div`
+export const HeroTitle = styled.div` 
+  width: 219px;
   font-family: 'Coolvetica';
   font-style: normal;
   font-weight: 400;
@@ -54,32 +60,33 @@ export const SpanOO = styled.span`
 `;
 
 export const MainInfoBox = styled.div`
-    width: 335px;
-    height: 799px;  
+  width: 335px;
+  height: 799px;
   display: flex;
   flex-direction: column;
   margin-bottom: 40px;
   @media screen and (min-width: 768px) {
     width: 275px;
-    height: 1088px;  
+    height: 1088px;
     margin-bottom: 64px;
   }
   @media screen and (min-width: 1440px) {
     flex-direction: row;
     width: 1107px;
-    height: 700px;  
-    justify-content:space-between;
-    align-items:center
-    }`;
+    height: 700px;
+    justify-content: space-between;
+    align-items: center;
+  }
+`;
 export const InfoBox = styled.div`
-    width: 335px;
-    height: 302px;  
+  width: 335px;
+  height: 302px;
   display: flex;
   flex-direction: column;
   /* margin-bottom: 40px; */
   @media screen and (min-width: 768px) {
     width: 275px;
-    height: 340px;  
+    height: 340px;
     /* margin-bottom: 64px; */
   }
   /* @media screen and (min-width: 1440px) {
@@ -128,7 +135,7 @@ export const MainSubTitle = styled.h3`
   font-weight: 700;
   font-size: 32px;
   line-height: 1.25;
-  color: var(--mainBlack);;
+  color: var(--mainBlack);
   margin-bottom: 14px;
   @media screen and (min-width: 768px) {
     font-size: 40px;
@@ -137,8 +144,8 @@ export const MainSubTitle = styled.h3`
   }
 `;
 export const MainText = styled.p`
-    width: 335px;
-    height: 90px;  
+  width: 335px;
+  height: 90px;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
