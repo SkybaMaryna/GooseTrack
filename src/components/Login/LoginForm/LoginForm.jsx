@@ -1,9 +1,13 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { useDispatch } from 'react-redux';
+import { loginThunk } from 'redux/Auth/authOperations';
 import * as Yup from 'yup';
+import css from './LoginForm.module.css'
 
 const LoginForm = () => {
+  const dispatch = useDispatch()
   return (
-    <Formik
+    <Formik className={css.form}
       initialValues={{
         email: '',
         password: '',
@@ -14,6 +18,7 @@ const LoginForm = () => {
       })}
       onSubmit={values => {
         console.log(values);
+        dispatch(loginThunk(values))
       }}
     >
       {() => (

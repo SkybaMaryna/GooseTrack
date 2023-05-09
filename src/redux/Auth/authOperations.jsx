@@ -17,6 +17,7 @@ async (user, {rejectWithValue}) =>{
     try {
         const res = await axios.post('/user/register', user);
         setToken(res.data.token);
+        console.log(res.data);
         return res.data;
     } catch (error) {
         rejectWithValue(error.message);
