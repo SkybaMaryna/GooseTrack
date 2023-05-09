@@ -8,6 +8,8 @@ import CalendarPage from 'pages/CalendarPage/CalendarPage';
 import ChoosedDay from './Calendar/ChoosedDay/ChoosedDay';
 import ChoosedMonth from './Calendar/ChoosedMonth/ChoosedMonth';
 import NotFound from './NotFound/NotFound';
+import PrivateRoute from 'hoc/PrivateRoute';
+import PublicRoute from 'hoc/PublicRoute';
 
 export const App = () => {
   return (
@@ -15,15 +17,43 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<HomePage />} />
-          <Route path="account" element={<AccountPage />} />
-          <Route path="calendar" element={<CalendarPage />}>
+          <Route
+            path="account"
+            element={
+              <PrivateRoute>
+                <AccountPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="calendar"
+            element={
+              <PrivateRoute>
+                <CalendarPage />
+              </PrivateRoute>
+            }
+          >
             <Route path="day/:currentDay" element={<ChoosedMonth />} />
             <Route path="month/:currentDate" element={<ChoosedDay />} />
             <Route />
           </Route>
         </Route>
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route
+          path="/register"
+          element={
+            <PublicRoute>
+              <RegisterPage />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <PublicRoute>
+              <LoginPage />
+            </PublicRoute>
+          }
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
