@@ -19,7 +19,7 @@ const persistConfig = {
   key: 'token',
   version: 1,
   storage,
-  whitelist: ['token'],
+  whitelist: ['accessToken', 'refreshToken'],
 };
 
 export const store = configureStore({
