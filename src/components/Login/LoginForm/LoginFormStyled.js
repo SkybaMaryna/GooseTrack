@@ -21,19 +21,24 @@ padding-top: 40px;
 padding-left: 24px;
 padding-bottom: 40px;
 padding-right: 24px;
+
+@media screen and (min-width: 768px) {
+    max-width: 480px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
 `
 
-export const StyedInput = styled.input`
-width: 287px;
-border: 1px solid rgba(220, 227, 229, 0.6);
-border-radius: 8px;
-`
 export const StyledTitle = styled.h2`
 color: #3E85F3;
 font-weight: 600;
 font-size: 18px;
 line-height: 24px;
 margin-bottom: 32px;
+@media screen and (min-width: 768px) {
+  font-size: 24px;
+  line-height: 24px;
+  }
 `
 export const StyledLabel = styled.label`
 font-weight: 600;
@@ -41,13 +46,23 @@ font-size: 12px;
 line-height: 15px;
 margin-bottom: 8px;
 margin-top: 8px;
+@media screen and (min-width: 768px) {
+  font-size: 14px;
+  line-height: 17px;
+  }
 `
 export const StyledInput = styled(Field)`
-width: 287px;
+max-width: 287px;
 height: 46px;
 border: 1px solid rgba(220, 227, 229, 0.6);
 border-radius: 8px;
+padding: 14px;
+@media screen and (min-width: 768px) {
+  max-width: 400px;
+  padding: 18px;
+  }
 `
+
 
 export const StyledButton = styled.button`
 width: 287px;
@@ -63,6 +78,9 @@ display: flex;
   align-items: center;
   justify-content: center;
   gap: 11px;
+  @media screen and (min-width: 768px) {
+    margin-top: 48px;
+  }
 `
 
 export const StyledError = styled(ErrorMessage)`
