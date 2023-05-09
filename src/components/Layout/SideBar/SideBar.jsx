@@ -9,7 +9,7 @@ const SideBar = () => {
   return (
     <div>
       <UserNav />
-      <LogoutBtn onClick={() => dispatch(logoutThunk())} />
+      <LogoutBtn onClick={dispatch(logoutThunk())} />
     </div>
   );
 };
