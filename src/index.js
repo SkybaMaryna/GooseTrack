@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { persistor, store } from 'redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
+import { ToastContainer } from 'react-toastify';
 const Global = createGlobalStyle`
 *,
 *::before,
@@ -56,6 +57,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <BrowserRouter basename="/GooseTrack">
         <Provider store={store}>
           <App />
+          <ToastContainer autoClose={4000} theme="colored" />
         </Provider>
         <Global />
       </BrowserRouter>
