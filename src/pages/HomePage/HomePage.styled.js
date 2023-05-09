@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Herosection = styled.section`
-  width: 100%;
+  /* width: 100%; */
   background-color: var(--mainBlue);
   margin-top: 0;
   margin-bottom: 64px;
@@ -40,6 +40,7 @@ export const HeroTitle = styled.div`
   display: flex;
   align-items: center;
   @media screen and (min-width: 768px) {
+    width: 596px;
     font-size: 120px;
     line-height: 1.5;
     margin-bottom: 40px;
@@ -65,8 +66,11 @@ export const MainInfoBox = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
+
   @media screen and (min-width: 768px) {
-    width: 275px;
+    width: 704px;
     height: 1088px;
     margin-bottom: 64px;
   }
@@ -76,7 +80,10 @@ export const MainInfoBox = styled.div`
     height: 700px;
     justify-content: space-between;
     align-items: center;
-  }
+    &:nth-child(2) {
+    flex-direction: row-reverse;
+    margin-right: 77px;
+  }  }
 `;
 export const InfoBox = styled.div`
   width: 335px;
