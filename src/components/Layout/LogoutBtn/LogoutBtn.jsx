@@ -9,7 +9,6 @@ const ButtonLogOut = () => {
   const handleLogout = () => {
     dispatch(logoutThunk());
   };
-
   return (
     <Button onClick={handleLogout}>
       Log out
@@ -19,4 +18,5 @@ const ButtonLogOut = () => {
     </Button>
   );
 };
+
 export default ButtonLogOut;
