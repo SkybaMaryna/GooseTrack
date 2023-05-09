@@ -3,9 +3,11 @@ import { registerThunk } from 'redux/Auth/authOperations';
 import * as Yup from 'yup';
 import { StyledButton, StyledError, StyledForm, StyledFormInsight, StyledInput, StyledLabel, StyledTitle } from './RegisterFormStyled';
 import { FiLogIn } from 'react-icons/fi';
+// import { useNavigate } from 'react-router';
 
 const RegisterForm = () => {
   const dispatch = useDispatch()
+  // const navigate = useNavigate()
 
   return (
     <StyledForm
@@ -24,6 +26,7 @@ const RegisterForm = () => {
       onSubmit={values => {
         console.log(values)
         dispatch(registerThunk(values));
+        // navigate('/calendar/month/:currentDate')
       }}
     >
       {() => (

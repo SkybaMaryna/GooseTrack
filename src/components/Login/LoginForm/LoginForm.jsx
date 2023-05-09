@@ -3,10 +3,12 @@ import { loginThunk } from 'redux/Auth/authOperations';
 import * as Yup from 'yup';
 import { StyledForm, StyledFormInsight, StyledTitle, StyledLabel, StyledInput , StyledButton, StyledError } from './LoginFormStyled';
 import { FiLogIn } from 'react-icons/fi';
+// import { useNavigate } from 'react-router';
 
 
 const LoginForm = () => {
   const dispatch = useDispatch()
+  // const navigate = useNavigate()
   return (
     <StyledForm
       initialValues={{
@@ -14,12 +16,13 @@ const LoginForm = () => {
         password: '',
       }}
       validationSchema={Yup.object({
-        email: Yup.string().email('It is not email').required('Required'),
-        password: Yup.string().required('This is an error email'),
+        email: Yup.string().email('This is an error email').required('Required'),
+        password: Yup.string().required('This password is not valid'),
       })}
       onSubmit={values => {
         console.log(values);
         dispatch(loginThunk(values))
+        // navigate('/calendar/month/:currentDate')
       }}
     >
       {() => (

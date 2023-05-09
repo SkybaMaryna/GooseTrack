@@ -35,7 +35,7 @@ const authSlice = createSlice({
     [registerThunk.rejected]: (state, { payload }) => {
       state.isLoading = false;
       state.isLoggedIn = false;
-      state.error = payload;
+      state.error = payload.error;
     },
     [loginThunk.fulfilled]: (state, { payload }) => {
       state.user = payload.user;
