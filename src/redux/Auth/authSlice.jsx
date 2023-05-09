@@ -81,7 +81,6 @@ const authSlice = createSlice({
     },
     [getUserInfoThunk.fulfilled]: (state, { payload }) => {
       state.user = payload;
-      state.isLoggedIn = true;
       state.isLoading = false;
       state.error = null;
     },
