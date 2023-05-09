@@ -1,3 +1,4 @@
+
 import { useDispatch, useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 import { getUserInfoThunk } from 'redux/Auth/authOperations';
@@ -29,6 +30,7 @@ const MainLayout = () => {
       </StyledMain>
     </StyledContainer>
   );
+
 };
 
 export default MainLayout;
