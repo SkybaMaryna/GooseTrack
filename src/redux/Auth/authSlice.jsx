@@ -7,7 +7,7 @@ import { getUserInfoThunk, loginThunk, logoutThunk, refreshThunk, registerThunk,
 
 
 const initialState = {
-    user: {name: '', email: ''},
+    user: {},
     accessToken: '',
     refreshToken: '',
     isLoggedIn: false,

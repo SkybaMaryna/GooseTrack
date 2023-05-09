@@ -1,5 +1,6 @@
 @import-normalize; /* bring in normalize.css styles */
 
+
 :root {
   /* Colors Variables */
   /* Базовий чорний; */
@@ -345,7 +346,3 @@ code {
     U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/* Tailwind */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;

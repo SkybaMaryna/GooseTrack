@@ -1,10 +1,11 @@
 import LoginForm from "components/Login/LoginForm/LoginForm";
+import { StyledDiv } from "./LoginPageStyled";
 
 const LoginPage = ()=> {
   return <>
-  <div className='flex justify-center items-center h-screen bg-mainLightblue' >
+  <StyledDiv>
     <LoginForm/>
-  </div>
+  </StyledDiv>
   </>
 }
 export default LoginPage;
