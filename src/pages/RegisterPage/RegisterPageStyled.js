@@ -8,14 +8,14 @@ export const StyledDiv = styled.div`
 `;
 
 export const StyledImg = styled.img`
-display: none;
+  display: none;
 
-@media screen and (min-width: 1440px) {
-display: block;
-width: 368px;
-height: 521px;
-position: absolute;
-left: 49px;
-bottom: 0;
- }
+  @media screen and (min-width: 1440px) {
+    display: block;
+    width: 400px;
+    height: 416px;
+    position: absolute;
+    left: 49px;
+    bottom: 0;
+  }
 `;
