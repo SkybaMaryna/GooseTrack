@@ -7,7 +7,7 @@ export const StyledDiv = styled.div`
   padding-top: 576px;
   text-align: center;
   @media screen and (min-width: 768px){
-    padding-top: 600px; 
+    padding-top: 630px; 
     }
 `;
 
