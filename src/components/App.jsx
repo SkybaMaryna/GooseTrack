@@ -15,8 +15,24 @@ export const App = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/register"
+          element={
+            <PublicRoute>
+              <RegisterPage />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <PublicRoute>
+              <LoginPage />
+            </PublicRoute>
+          }
+        />
+        <Route path="/main" element={<MainLayout />}>
           <Route
             path="account"
             element={
@@ -38,22 +54,6 @@ export const App = () => {
             <Route />
           </Route>
         </Route>
-        <Route
-          path="/register"
-          element={
-            <PublicRoute>
-              <RegisterPage />
-            </PublicRoute>
-          }
-        />
-        <Route
-          path="/login"
-          element={
-            <PublicRoute>
-              <LoginPage />
-            </PublicRoute>
-          }
-        />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
