@@ -6,6 +6,9 @@ export const StyledDiv = styled.div`
   position: relative;
   padding-top: 576px;
   text-align: center;
+  @media screen and (min-width: 768px){
+    padding-top: 600px; 
+    }
 `;
 
 export const StyledImg = styled.img`

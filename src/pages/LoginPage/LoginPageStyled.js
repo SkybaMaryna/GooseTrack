@@ -7,9 +7,9 @@ export const StyledDiv = styled.div`
   position: relative;
   text-align: center;
   padding-top: 546px;
-  /* display: flex;
-flex-direction: column;
-gap: 18px; */
+  @media screen and (min-width: 768px){
+    padding-top: 560px; 
+    }
 `;
 
 export const StyledImg = styled.img`
@@ -33,4 +33,6 @@ display: block;
   color: var(--mainBlue);
   text-shadow: 0px 47px 355px rgba(0, 0, 0, 0.07),
     0px 9.4px 57.6875px rgba(0, 0, 0, 0.035);
+
+   
 `;
