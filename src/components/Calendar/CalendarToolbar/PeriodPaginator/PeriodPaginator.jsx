@@ -26,6 +26,8 @@ const DivWrapper = styled('div')`
 `;
 
 const TitleWrapper = styled('span')`
+  width: 170px;
+  height: 34px;
   font-weight: 700;
   font-size: 16px;
   line-height: 18px;
