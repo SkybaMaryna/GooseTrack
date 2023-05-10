@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Herosection = styled.section`
-  /* width: 100%; */
+  width: 100%;
   background-color: var(--mainBlue);
   margin-top: 0;
   margin-bottom: 64px;
@@ -80,9 +80,11 @@ export const MainInfoBox = styled.div`
     height: 700px;
     justify-content: space-between;
     align-items: center;
-    &:nth-child(2) {
+    margin-left: 50px;
+      &:nth-child(2) {
     flex-direction: row-reverse;
-    margin-right: 77px;
+    margin-right: 50px;
+    margin-left: 20px;
   }  }
 `;
 export const InfoBox = styled.div`
@@ -95,10 +97,26 @@ export const InfoBox = styled.div`
     width: 275px;
     height: 340px;
     margin-bottom: 64px;
+     }
+  @media screen and (min-width: 1440px) {
+    margin-left:50px
   }
-  /* @media screen and (min-width: 1440px) {
-    margin-bottom: 180px;
-  } */
+`;
+export const InfoBoxP = styled.div`
+  width: 335px;
+  height: 302px;
+  display: flex;
+  flex-direction: column;
+    margin-bottom: 40px;
+  @media screen and (min-width: 768px) {
+    width: 275px;
+    height: 340px;
+    margin-bottom: 64px;
+    margin-left:420px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-left:50px
+  }
 `;
 export const MainNumber = styled.h1`
   font-family: 'Inter';
