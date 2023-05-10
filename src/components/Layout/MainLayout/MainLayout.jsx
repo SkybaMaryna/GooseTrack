@@ -5,22 +5,23 @@ import { useEffect } from 'react';
 import Header from '../Header/Header';
 import SideBar from '../SideBar/SideBar';
 import { StyledContainer, StyledMain } from './MainLayout.styled';
-import { selectUser } from 'redux/Auth/authSelectors';
+import { selectIsLoggedIn, selectUser } from 'redux/Auth/authSelectors';
 import { useMediaRules } from 'hooks/mediaRules';
 import { selectSideBar } from 'redux/Modal/modalSelectors';
 
 const MainLayout = () => {
   const user = useSelector(selectUser);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   const dispatch = useDispatch();
   const { isDesktop } = useMediaRules();
   const sideBarState = useSelector(selectSideBar);
 
   useEffect(() => {
-    if (user === null) {
+    if (!user && isLoggedIn) {
       dispatch(getUserInfoThunk());
     }
-  }, [dispatch, user]);
+  }, [dispatch, user, isLoggedIn]);
 
   return (
     <StyledContainer>
