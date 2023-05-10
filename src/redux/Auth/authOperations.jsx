@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import {  toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'https://goose-tracker-backend.p.goit.global/';
 
@@ -20,6 +21,7 @@ export const registerThunk = createAsyncThunk(
       return res.data;
     } catch (error) {
       rejectWithValue(error.message);
+      toast.error('Your data is not valid, please try again')
     }
   }
 );
@@ -33,6 +35,7 @@ export const loginThunk = createAsyncThunk(
       return res.data;
     } catch (error) {
       rejectWithValue(error.message);
+      toast.error('Your email or password is not valid, please check it')
     }
   }
 );
