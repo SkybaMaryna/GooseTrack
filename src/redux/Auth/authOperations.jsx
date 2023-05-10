@@ -20,12 +20,11 @@ export const registerThunk = createAsyncThunk(
       setToken(res.data.accessToken);
       return res.data;
     } catch (error) {
-      rejectWithValue(error.message);
       if(error.message === 'Request failed with status code 409'){
         toast.error('User with email roxenn34@gmail.com already exist')
       } else { 
-        toast.error(`the passport must contain Latin letters: at least 1 lowercase, 1 uppercase, 1 number and be at least 6 and no more than 12 characters`)}
-     
+        toast.error(`enter valid email: min 6, max 63 characters, except .ru, .su, .рус, .рф,.москва etc`)}
+     return rejectWithValue(error.message);
     }
   }
 );

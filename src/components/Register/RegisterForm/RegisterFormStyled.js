@@ -69,16 +69,16 @@ position: relative;
 `
 export const StyledIconError = styled(RiErrorWarningLine)`
 position: absolute;
-right: 60px;
-top: 50%;
+right: 30px;
+top: 55%;
 transform: translateY(-50%);
 `
 
 
 export const StyledIconChecked = styled(IoIosCheckmarkCircleOutline)`
 position: absolute;
-right: 60px;
-top: 50%;
+right: 20px;
+top: 51%;
 transform: translateY(-50%);
 `
 
@@ -87,7 +87,7 @@ transform: translateY(-50%);
 
 
 export const StyledInput = styled(Field)`
-max-width: 287px;
+width: 287px;
 height: 46px;
 border: 1px solid rgba(220, 227, 229, 0.6);
 border-radius: 8px;
@@ -97,14 +97,14 @@ padding: 14px;
    border-color: black; 
 }
 /* &:valid {
-  border-color: green;
+  border-color: ${props =>  (props.touched && !props.errors) && 'green' }
 } */
 &:invalid {
   border-color: red;
   outline: none;
 }
 @media screen and (min-width: 768px) {
-  max-width: 400px;
+  width: 400px;
   padding: 18px;
   }
 `
