@@ -1,5 +1,14 @@
-const CalendarToolbar = () => {
-  return <div>CalendarToolbar</div>;
-};
+import { PeriodPaginator } from './PeriodPaginator/PeriodPaginator';
 
-export default CalendarToolbar;
+export const CalendarToolbar = ({ today, prevHandler, nextHandler }) => {
+  return (
+    <div>
+      <PeriodPaginator
+        today={today}
+        prevHandler={prevHandler}
+        nextHandler={nextHandler}
+      />
+      <div />
+    </div>
+  );
+};
