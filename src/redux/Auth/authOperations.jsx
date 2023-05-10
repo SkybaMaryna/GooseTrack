@@ -21,7 +21,11 @@ export const registerThunk = createAsyncThunk(
       return res.data;
     } catch (error) {
       rejectWithValue(error.message);
-      toast.error('Your data is not valid, please try again')
+      if(error.message === 'Request failed with status code 409'){
+        toast.error('User with email roxenn34@gmail.com already exist')
+      } else { 
+        toast.error(`the passport must contain Latin letters: at least 1 lowercase, 1 uppercase, 1 number and be at least 6 and no more than 12 characters`)}
+     
     }
   }
 );
@@ -35,7 +39,8 @@ export const loginThunk = createAsyncThunk(
       return res.data;
     } catch (error) {
       rejectWithValue(error.message);
-      toast.error('Your email or password is not valid, please check it')
+      if(error.message === 'Request failed with status code 409'){toast.error(`Email doesn't exist or Password is wrong`)};
+      
     }
   }
 );

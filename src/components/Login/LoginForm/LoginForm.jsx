@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { loginThunk } from 'redux/Auth/authOperations';
 import * as Yup from 'yup';
 import {
@@ -14,12 +14,14 @@ import {
   StyledIconChecked,
 } from './LoginFormStyled';
 import { FiLogIn } from 'react-icons/fi';
-import { selectIsLoggedIn } from 'redux/Auth/authSelectors';
+
+
 
 
 const LoginForm = () => {
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector(selectIsLoggedIn)
+  // const isLoggedIn = useSelector(selectIsLoggedIn)
+  
  
   return (
     <StyledForm
@@ -31,27 +33,37 @@ const LoginForm = () => {
         email: Yup.string()
           .email('Invalid email address')
           .required('Required'),
-        password: Yup.string().required('This password is not valid'),
+        password: Yup.string()
+        .required('No password provided.') 
+        .min(8, 'Password is too short - should be 8 chars minimum.')
+        .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.'),
       })}
-      onSubmit={values => {
+      onSubmit={(values) => {
         console.log(values);
         dispatch(loginThunk(values));
-        if(!isLoggedIn){}
+        
       }}
+      
     >
-      {() => (
+      
+      {formik => (
+        
         <StyledFormInsight>
+          {/* <pre>{JSON.stringify(formik, null, 2)}</pre> */}
           <StyledTitle>Log In</StyledTitle>
           <StyledLabel>Email</StyledLabel>
           <StyledInputWrap>
           <StyledInput type="email" name="email" placeholder="Your e-mail..." />
+          {(formik.errors.email && formik.touched.email) && <StyledIconError  color='red'/>} 
+          {(formik.touched.email && !formik.errors.email) && <StyledIconChecked color='green'/>}
           <StyledIconError  color='red' display='none'/>
           </StyledInputWrap>
           <StyledError name="email" component="div"/>
           <StyledLabel>Password</StyledLabel>
           <StyledInputWrap>
           <StyledInput type="password" name="password" placeholder="......." />
-          <StyledIconChecked color='green'/>
+          {(formik.errors.password && formik.touched.password) && <StyledIconError  color='red'/>}
+          {(formik.touched.password && !formik.errors.password) && <StyledIconChecked color='green'/>}
           </StyledInputWrap>
           <StyledError name="password" component="div" />
           <StyledButton type="submit">Log In <FiLogIn />

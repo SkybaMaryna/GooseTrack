@@ -50,7 +50,8 @@ const authSlice = createSlice({
     [loginThunk.rejected]: (state, { payload }) => {
       state.isLoading = false;
       state.isLoggedIn = false;
-      state.error = payload;
+      console.log(payload.error);
+      state.error = payload.error;
     },
     [logoutThunk.fulfilled]: state => {
       state.user = '';
