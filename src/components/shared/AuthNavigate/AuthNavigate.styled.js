@@ -47,6 +47,8 @@ export const StyledNavLink = styled(NavLink)`
   justify-content:center;
   cursor: pointer;
   `;
+
+  
  export const IconLogIn = styled.span`
  width: 18px;
  height:18px;
