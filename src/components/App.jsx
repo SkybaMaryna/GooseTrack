@@ -32,7 +32,14 @@ export const App = () => {
             </PublicRoute>
           }
         />
-        <Route path="/main" element={<MainLayout />}>
+        <Route
+          path="/main"
+          element={
+            <PrivateRoute>
+              <MainLayout />
+            </PrivateRoute>
+          }
+        >
           <Route
             path="account"
             element={

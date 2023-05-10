@@ -22,7 +22,7 @@ const authSlice = createSlice({
   initialState,
   extraReducers: {
     [registerThunk.fulfilled]: (state, { payload }) => {
-      state.user = payload.user;
+      state.user = payload;
       state.accessToken = payload.data.accessToken;
       state.refreshToken = payload.data.refreshToken;
       state.isLoggedIn = true;
@@ -38,8 +38,9 @@ const authSlice = createSlice({
       state.error = payload.error;
     },
     [loginThunk.fulfilled]: (state, { payload }) => {
-      state.user = payload.user;
-      state.refreshToken = payload.refreshToken;
+      state.user = payload;
+      state.accessToken = payload.data.accessToken;
+      state.refreshToken = payload.data.refreshToken;
       state.isLoggedIn = true;
       state.isLoading = false;
       state.error = null;
@@ -50,7 +51,6 @@ const authSlice = createSlice({
     [loginThunk.rejected]: (state, { payload }) => {
       state.isLoading = false;
       state.isLoggedIn = false;
-      console.log(payload.error);
       state.error = payload.error;
     },
     [logoutThunk.fulfilled]: state => {
@@ -70,7 +70,7 @@ const authSlice = createSlice({
     [refreshThunk.fulfilled]: (state, { payload }) => {
       state.isLoggedIn = true;
       state.isLoading = false;
-      state.user = payload.user;
+      state.user = payload;
     },
     [refreshThunk.pending]: state => {
       state.isLoading = true;
@@ -94,7 +94,7 @@ const authSlice = createSlice({
       state.error = payload;
     },
     [updateUserThunk.fulfilled]: (state, { payload }) => {
-      state.user = payload.user;
+      state.user = payload;
       state.isLoggedIn = true;
       state.isLoading = false;
       state.error = null;
