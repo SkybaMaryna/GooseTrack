@@ -14,11 +14,15 @@ import {
   MainSubTitle,
   MainText,
   MainTitle,
+  ReviewSection,
+  ReviewTitle,
   SpanOO,
+  SwiperWraper,
 } from './HomePage.styled';
 import CalendarButton from 'components/Layout/CalendarButton/CalendarButton';
 import { selectIsLoggedIn } from 'redux/Auth/authSelectors';
 import { useSelector } from 'react-redux';
+import { HiOutlineArrowNarrowLeft, HiOutlineArrowNarrowRight } from "react-icons/hi";
 import ReviewsCard from './ReviewsCard';
 
 // const { isMobile, isTablet, isDesktop, isRetina } = useMediaRules;
@@ -195,10 +199,14 @@ const HomePage = () => {
           )}
         </MainInfoBox>
             </section>
-            <section>
-          <h1>REVIEWS</h1>
+            <ReviewSection>
+          <ReviewTitle>REVIEWS</ReviewTitle>
+          <SwiperWraper>
           <ReviewsCard/>
-        </section>
+          <div><HiOutlineArrowNarrowLeft/></div>
+        <div><HiOutlineArrowNarrowRight/></div>
+        </SwiperWraper>
+        </ReviewSection>
     </div>
   );
 };

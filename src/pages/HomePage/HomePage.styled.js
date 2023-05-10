@@ -183,12 +183,41 @@ export const MainText = styled.p`
     margin-bottom: 48px;
   }
 `;
-// export constMainImages = styled.img`
-//   margin: 0 auto 32px auto;
-//   width: 142px;
-//   height: 142px;
-//   @media screen and (min-width: 768px) {
-//     width: 150px;
-//     height: 149px;
-//   }
-// `;
+export const ReviewSection = styled.section`
+  width: 100%;
+   margin: 64px auto;
+  @media screen and (min-width: 768px) {
+    margin: 64px auto 100px auto;
+  }
+  @media screen and (min-width: 1440px) {
+    margin: 100px auto 118px auto;
+  }
+`;
+export const ReviewTitle = styled.div`
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.14;
+  color: var(--mainBlue);
+  text-align: center;
+  margin: 0 auto 40px auto;
+  @media screen and (min-width: 768px) {
+     font-size: 40px;
+    line-height: 1.1;
+    margin: 0 auto 50px auto;
+  }
+`;
+export const SwiperWraper = styled.div`
+  width: 335px;
+  height: 252px;
+   margin: 0 auto;
+  @media screen and (min-width: 768px) {
+    width: 580px;
+  height: 266px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 1184px;
+  height: 280px;
+  }
+`;
