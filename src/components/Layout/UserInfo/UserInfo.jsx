@@ -6,7 +6,7 @@ const UserInfo = () => {
   const userInfo = useSelector(selectUser);
   const isLoading = useSelector(selectIsIsLoading);
 
-  console.log(userInfo);
+  const name = userInfo.user?.name || 'Name';
 
   return <div>UserInfo</div>;
 };
