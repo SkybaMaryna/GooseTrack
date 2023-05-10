@@ -19,6 +19,7 @@ display: flex;
 background-color: white;
 flex-direction: column;
 align-items: left;
+text-align: left;
 border-radius: 8px;
 padding-top: 40px;
 padding-left: 24px;
@@ -84,14 +85,18 @@ height: 46px;
 border: 1px solid rgba(220, 227, 229, 0.6);
 border-radius: 8px;
 padding: 14px;
+
 &:focus {
+  outline: none;
   border-color: black;
+  
 }
-&:valid {
+/* &:valid {
   border-color: green;
-}
+} */
 &:invalid {
   border-color: red;
+  outline: none;
 }
 @media screen and (min-width: 768px) { 
   padding: 18px;
