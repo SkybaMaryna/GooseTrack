@@ -14,6 +14,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './Auth/authSlice';
+import { modalReducer } from './Modal/modalSlice';
 
 const persistConfig = {
   key: 'token',
@@ -27,6 +28,7 @@ export const store = configureStore({
     auth: persistReducer(persistConfig, authReducer),
     tasks: tasksReducer,
     reviews: reviewsReducer,
+    modal: modalReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
