@@ -3,30 +3,37 @@ import styled from 'styled-components';
 export const StyledSideBar = styled.div`
   display: flex;
   flex-direction: column;
+  width: 225px;
+  height: 100vh;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 24px;
+  background-color: var(--mainWhite);
+  padding-bottom: 24px;
   justify-content: space-between;
-  padding: 24px;
-`;
 
-export const StyledButton = styled.button`
-  width: 12px;
-  height: 12px;
-  border: none;
-  background-color: transparent;
-  margin-left: auto;
   @media screen and (min-width: 768px) {
-    width: 16px;
-    height: 16px;
+    width: 289px;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 24px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 289px;
+    padding-left: 24px;
+    padding-top: 32px;
+    border-right: solid 1px var(--elementsGrey);
   }
 `;
+
 export const StyledWrapper = styled.div`
   display: flex;
-  gap: 39px;
   align-items: center;
   margin-bottom: 64px;
+  gap: 20px;
 
   @media screen and (min-width: 768px) {
     margin-bottom: 50px;
-    gap: 36px;
   }
   @media screen and (min-width: 1440px) {
     margin-bottom: 32px;

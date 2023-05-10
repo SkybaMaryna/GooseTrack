@@ -1,7 +1,6 @@
 import UserNav from '../UserNav/UserNav';
 import ButtonLogOut from '../LogoutBtn/LogoutBtn';
 import {
-  StyledButton,
   StyledH2,
   StyledImage,
   StyledSideBar,
@@ -58,11 +57,9 @@ const SideBar = () => {
             G<i>oo</i>seTrack
           </StyledH2>
           {!isDesktop && (
-            <StyledButton onClick={closeMobileMenu}>
-              <span>
-                <CgClose />
-              </span>
-            </StyledButton>
+            <span onClick={closeMobileMenu}>
+              {isMobile ? <CgClose size={24} /> : <CgClose size={33} />}
+            </span>
           )}
         </StyledWrapper>
 
