@@ -1,14 +1,15 @@
-import { PeriodPaginator } from './PeriodPaginator/PeriodPaginator';
-
+import PeriodPaginator from './PeriodPaginator/PeriodPaginator';
+import { PeriodTypeSelect } from './PeriodTypeSelect/PeriodTypeSelect';
+import { ToolbarWrapper } from './CalendarToolbar.styled';
 export const CalendarToolbar = ({ today, prevHandler, nextHandler }) => {
   return (
-    <div>
+    <ToolbarWrapper>
       <PeriodPaginator
         today={today}
         prevHandler={prevHandler}
         nextHandler={nextHandler}
       />
-      <div />
-    </div>
+      <PeriodTypeSelect />
+    </ToolbarWrapper>
   );
 };
