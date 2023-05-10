@@ -90,11 +90,11 @@ export const InfoBox = styled.div`
   height: 302px;
   display: flex;
   flex-direction: column;
-  /* margin-bottom: 40px; */
+    margin-bottom: 40px;
   @media screen and (min-width: 768px) {
     width: 275px;
     height: 340px;
-    /* margin-bottom: 64px; */
+    margin-bottom: 64px;
   }
   /* @media screen and (min-width: 1440px) {
     margin-bottom: 180px;
@@ -165,3 +165,12 @@ export const MainText = styled.p`
     margin-bottom: 48px;
   }
 `;
+// export constMainImages = styled.img`
+//   margin: 0 auto 32px auto;
+//   width: 142px;
+//   height: 142px;
+//   @media screen and (min-width: 768px) {
+//     width: 150px;
+//     height: 149px;
+//   }
+// `;
