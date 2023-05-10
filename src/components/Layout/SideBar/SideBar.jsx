@@ -1,8 +1,9 @@
 import UserNav from '../UserNav/UserNav';
 import ButtonLogOut from '../LogoutBtn/LogoutBtn';
 import {
-  H2,
   StyledButton,
+  StyledH2,
+  StyledImage,
   StyledSideBar,
   StyledWrapper,
 } from './SideBar.styled';
@@ -21,7 +22,7 @@ const SideBar = () => {
       <div>
         <StyledWrapper>
           {isMobile && (
-            <img
+            <StyledImage
               src={
                 isRetina
                   ? require('./../../../images/logo/logo_mob@2x.png')
@@ -32,7 +33,7 @@ const SideBar = () => {
             />
           )}
           {isTablet && (
-            <img
+            <StyledImage
               src={
                 isRetina
                   ? require('./../../../images/logo/logo_tab@2x.png')
@@ -43,7 +44,7 @@ const SideBar = () => {
             />
           )}{' '}
           {isDesktop && (
-            <img
+            <StyledImage
               src={
                 isRetina
                   ? require('./../../../images/logo/logo_desk@2x.png')
@@ -53,9 +54,9 @@ const SideBar = () => {
               width="201"
             />
           )}
-          <H2>
+          <StyledH2>
             G<i>oo</i>seTrack
-          </H2>
+          </StyledH2>
           {!isDesktop && (
             <StyledButton onClick={closeMobileMenu}>
               <span>

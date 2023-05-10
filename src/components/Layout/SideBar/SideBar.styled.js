@@ -10,6 +10,8 @@ export const StyledSideBar = styled.div`
 export const StyledButton = styled.button`
   width: 12px;
   height: 12px;
+  border: none;
+  background-color: transparent;
   margin-left: auto;
   @media screen and (min-width: 768px) {
     width: 16px;
@@ -31,7 +33,7 @@ export const StyledWrapper = styled.div`
   }
 `;
 
-export const H2 = styled.h2`
+export const StyledH2 = styled.h2`
   text-align: center;
   font-family: 'Coolvetica';
   font-style: normal;
@@ -49,5 +51,21 @@ export const H2 = styled.h2`
   @media screen and (min-width: 1440px) {
     font-size: 24px;
     line-height: 24px;
+  }
+`;
+
+export const StyledImage = styled.img`
+  width: 36px;
+  height: 35px;
+  margin-right: 6px;
+  @media screen and (min-width: 768px) {
+    width: 60px;
+    height: 58px;
+    margin-right: 6px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 64px;
+    height: 60px;
+    margin-right: 10px;
   }
 `;
