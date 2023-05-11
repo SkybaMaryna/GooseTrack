@@ -1,13 +1,13 @@
 // import { FiLogOut } from 'react-icons/fi';
-import { Button} from './CalendarButtom.styled';
-import { NavLink } from 'react-router-dom';
+import { Button, NavLinkStyled} from './CalendarButtom.styled';
+
 
 const CalendarButton = () => {
    return (
-    <NavLink to=" /main/calendar/month/">
+    <NavLinkStyled to="/main/calendar/month/:currentDate">
     <Button> CALENDAR
     </Button>
-  </NavLink>
+  </NavLinkStyled>
   );
 };
 

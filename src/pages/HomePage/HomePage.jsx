@@ -2,7 +2,7 @@ import { useMediaQuery } from 'react-responsive';
 import AuthNavigate from 'components/shared/AuthNavigate/AuthNavigate';
 // import { isMobile, isTablet, isDesktop } from '../../hooks/mediaRules';
 // import { useMediaRules } from '../../hooks/mediaRules';
-
+// import { Swiper, SwiperSlide } from 'swiper/react';
 import {
   HeroGooseImg,
   HeroTitle,
@@ -11,19 +11,26 @@ import {
   InfoBoxP,
   MainInfoBox,
   MainNumber,
+  MainSection,
   MainSubTitle,
   MainText,
   MainTitle,
+  NavButtonBox,
   ReviewSection,
   ReviewTitle,
-  SpanOO,
   SwiperWraper,
 } from './HomePage.styled';
 import CalendarButton from 'components/Layout/CalendarButton/CalendarButton';
 import { selectIsLoggedIn } from 'redux/Auth/authSelectors';
 import { useDispatch, useSelector } from 'react-redux';
-import { HiOutlineArrowNarrowLeft, HiOutlineArrowNarrowRight } from "react-icons/hi";
-import ReviewsCard from './ReviewsCard';
+// import 'swiper/css';
+// import 'swiper/css/pagination';
+// import 'swiper/css/navigation';
+// import {
+//   HiOutlineArrowNarrowLeft,
+//   HiOutlineArrowNarrowRight,
+// } from 'react-icons/hi';
+import ReviewsCards from './ReviewsCard';
 import { useEffect } from 'react';
 import { refreshThunk } from 'redux/Auth/authOperations';
 
@@ -39,13 +46,17 @@ const HomePage = () => {
   const IsLoggedIn = useSelector(selectIsLoggedIn);
   const dispatch = useDispatch();
   useEffect(() => {
-		dispatch(refreshThunk())
-	}, [dispatch])
+    dispatch(refreshThunk());
+  }, [dispatch]);
   return (
     <div>
       <Herosection>
         <HeroGooseImg
-          src={require('../../images/heroSection/GOOSE_2_desk@1x.png')}
+          src={
+            isRetina
+              ? require('../../images/heroSection/GOOSE_2_desk@2x.png')
+              : require('../../images/heroSection/GOOSE_2_desk@1x.png')
+          }
           alt="goose welcome"
           width="150"
           height="149"
@@ -55,9 +66,11 @@ const HomePage = () => {
             G<i>oo</i>seTrack
           </div>
         </HeroTitle>
-        {!IsLoggedIn ? <AuthNavigate /> : <CalendarButton />}
+        <NavButtonBox>
+          {!IsLoggedIn ? <AuthNavigate /> : <CalendarButton />}
+        </NavButtonBox>
       </Herosection>
-      <section>
+      <MainSection>
         <MainInfoBox>
           <InfoBox>
             <MainNumber>1.</MainNumber>
@@ -204,15 +217,19 @@ const HomePage = () => {
             />
           )}
         </MainInfoBox>
-            </section>
-            <ReviewSection>
-          <ReviewTitle>REVIEWS</ReviewTitle>
-          <SwiperWraper>
-          <ReviewsCard/>
-          <div><HiOutlineArrowNarrowLeft/></div>
-        <div><HiOutlineArrowNarrowRight/></div>
+      </MainSection>
+      <ReviewSection>
+        <ReviewTitle>REVIEWS</ReviewTitle>
+        <SwiperWraper>
+                  <ReviewsCards />
+                    {/* <div>
+            <HiOutlineArrowNarrowLeft />
+          </div>
+          <div>
+            <HiOutlineArrowNarrowRight />
+          </div> */}
         </SwiperWraper>
-        </ReviewSection>
+      </ReviewSection>
     </div>
   );
 };

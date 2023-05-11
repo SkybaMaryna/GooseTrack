@@ -16,6 +16,19 @@ export const Herosection = styled.section`
     padding-bottom: 200px;
   }
 `;
+export const MainSection = styled.section`
+  width: 335px;
+   margin-top: 0;
+   margin-left:auto;
+   margin-right:auto;
+  margin-bottom: 64px;
+  @media screen and (min-width: 768px) {
+    width: 704px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 1157px;
+    }
+`;
 export const HeroGooseImg = styled.img`
   margin: 0 auto 32px auto;
   width: 142px;
@@ -47,19 +60,11 @@ export const HeroTitle = styled.div`
     /* margin-left:88px; */
   }
 `;
-// export const SpanOO = styled.span`
-//   font-family: 'Coolvetica';
-//   font-style: italic;
-//   font-weight: 400;
-//   font-size: 44px;
-//   line-height: 1.09;
-//   color: var(--mainWhite);
-//   @media screen and (min-width: 768px) {
-//     font-size: 120px;
-//     line-height: 1.5;
-//   }
-// `;
-
+export const NavButtonBox = styled.div`
+display: flex;
+ width: 227px;
+margin: 0 auto;
+`;
 export const MainInfoBox = styled.div`
   width: 335px;
   height: 799px;
@@ -212,11 +217,11 @@ export const SwiperWraper = styled.div`
   width: 335px;
   height: 252px;
    margin: 0 auto;
+   overflow: hidden;
   @media screen and (min-width: 768px) {
     width: 580px;
   height: 266px;
-  overflow: auto;
-  }
+    }
   @media screen and (min-width: 1440px) {
     width: 1184px;
   height: 280px;

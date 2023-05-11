@@ -54,7 +54,37 @@ export const ReviewText = styled.p`
   }
 `;
 export const AuthorBox = styled.div`
-/* width: 110px;
-height: 14px; */
 display: flex;
+`;
+export const ButtonSwiperBox = styled.div`
+width: 125px;
+height: 50px; 
+  margin: 8px auto 0 auto;
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  align-items: center;
+  @media screen and (min-width: 767px) {
+      width: 147px;
+height: 61px; 
+margin-top: 18px;
+  }
+`;
+export const SwiperPrev = styled.div`
+width: 50px;
+height: 50px;
+/* border: 1px solid var(--textGrey); */
+@media screen and (min-width: 768px) {
+  width: 61px;
+height: 61px;
+  }
+`;
+export const SwiperNext = styled.div`
+width: 50px;
+height: 50px;
+/* border: 1px solid var(--textGrey); */
+@media screen and (min-width: 768px) {
+  width: 61px;
+height: 61px;
+  }
 `;
