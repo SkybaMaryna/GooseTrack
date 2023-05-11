@@ -47,18 +47,18 @@ export const HeroTitle = styled.div`
     /* margin-left:88px; */
   }
 `;
-export const SpanOO = styled.span`
-  font-family: 'Coolvetica';
-  font-style: italic;
-  font-weight: 400;
-  font-size: 44px;
-  line-height: 1.09;
-  color: var(--mainWhite);
-  @media screen and (min-width: 768px) {
-    font-size: 120px;
-    line-height: 1.5;
-  }
-`;
+// export const SpanOO = styled.span`
+//   font-family: 'Coolvetica';
+//   font-style: italic;
+//   font-weight: 400;
+//   font-size: 44px;
+//   line-height: 1.09;
+//   color: var(--mainWhite);
+//   @media screen and (min-width: 768px) {
+//     font-size: 120px;
+//     line-height: 1.5;
+//   }
+// `;
 
 export const MainInfoBox = styled.div`
   width: 335px;
@@ -215,6 +215,7 @@ export const SwiperWraper = styled.div`
   @media screen and (min-width: 768px) {
     width: 580px;
   height: 266px;
+  overflow: auto;
   }
   @media screen and (min-width: 1440px) {
     width: 1184px;

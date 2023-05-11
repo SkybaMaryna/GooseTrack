@@ -21,9 +21,11 @@ import {
 } from './HomePage.styled';
 import CalendarButton from 'components/Layout/CalendarButton/CalendarButton';
 import { selectIsLoggedIn } from 'redux/Auth/authSelectors';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { HiOutlineArrowNarrowLeft, HiOutlineArrowNarrowRight } from "react-icons/hi";
 import ReviewsCard from './ReviewsCard';
+import { useEffect } from 'react';
+import { refreshThunk } from 'redux/Auth/authOperations';
 
 // const { isMobile, isTablet, isDesktop, isRetina } = useMediaRules;
 
@@ -35,6 +37,10 @@ const HomePage = () => {
   const isDesktop = useMediaQuery({ query: '(min-width: 1440px)' });
   const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' });
   const IsLoggedIn = useSelector(selectIsLoggedIn);
+  const dispatch = useDispatch();
+  useEffect(() => {
+		dispatch(refreshThunk())
+	}, [dispatch])
   return (
     <div>
       <Herosection>
@@ -46,7 +52,7 @@ const HomePage = () => {
         />
         <HeroTitle>
           <div>
-            G<SpanOO>oo</SpanOO>seTrack
+            G<i>oo</i>seTrack
           </div>
         </HeroTitle>
         {!IsLoggedIn ? <AuthNavigate /> : <CalendarButton />}
