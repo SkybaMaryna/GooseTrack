@@ -21,7 +21,7 @@ export const TaskToolbar = ({ task, getTask }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const statusStates = ['To do', 'In progress', 'Done'];
-  const [status, setStatus] = useState(task.status);
+  const status = task.status;
   const toggleModal = () => {
     setIsModalOpen(prev => !prev);
   };
