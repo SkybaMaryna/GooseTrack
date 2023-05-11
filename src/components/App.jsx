@@ -32,7 +32,14 @@ export const App = () => {
             </PublicRoute>
           }
         />
-        <Route path="/main" element={<MainLayout />}>
+        <Route
+          path="/main"
+          element={
+            <PrivateRoute>
+              <MainLayout />
+            </PrivateRoute>
+          }
+        >
           <Route
             path="account"
             element={
@@ -49,8 +56,8 @@ export const App = () => {
               </PrivateRoute>
             }
           >
-            <Route path="day/:currentDay" element={<ChoosedMonth />} />
-            <Route path="month/:currentDate" element={<ChoosedDay />} />
+            <Route path="day/:currentDay" element={<ChoosedDay />} />
+            <Route path="month/:currentDate" element={<ChoosedMonth />} />
             <Route />
           </Route>
         </Route>

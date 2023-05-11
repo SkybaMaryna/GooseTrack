@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import {  toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'https://goose-tracker-backend.p.goit.global/';
 
@@ -17,11 +17,17 @@ export const registerThunk = createAsyncThunk(
   async (user, { rejectWithValue }) => {
     try {
       const res = await axios.post('/user/register', user);
-      setToken(res.data.accessToken);
+      setToken(res.data.data.accessToken);
       return res.data;
     } catch (error) {
-      rejectWithValue(error.message);
-      toast.error('Your data is not valid, please try again')
+      if (error.message === 'Request failed with status code 409') {
+        toast.error('User with email roxenn34@gmail.com already exist');
+      } else {
+        toast.error(
+          `enter valid email: min 6, max 63 characters, except .ru, .su, .рус, .рф,.москва etc`
+        );
+      }
+      return rejectWithValue(error.message);
     }
   }
 );
@@ -31,11 +37,13 @@ export const loginThunk = createAsyncThunk(
   async (user, { rejectWithValue }) => {
     try {
       const res = await axios.post('/user/login', user);
-      setToken(res.data.accessToken);
+      setToken(res.data.data.accessToken);
       return res.data;
     } catch (error) {
       rejectWithValue(error.message);
-      toast.error('Your email or password is not valid, please check it')
+      if (error.message === 'Request failed with status code 409') {
+        toast.error(`Email doesn't exist or Password is wrong`);
+      }
     }
   }
 );

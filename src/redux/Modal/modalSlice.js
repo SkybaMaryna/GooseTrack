@@ -6,7 +6,6 @@ const modalSlice = createSlice({
     isModalAddTaskOpen: false,
     isModalUpdateTask: false,
     isModalConfirmation: false,
-    isModalLogOut: false,
     isSideBar: false,
   },
 
@@ -18,22 +17,16 @@ const modalSlice = createSlice({
       state.isModalAddTaskOpen = false;
     },
     openModalUpdateTask(state) {
-      state.isModalUpDateTask = true;
+      state.isModalUpdateTask = true;
     },
     closeModalUpdateTask(state) {
-      state.isModalUpDateTask = false;
+      state.isModalUpdateTask = false;
     },
     openModalConfirmation(state) {
       state.isModalConfirmation = true;
     },
     closeModalConfirmation(state) {
       state.isModalConfirmation = false;
-    },
-    openModalLogOut(state) {
-      state.isModalLogOut = true;
-    },
-    closeModalLogOut(state) {
-      state.isModalLogOut = false;
     },
     openSideBar(state) {
       state.isSideBar = true;
@@ -44,8 +37,6 @@ const modalSlice = createSlice({
   },
 });
 export const {
-  openModalLogOut,
-  closeModalLogOut,
   openModalAddTask,
   closeModalAddTask,
   openModalUpdateTask,
