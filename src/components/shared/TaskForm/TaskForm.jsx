@@ -4,11 +4,10 @@ import { addTask } from '../../../redux/Tasks/tasksOperations';
 import { closeModalAddTask } from '../../../redux/Modal/modalSlice';
 import { Form } from '../Modal/Form/Form';
 import { Priority } from '../Modal/Priority/Priority';
-// import { Buttons } from '../Modal/Buttons/Buttons';
 import { toast } from 'react-toastify';
 import { AddButton, ButtonsWrapper, CancelButton } from './TaskFormStyled';
 import {BiPlus} from 'react-icons/bi'
-// import { pushNewTask } from 'redux/tasks/tasks-slice';
+
 
 export const TaskForm = ({
   typeOfModal,
@@ -50,10 +49,9 @@ export const TaskForm = ({
       title: enterText,
       start: start.slice(0, 5),
       end: end.slice(0, 5),
-      // createAt: new Date().toLocaleDateString('en-CA'),
-      // createAt: choosedDay,
+      createdAt: choosedDay,
       priority: priorities,
-      // ...typeOfColumn,
+      ...typeOfColumn,
     };
     console.log(taskObject);
 
@@ -252,7 +250,7 @@ export const TaskForm = ({
   return (
     <>
       <Form
-        // inputHendler={inputHendler}
+   
         titleSetter={titleSetter}
         startSetter={startSetter}
         endSetter={endSetter}
@@ -263,11 +261,7 @@ export const TaskForm = ({
         endTitle={end}
       />
       <Priority obj={obj} prioritySelector={prioritySelector} />
-      {/* <Buttons
-        typeOfButton={typeOfModal}
-        closeModal={closeModal}
-        actionFu={objectFormation}
-      /> */}
+
       <ButtonsWrapper>
         <AddButton onClick={()=>dispatch(objectFormation)}><BiPlus/> Add</AddButton>
         <CancelButton onClick={closeModal}>Cancel</CancelButton>

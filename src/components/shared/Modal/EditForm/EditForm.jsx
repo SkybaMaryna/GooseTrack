@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 // import { Button } from '../Button/Button';
 import { Form } from '../Form/Form';
-import { EditButtons } from '../EditButtons/EditButtons';
+// import { EditButtons } from '../EditButtons/EditButtons';
 import { Priority } from '../Priority/Priority';
 import { updateTask } from '../../../../redux/Tasks/tasksOperations';
-import { StyledDiv } from './EditFormStyled';
+import { StyledDiv, StyledEditButton, StyledPencilIcon } from './EditFormStyled';
 import { toast } from 'react-toastify';
 
 
@@ -13,7 +13,7 @@ export const EditForm = ({ taskFromCard, closeModal }) => {
   const [editText, setEditText] = useState('');
   const [startText, setStartText] = useState('');
   const [endText, setEndText] = useState('');
-  const [prioritys, setPrioritys] = useState('Low');
+  const [priorities, setPriorities] = useState('Low');
 
   const dispatch = useDispatch();
 
@@ -26,7 +26,7 @@ export const EditForm = ({ taskFromCard, closeModal }) => {
   const prioritySelector = event => {
     const priorityChecked = event.target.innerText;
 
-    setPrioritys(prevState => (prevState = priorityChecked));
+    setPriorities(prevState => (prevState = priorityChecked));
   };
 
   useEffect(() => {
@@ -44,7 +44,7 @@ export const EditForm = ({ taskFromCard, closeModal }) => {
     }
   }, [startText, endText, editText]);
 
-  const timeFormatValidation = (hour, mimutes) => {
+  const timeFormatValidation = (hour, minutes) => {
     let valid = 'valid';
 
     if (Number(hour) > 23) {
@@ -53,7 +53,7 @@ export const EditForm = ({ taskFromCard, closeModal }) => {
       );
       return (valid = 'invalid');
     }
-    if (Number(mimutes > 59)) {
+    if (Number(minutes > 59)) {
       toast.error(
         'you cannot specify an minutes value greater than 59'
       );
@@ -105,32 +105,32 @@ export const EditForm = ({ taskFromCard, closeModal }) => {
       case 'start':
         if (value && String(value).length === 5) {
           let hour = value.slice(0, 2);
-          let mimutes = value.slice(3, 5);
-          if (!isAN(Number(hour)) || !isAN(Number(mimutes))) {
+          let minutes = value.slice(3, 5);
+          if (!isAN(Number(hour)) || !isAN(Number(minutes))) {
             toast.error('Value must be the number');
             setStartText('');
             return;
           }
-          if (timeFormatValidation(hour, mimutes) === 'invalid') {
+          if (timeFormatValidation(hour, minutes) === 'invalid') {
             setStartText('');
             return;
           }
-          const time = hour.concat(':', mimutes);
+          const time = hour.concat(':', minutes);
           setStartText(time);
         }
         if (value && String(value).length === 4) {
           let hour = value.slice(0, 2);
-          let mimutes = value.slice(2, 4);
-          if (!isAN(Number(hour)) || !isAN(Number(mimutes))) {
+          let minutes = value.slice(2, 4);
+          if (!isAN(Number(hour)) || !isAN(Number(minutes))) {
             toast.error('Value must be the number');
             setStartText('');
             return;
           }
-          if (timeFormatValidation(hour, mimutes) === 'invalid') {
+          if (timeFormatValidation(hour, minutes) === 'invalid') {
             setStartText('');
             return;
           }
-          const time = hour.concat(':', mimutes);
+          const time = hour.concat(':', minutes);
           setStartText(time);
         }
 
@@ -138,32 +138,32 @@ export const EditForm = ({ taskFromCard, closeModal }) => {
       case 'end':
         if (value && String(value).length === 5) {
           let hour = value.slice(0, 2);
-          let mimutes = value.slice(3, 5);
-          if (!isAN(Number(hour)) || !isAN(Number(mimutes))) {
+          let minutes = value.slice(3, 5);
+          if (!isAN(Number(hour)) || !isAN(Number(minutes))) {
             toast.error('Value must be the number');
             setEndText('');
             return;
           }
-          if (timeFormatValidation(hour, mimutes) === 'invalid') {
+          if (timeFormatValidation(hour, minutes) === 'invalid') {
             setEndText('');
             return;
           }
-          const time = hour.concat(':', mimutes);
+          const time = hour.concat(':', minutes);
           setEndText(time);
         }
         if (value && String(value).length === 4) {
           let hour = value.slice(0, 2);
-          let mimutes = value.slice(2, 4);
-          if (!isAN(Number(hour)) || !isAN(Number(mimutes))) {
+          let minutes = value.slice(2, 4);
+          if (!isAN(Number(hour)) || !isAN(Number(minutes))) {
             toast.error('Value must be the number');
             setEndText('');
             return;
           }
-          if (timeFormatValidation(hour, mimutes) === 'invalid') {
+          if (timeFormatValidation(hour, minutes) === 'invalid') {
             setEndText('');
             return;
           }
-          const time = hour.concat(':', mimutes);
+          const time = hour.concat(':', minutes);
           setEndText(time);
         }
 
@@ -192,23 +192,23 @@ export const EditForm = ({ taskFromCard, closeModal }) => {
         title: editText,
         start: startText,
         end: endText,
-        createAt: taskFromCard.createAt,
-        priority: prioritys,
+        createdAt: taskFromCard.createdAt,
+        priority: priorities,
       },
     };
 
     dispatch(updateTask(taskForUpdate, id));
   };
 
-  useEffect(() => {
-    setEditText(prevState => (prevState = taskFromCard.title));
-    setStartText(prevState => (prevState = taskFromCard.start));
-    setEndText(prevState => (prevState = taskFromCard.end));
-    setPrioritys(prevState => (prevState = taskFromCard.priority));
-  }, [taskFromCard]);
+  // useEffect(() => {
+  //   setEditText(prevState => (prevState = taskFromCard.title));
+  //   setStartText(prevState => (prevState = taskFromCard.start));
+  //   setEndText(prevState => (prevState = taskFromCard.end));
+  //   setPriorities(prevState => (prevState = taskFromCard.priority));
+  // }, [taskFromCard]);
 
   useEffect(() => {
-    if (prioritys === 'High') {
+    if (priorities === 'High') {
       setObj(
         prevState =>
           (prevState = [
@@ -217,7 +217,7 @@ export const EditForm = ({ taskFromCard, closeModal }) => {
             { status: true, key: 'High', color: 'red' },
           ])
       );
-    } else if (prioritys === 'Medium') {
+    } else if (priorities === 'Medium') {
       setObj(
         prevState =>
           (prevState = [
@@ -226,7 +226,7 @@ export const EditForm = ({ taskFromCard, closeModal }) => {
             { status: false, key: 'High', color: 'red' },
           ])
       );
-    } else if (prioritys === 'Low') {
+    } else if (priorities === 'Low') {
       setObj(
         prevState =>
           (prevState = [
@@ -236,7 +236,7 @@ export const EditForm = ({ taskFromCard, closeModal }) => {
           ])
       );
     }
-  }, [prioritys]);
+  }, [priorities]);
 
   const titleSetter = event => {
     const { value } = event.target;
@@ -265,7 +265,7 @@ export const EditForm = ({ taskFromCard, closeModal }) => {
       />
       <Priority obj={obj} prioritySelector={prioritySelector} />
       <StyledDiv>
-        <EditButtons actionFu={updateTaskFu} />
+        <StyledEditButton onClick={()=>dispatch(updateTaskFu)}> <StyledPencilIcon  size='1.5em'/> Edit</StyledEditButton>
       </StyledDiv>
     </>
   );
