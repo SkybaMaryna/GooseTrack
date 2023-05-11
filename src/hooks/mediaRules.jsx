@@ -8,5 +8,5 @@ export const useMediaRules = () => {
   const isDesktop = useMediaQuery({ query: '(min-width: 1440px)' });
   const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' });
 
-  return { isMobile, isDesktop, isTablet, isRetina };
+  return { isMobile, isTablet, isDesktop, isRetina };
 };

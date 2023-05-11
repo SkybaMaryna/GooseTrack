@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const StyledContainer = styled.div`
+  display: flex;
+  width: 100%;
   margin: 0 auto;
 
   @media screen and (min-width: 480px) {
@@ -18,5 +20,17 @@ export const StyledContainer = styled.div`
 `;
 
 export const StyledMain = styled.main`
-  display: flex;
+  padding: 24px 20px;
+  background-color: var(--cardGrey);
+  flex-grow: 1;
+  max-width: 375px;
+
+  @media screen and (min-width: 768px) {
+    padding: 24px 32px;
+    max-width: 768px;
+  }
+  @media screen and (min-width: 1440px) {
+    padding: 40px 32px;
+    max-width: 1151px;
+  }
 `;

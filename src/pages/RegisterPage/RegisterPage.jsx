@@ -1,5 +1,6 @@
 import RegisterForm from "components/Register/RegisterForm/RegisterForm";
 import { StyledDiv, StyledImg  } from "./RegisterPageStyled";
+import { StyledNavLink } from "pages/LoginPage/LoginPageStyled";
 
 const RegisterPage = () => {
   return (
@@ -10,6 +11,7 @@ const RegisterPage = () => {
         alt="Goose"
       />
       <RegisterForm/>
+      <StyledNavLink to="/login">Log In</StyledNavLink>
     </StyledDiv>
   );
 };

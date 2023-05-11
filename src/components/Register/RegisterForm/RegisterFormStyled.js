@@ -1,4 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { IoIosCheckmarkCircleOutline } from "react-icons/io";
+import { RiErrorWarningLine } from "react-icons/ri";
 import styled from "styled-components";
 
 export const StyledForm = styled(Formik)`
@@ -9,7 +11,11 @@ align-items: center;
 gap: 18px;
 `
 export const StyledFormInsight = styled(Form)`
-max-width: 335px;
+position: absolute; 
+top: 50%; 
+left: 50%;
+transform: translate(-50%, -50%);
+width: 335px;
 display: flex;
 background-color: white;
 flex-direction: column;
@@ -17,13 +23,14 @@ align-items: left;
 border-radius: 8px;
 margin-left: auto;
 margin-right: auto;
+text-align: left;
 padding-top: 40px;
 padding-left: 24px;
 padding-bottom: 40px;
 padding-right: 24px;
 
 @media screen and (min-width: 768px) {
-    max-width: 480px;
+    width: 480px;
     padding-left: 40px;
     padding-right: 40px;
   }
@@ -52,17 +59,52 @@ margin-top: 8px;
   font-size: 14px;
   line-height: 17px;
   }
-
-
 `
-export const StyledInput = styled(Field)`
+export const StyledInputWrap = styled.div`
 max-width: 287px;
+position: relative;
+@media screen and (min-width: 768px) {
+  max-width: 400px;
+}
+`
+export const StyledIconError = styled(RiErrorWarningLine)`
+position: absolute;
+right: 30px;
+top: 55%;
+transform: translateY(-50%);
+`
+
+
+export const StyledIconChecked = styled(IoIosCheckmarkCircleOutline)`
+position: absolute;
+right: 20px;
+top: 51%;
+transform: translateY(-50%);
+`
+
+
+
+
+
+export const StyledInput = styled(Field)`
+width: 287px;
 height: 46px;
 border: 1px solid rgba(220, 227, 229, 0.6);
 border-radius: 8px;
 padding: 14px;
+&:focus {
+  outline: none;
+   border-color: black; 
+}
+/* &:valid {
+  border-color: ${props =>  (props.touched && !props.errors) && 'green' }
+} */
+&:invalid {
+  border-color: red;
+  outline: none;
+}
 @media screen and (min-width: 768px) {
-  max-width: 400px;
+  width: 400px;
   padding: 18px;
   }
 `

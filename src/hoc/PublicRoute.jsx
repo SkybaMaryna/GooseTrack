@@ -6,7 +6,11 @@ import { selectIsLoggedIn } from 'redux/Auth/authSelectors';
 export const PublicRoute = ({ children }) => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
-  return isLoggedIn ? <Navigate to="/calendar" /> : children;
+  return isLoggedIn ? (
+    <Navigate to="/main/calendar/month/:currentDate" />
+  ) : (
+    children
+  );
 };
 
 export default PublicRoute;
