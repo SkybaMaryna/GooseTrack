@@ -17,7 +17,7 @@ export const registerThunk = createAsyncThunk(
   async (user, { rejectWithValue }) => {
     try {
       const res = await axios.post('/user/register', user);
-      setToken(res.data.accessToken);
+      setToken(res.data.data.accessToken);
       return res.data;
     } catch (error) {
       if (error.message === 'Request failed with status code 409') {
@@ -37,7 +37,7 @@ export const loginThunk = createAsyncThunk(
   async (user, { rejectWithValue }) => {
     try {
       const res = await axios.post('/user/login', user);
-      setToken(res.data.accessToken);
+      setToken(res.data.data.accessToken);
       return res.data;
     } catch (error) {
       rejectWithValue(error.message);
