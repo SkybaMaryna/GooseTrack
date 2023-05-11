@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { selectTheme } from 'redux/Theme/themeSelectors';
 import { setTheme } from 'redux/Theme/themeSlice';
-import { Input, Svg } from './ThemeToggler.styled';
+import { Button, Svg } from './ThemeToggler.styled';
 import { CgSun } from 'react-icons/cg';
 import { FiMoon } from 'react-icons/fi';
 
@@ -10,15 +10,11 @@ const ThemeToggler = () => {
   const dispatch = useDispatch();
 
   return (
-    <label>
-      <Input
-        type="checkbox"
-        onChange={() => {
-          dispatch(setTheme());
-        }}
-      />
-      <Svg>{theme === 'light' ? <FiMoon /> : <CgSun />}</Svg>
-    </label>
+    <Button onClick={() => dispatch(setTheme())}>
+      <Svg>
+        {theme === 'light' ? <FiMoon size={26} /> : <CgSun size={26} />}
+      </Svg>
+    </Button>
   );
 };
 
