@@ -14,7 +14,7 @@ const ThemeToggler = () => {
       <Input
         type="checkbox"
         onChange={() => {
-          dispatch(() => setTheme());
+          dispatch(setTheme());
         }}
       />
       <Svg>{theme === 'light' ? <FiMoon /> : <CgSun />}</Svg>
