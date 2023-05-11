@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Priority } from '../Priority/Priority';
-import { Buttons } from '../Buttons/Buttons';
-import { Form } from '../Form/Form';
-
-import { addTask } from '../../../redux/tasks/tasks-operations';
-import { closeModalAddTask } from 'redux/modal/globalSlice';
-import Notiflix from 'notiflix';
+import { addTask } from '../../../redux/Tasks/tasksOperations';
+import { closeModalAddTask } from '../../../redux/Modal/modalSlice';
+import { Form } from '../Modal/Form/Form';
+import { Priority } from '../Modal/Priority/Priority';
+// import { Buttons } from '../Modal/Buttons/Buttons';
+import { toast } from 'react-toastify';
+import { AddButton, ButtonsWrapper, CancelButton } from './TaskFormStyled';
+import {BiPlus} from 'react-icons/bi'
 // import { pushNewTask } from 'redux/tasks/tasks-slice';
 
 export const TaskForm = ({
@@ -18,7 +19,8 @@ export const TaskForm = ({
   const [enterText, setEnterText] = useState('');
   const [start, setStart] = useState('');
   const [end, setEnd] = useState('');
-  const [prioritys, setPrioritys] = useState('Low');
+  const [priorities, setPriorities] = useState('Low');
+  console.log(enterText, start, end, priorities);
 
   const [obj, setObj] = useState([
     { status: true, key: 'Low', color: 'blue' },
@@ -31,46 +33,44 @@ export const TaskForm = ({
   const prioritySelector = event => {
     const priorityChecked = event.target.innerText;
 
-    setPrioritys(prevState => (prevState = priorityChecked));
+    setPriorities(prevState => (prevState = priorityChecked));
   };
 
-  const objectFormation = async () => {
+  const objectFormation = () => {
     if (timeFormValidation() === 'invalid') {
-      Notiflix.Notify.failure(
-        'task end time cannot be greater ore equal than its start time'
-      );
+      toast.error('End Time of your task can not be less then Start Time')
       return;
     }
     if (start.length < 5 && end.length < 5 && enterText.length < 1) {
-      Notiflix.Notify.failure('fields cannot be empty');
+      toast.error('fields cannot be empty');
       return;
     }
 
-    const objectToDispatch = {
+    const taskObject = {
       title: enterText,
       start: start.slice(0, 5),
       end: end.slice(0, 5),
       // createAt: new Date().toLocaleDateString('en-CA'),
-      createAt: choosedDay,
-      priority: prioritys,
-      ...typeOfColumn,
+      // createAt: choosedDay,
+      priority: priorities,
+      // ...typeOfColumn,
     };
+    console.log(taskObject);
 
-    await dispatch(addTask(objectToDispatch));
-
+    dispatch(addTask(taskObject));
     dispatch(closeModalAddTask());
   };
 
   const onFocusFu = event => {
-    const { name } = event.target;
+    const { name, value } = event.target;
+    console.log(name, value);
     switch (name) {
       case 'start':
-        setStart('');
+        setStart(value);
         break;
       case 'end':
-        setEnd('');
+        setEnd(value);
         break;
-
       default:
         break;
     }
@@ -78,31 +78,32 @@ export const TaskForm = ({
 
   useEffect(() => {
     if (start && String(start).length > 5) {
-      setStart('');
-      Notiflix.Notify.failure('Enter the correct time in the format 00:00');
+      toast.error('Enter the correct time in the format 00:00');
+       
     }
     if (end && String(end).length > 5) {
       setEnd('');
-      Notiflix.Notify.failure('Enter the correct time in the format 00:00');
+      toast.error('Enter the correct time in the format 00:00');
     }
     if (enterText && String(enterText).length > 255) {
       setEnterText(enterText.slice(0, 255));
-      Notiflix.Notify.failure('title cannot be longer than 255 characters');
+      toast.error('title cannot be longer than 255 characters');
     }
   }, [start, end, enterText]);
 
-  const timeFormatValidation = (hour, mimutes) => {
+
+  const timeFormatValidation = (hour, minutes) => {
     let valid = 'valid';
 
     if (Number(hour) > 23) {
-      Notiflix.Notify.failure(
-        'you cannot specify an hour value greater than 23'
+      toast.error(
+        'you cannot specify the hours value more than 23'
       );
       return (valid = 'invalid');
     }
-    if (Number(mimutes > 59)) {
-      Notiflix.Notify.failure(
-        'you cannot specify an minutes value greater than 59'
+    if (Number(minutes > 59)) {
+      toast.error(
+        'you cannot specify the minutes value more than 59'
       );
       return (valid = 'invalid');
     }
@@ -115,8 +116,6 @@ export const TaskForm = ({
     let timeOfEnd = end.slice(0, 2).concat(end.slice(3, 5));
 
     if (Number(timeOfStart) >= Number(timeOfEnd)) {
-      // setStartText('');
-      // setEndText('');
       status = 'invalid';
     }
     return status;
@@ -131,39 +130,39 @@ export const TaskForm = ({
   const onBlurFu = event => {
     const { name, value } = event.target;
     if (value && String(value).length < 4) {
-      Notiflix.Notify.failure('value cannot be less than 4 characters');
+      toast.error('value cannot be less than 4 characters');
     }
     switch (name) {
       case 'start':
         if (value && String(value).length === 5) {
           let hour = value.slice(0, 2);
-          let mimutes = value.slice(3, 5);
-          if (!isAN(Number(hour)) || !isAN(Number(mimutes))) {
-            Notiflix.Notify.failure('Value must be the number');
+          let minutes = value.slice(3, 5);
+          if (!isAN(Number(hour)) || !isAN(Number(minutes))) {
+            toast.error('Value must be the number');
             setStart('');
             return;
           }
-          if (timeFormatValidation(hour, mimutes) === 'invalid') {
+          if (timeFormatValidation(hour, minutes) === 'invalid') {
             setStart('');
             return;
           }
-          const time = hour.concat(':', mimutes);
+          const time = hour.concat(':', minutes);
           setStart(time);
         }
         if (value && String(value).length === 4) {
           let hour = value.slice(0, 2);
-          let mimutes = value.slice(2, 4);
+          let minutes = value.slice(2, 4);
 
-          if (!isAN(Number(hour)) || !isAN(Number(mimutes))) {
-            Notiflix.Notify.failure('Value must be the number');
+          if (!isAN(Number(hour)) || !isAN(Number(minutes))) {
+            toast.error('Value must be the number');
             setStart('');
             return;
           }
-          if (timeFormatValidation(hour, mimutes) === 'invalid') {
+          if (timeFormatValidation(hour, minutes) === 'invalid') {
             setStart('');
             return;
           }
-          const time = hour.concat(':', mimutes);
+          const time = hour.concat(':', minutes);
           setStart(time);
         }
 
@@ -171,32 +170,32 @@ export const TaskForm = ({
       case 'end':
         if (value && String(value).length === 5) {
           let hour = value.slice(0, 2);
-          let mimutes = value.slice(3, 5);
-          if (!isAN(Number(hour)) || !isAN(Number(mimutes))) {
-            Notiflix.Notify.failure('Value must be the number');
+          let minutes = value.slice(3, 5);
+          if (!isAN(Number(hour)) || !isAN(Number(minutes))) {
+            toast.error('Value must be the number');
             setStart('');
             return;
           }
-          if (timeFormatValidation(hour, mimutes) === 'invalid') {
+          if (timeFormatValidation(hour, minutes) === 'invalid') {
             setEnd('');
             return;
           }
-          const time = hour.concat(':', mimutes);
+          const time = hour.concat(':', minutes);
           setEnd(time);
         }
         if (value && String(value).length === 4) {
           let hour = value.slice(0, 2);
-          let mimutes = value.slice(2, 4);
-          if (!isAN(Number(hour)) || !isAN(Number(mimutes))) {
-            Notiflix.Notify.failure('Value must be the number');
+          let minutes = value.slice(2, 4);
+          if (!isAN(Number(hour)) || !isAN(Number(minutes))) {
+            toast.error('Value must be the number');
             setStart('');
             return;
           }
-          if (timeFormatValidation(hour, mimutes) === 'invalid') {
+          if (timeFormatValidation(hour, minutes) === 'invalid') {
             setEnd('');
             return;
           }
-          const time = hour.concat(':', mimutes);
+          const time = hour.concat(':', minutes);
           setEnd(time);
         }
 
@@ -207,7 +206,7 @@ export const TaskForm = ({
   };
 
   useEffect(() => {
-    if (prioritys === 'High') {
+    if (priorities === 'High') {
       setObj(
         prevState =>
           (prevState = [
@@ -216,7 +215,7 @@ export const TaskForm = ({
             { status: true, key: 'High', color: 'red' },
           ])
       );
-    } else if (prioritys === 'Medium') {
+    } else if (priorities === 'Medium') {
       setObj(
         prevState =>
           (prevState = [
@@ -225,7 +224,7 @@ export const TaskForm = ({
             { status: false, key: 'High', color: 'red' },
           ])
       );
-    } else if (prioritys === 'Low') {
+    } else if (priorities === 'Low') {
       setObj(
         prevState =>
           (prevState = [
@@ -235,7 +234,7 @@ export const TaskForm = ({
           ])
       );
     }
-  }, [prioritys]);
+  }, [priorities]);
 
   const titleSetter = event => {
     const { value } = event.target;
@@ -264,11 +263,15 @@ export const TaskForm = ({
         endTitle={end}
       />
       <Priority obj={obj} prioritySelector={prioritySelector} />
-      <Buttons
+      {/* <Buttons
         typeOfButton={typeOfModal}
         closeModal={closeModal}
         actionFu={objectFormation}
-      />
+      /> */}
+      <ButtonsWrapper>
+        <AddButton onClick={()=>dispatch(objectFormation)}><BiPlus/> Add</AddButton>
+        <CancelButton onClick={closeModal}>Cancel</CancelButton>
+      </ButtonsWrapper>
     </>
   );
 };

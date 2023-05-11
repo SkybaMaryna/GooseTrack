@@ -1,9 +1,5 @@
-import {
-    ActiveCircle,
-    PriorityCircle,
-    StyledPar,
-    PriorityItem,
-  } from '../Priority.styled';
+import { ActiveCircle, PriorityCircle, PriorityItem, StyledPar } from "../PriorityStyled";
+
   
   export const PriorityItems = ({ obj, prioritySelector }) => {
     return obj.map(item => (

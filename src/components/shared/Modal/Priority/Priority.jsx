@@ -1,6 +1,7 @@
-import { PriorityWraper } from './Priority.styled';
+import { PriorityItems } from "./PriorityItem/PriorityItem";
+import { PriorityWraper } from "../Priority/PriorityStyled";
 
-import { PriorityItems } from './PriorityItem/PriorityItem';
+
 
 export const Priority = ({ prioritySelector, func, obj }) => {
   return (

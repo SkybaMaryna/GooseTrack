@@ -1,5 +1,5 @@
 import { Button } from '../Button/Button';
-import { StyledButtonWraper } from './EditButtons.styled';
+import { StyledButtonWraper } from './EditButtonsStyled';
 
 export const EditButtons = ({ actionFu }) => {
   return (

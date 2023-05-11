@@ -1,5 +1,5 @@
 import { Cross } from '../Cross/Cross';
-import { StyledButton, ItemWraper } from './Button.styled';
+import { StyledButton, ItemWraper } from './ButtonStyled';
 
 export const Button = ({ actionFu, closeModal, cross, color, bcg, text }) => {
   return (

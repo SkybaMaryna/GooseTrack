@@ -1,5 +1,5 @@
 import { Button } from '../Button/Button';
-import { LeftButton, RightButton } from './AddButtons.styled';
+import { LeftButton, RightButton } from './AddButtonsStyled';
 
 export const AddButtons = ({ actionFu, closeModal }) => {
   return (

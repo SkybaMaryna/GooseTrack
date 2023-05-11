@@ -1,28 +1,27 @@
-import { DivOverlay, ModalBody } from './Modal.styled';
-import { Cross } from './Cross/Cross';
-import { TaskForm } from './TaskForm/TaskForm';
-import { LogoutForm } from './LogoutForm/LogoutForm';
-import { DeleteForm } from './DeleteForm/DeleteForm';
-import { EditForm } from './EditForm/EditForm';
+import { DivOverlay, ModalBody } from './TaskModalStyled';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   closeModalAddTask,
   closeModalConfirmation,
   closeModalLogOut,
-  closeModalUpDateTask,
-} from 'redux/modal/globalSlice';
+  closeModalUpdateTask,
+} from '../../../redux/Modal/modalSlice';
 
 import {
   selectAddTaskOpen,
-  selectModalConfirmation,
   selectModalLogout,
+  selectModalConfirmation,
   selectUpDateTaskModal,
-} from 'redux/modal/globalSelectors';
-import { useEffect, useState } from 'react';
+} from '../../../redux/Modal/modalSelectors';
+import { useCallback, useEffect, useState } from 'react';
+import { Cross } from '../Modal/Cross/Cross';
+import { TaskForm } from '../TaskForm/TaskForm';
+import { EditForm } from '../Modal/EditForm/EditForm';
+import { LogOutForm } from '../Modal/LogOutForm/LogOutForm';
+import { DeleteForm } from '../Modal/DeleteForm.jsx/DeleteForm';
 
-export const Modal = ({
+export const TaskModal = ({
   typeOfModal,
-  closeModal,
   actionFu,
   typeOfColumn,
   taskFromCard,
@@ -30,46 +29,58 @@ export const Modal = ({
 }) => {
   const dispatch = useDispatch();
 
-  const madalAdd = useSelector(selectAddTaskOpen);
+  const modalAdd = useSelector(selectAddTaskOpen);
   const modalEdit = useSelector(selectUpDateTaskModal);
   const modalConfirm = useSelector(selectModalConfirmation);
   const modalExit = useSelector(selectModalLogout);
 
-  const closeAll = () => {
+  const closeAll = useCallback(() => {
     dispatch(closeModalAddTask());
-    dispatch(closeModalUpDateTask());
+    dispatch(closeModalUpdateTask());
     dispatch(closeModalConfirmation());
     dispatch(closeModalLogOut());
-  };
+  }, [dispatch]);
 
-  const close = () => {
-    setIsVisible(false);
+  const close = useCallback(() => {
     closeAll();
-  };
+    setIsVisible(false);
+  }, [closeAll]);
+
+  const handleKeyDown = useCallback(
+    ev => {
+      if (ev.key === 'Escape' || ev.target === ev.currentTarget) {
+        close();
+      }
+    },
+    [close]
+  );
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [handleKeyDown]);
 
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    if (madalAdd || modalEdit || modalConfirm || modalExit) {
+    if (modalAdd || modalEdit || modalConfirm || modalExit) {
       setIsVisible(true);
       return;
     }
     setIsVisible(false);
-  }, [madalAdd, modalEdit, modalConfirm, modalExit]);
+  }, [modalAdd, modalEdit, modalConfirm, modalExit]);
 
   return (
     <>
-      {isVisible && <DivOverlay onClick={close}></DivOverlay>}
-
+      <DivOverlay onClick={close}></DivOverlay>
       <ModalBody>
-        <Cross
-          func={closeModal}
-          height={'14px'}
-          bcgCr={'var(--title-text-main-color)'}
-        />
+        <Cross func={close} />
         {typeOfModal === 'add' && (
           <TaskForm
-            closeModal={closeModal}
+            closeModal={close}
             typeOfModal={typeOfModal}
             typeOfColumn={typeOfColumn}
             choosedDay={choosedDay}
@@ -77,17 +88,17 @@ export const Modal = ({
         )}
         {typeOfModal === 'edit' && (
           <EditForm
-            closeModal={closeModal}
+            closeModal={close}
             typeOfModal={typeOfModal}
             typeOfColumn={typeOfColumn}
             taskFromCard={taskFromCard}
           />
         )}
         {typeOfModal === 'logout' && (
-          <LogoutForm closeModal={closeModal} actionFu={actionFu} />
+          <LogOutForm closeModal={close} actionFu={actionFu} />
         )}
         {typeOfModal === 'deleteTask' && (
-          <DeleteForm closeModal={closeModal} actionFu={actionFu} />
+          <DeleteForm closeModal={close} actionFu={actionFu} />
         )}
       </ModalBody>
     </>

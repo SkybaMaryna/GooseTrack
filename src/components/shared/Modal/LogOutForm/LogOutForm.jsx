@@ -4,9 +4,9 @@ import {
   CancelButton,
   ButtonWraper,
   StyledP,
-} from './LogoutForm.styled';
+} from './LogOutFormStyled';
 
-export const LogoutForm = ({ closeModal, actionFu }) => {
+export const LogOutForm = ({ closeModal, actionFu }) => {
   return (
     <>
       <StyledP>Are you sure you whant to Logout?</StyledP>

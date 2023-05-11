@@ -1,6 +1,6 @@
-import { AddButtons } from '../AddButtons/AddButtons';
+import {AddButtons} from '../AddButtons/Addbuttons'
 // import { EditButtons } from '../EditButtons/EditButtons';
-import { ButtonsWrapper } from './Buttons.styled';
+import { ButtonsWrapper } from './ButtonsStyled';
 
 export const Buttons = ({ actionFu, closeModal, typeOfButton }) => {
   return (

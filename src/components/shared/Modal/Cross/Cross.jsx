@@ -1,10 +1,9 @@
-import { ModalCloseWraper, CloseLeft, CloseRight } from './cross.styled';
-
-export const Cross = ({ height, func, bcgCr }) => {
+import { ModalCloseWrapper } from './CrossStyled';
+import { CgClose } from 'react-icons/cg';
+export const Cross = ({ func }) => {
   return (
-    <ModalCloseWraper onClick={func}>
-      <CloseLeft height={height} bcgCr={bcgCr}></CloseLeft>
-      <CloseRight height={height} bcgCr={bcgCr}></CloseRight>
-    </ModalCloseWraper>
+    <ModalCloseWrapper onClick={func}>
+      <CgClose />
+    </ModalCloseWrapper>
   );
 };
