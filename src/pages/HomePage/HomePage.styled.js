@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Herosection = styled.section`
-  /* width: 100%; */
+  width: 100%;
   background-color: var(--mainBlue);
   margin-top: 0;
   margin-bottom: 64px;
@@ -15,6 +15,19 @@ export const Herosection = styled.section`
     padding-top: 187px;
     padding-bottom: 200px;
   }
+`;
+export const MainSection = styled.section`
+  width: 335px;
+   margin-top: 0;
+   margin-left:auto;
+   margin-right:auto;
+  margin-bottom: 64px;
+  @media screen and (min-width: 768px) {
+    width: 704px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 1157px;
+    }
 `;
 export const HeroGooseImg = styled.img`
   margin: 0 auto 32px auto;
@@ -47,19 +60,11 @@ export const HeroTitle = styled.div`
     /* margin-left:88px; */
   }
 `;
-export const SpanOO = styled.span`
-  font-family: 'Coolvetica';
-  font-style: italic;
-  font-weight: 400;
-  font-size: 44px;
-  line-height: 1.09;
-  color: var(--mainWhite);
-  @media screen and (min-width: 768px) {
-    font-size: 120px;
-    line-height: 1.5;
-  }
+export const NavButtonBox = styled.div`
+display: flex;
+ width: 227px;
+margin: 0 auto;
 `;
-
 export const MainInfoBox = styled.div`
   width: 335px;
   height: 799px;
@@ -80,9 +85,11 @@ export const MainInfoBox = styled.div`
     height: 700px;
     justify-content: space-between;
     align-items: center;
-    &:nth-child(2) {
+    margin-left: 50px;
+      &:nth-child(2) {
     flex-direction: row-reverse;
-    margin-right: 77px;
+    margin-right: 50px;
+    margin-left: 20px;
   }  }
 `;
 export const InfoBox = styled.div`
@@ -90,15 +97,31 @@ export const InfoBox = styled.div`
   height: 302px;
   display: flex;
   flex-direction: column;
-  /* margin-bottom: 40px; */
+    margin-bottom: 40px;
   @media screen and (min-width: 768px) {
     width: 275px;
     height: 340px;
-    /* margin-bottom: 64px; */
+    margin-bottom: 64px;
+     }
+  @media screen and (min-width: 1440px) {
+    margin-left:50px
   }
-  /* @media screen and (min-width: 1440px) {
-    margin-bottom: 180px;
-  } */
+`;
+export const InfoBoxP = styled.div`
+  width: 335px;
+  height: 302px;
+  display: flex;
+  flex-direction: column;
+    margin-bottom: 40px;
+  @media screen and (min-width: 768px) {
+    width: 275px;
+    height: 340px;
+    margin-bottom: 64px;
+    margin-left:420px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-left:50px
+  }
 `;
 export const MainNumber = styled.h1`
   font-family: 'Inter';
@@ -163,5 +186,44 @@ export const MainText = styled.p`
   @media screen and (min-width: 768px) {
     width: 275px;
     margin-bottom: 48px;
+  }
+`;
+export const ReviewSection = styled.section`
+  width: 100%;
+   margin: 64px auto;
+  @media screen and (min-width: 768px) {
+    margin: 64px auto 100px auto;
+  }
+  @media screen and (min-width: 1440px) {
+    margin: 100px auto 118px auto;
+  }
+`;
+export const ReviewTitle = styled.div`
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.14;
+  color: var(--mainBlue);
+  text-align: center;
+  margin: 0 auto 40px auto;
+  @media screen and (min-width: 768px) {
+     font-size: 40px;
+    line-height: 1.1;
+    margin: 0 auto 50px auto;
+  }
+`;
+export const SwiperWraper = styled.div`
+  width: 335px;
+  height: 252px;
+   margin: 0 auto;
+   overflow: hidden;
+  @media screen and (min-width: 768px) {
+    width: 580px;
+  height: 266px;
+    }
+  @media screen and (min-width: 1440px) {
+    width: 1184px;
+  height: 280px;
   }
 `;
