@@ -25,13 +25,13 @@ import {
 } from 'react-icons/hi';
 
 const ReviewsCards = () => {
-  // const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
-  // const isTablet = useMediaQuery({
-  //   query: '(min-width: 767px) and (max-width: 1439px)',
-  // });
-  const isDesktop = useMediaQuery({ query: '(min-width: 1440px)' });
+  const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
+  const isTablet = useMediaQuery({
+    query: '(min-width: 767px) and (max-width: 1439px)',
+  });
+  // const isDesktop = useMediaQuery({ query: '(min-width: 1440px)' });
   const reviews = useSelector(selectReviews);
-  console.log(reviews);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const ReviewsCards = () => {
   }, [dispatch]);
 
   return <div>
-    if(!isDesktop){
+    {isMobile || isTablet ?
     <Swiper
           initialSlide={1}
           slidesPerView={1}
@@ -57,16 +57,16 @@ const ReviewsCards = () => {
         </Avatar>
         <div>
           <ReviewAuthor>{review.name}</ReviewAuthor>
-          <RangeStars>⭐⭐⭐⭐⭐</RangeStars>
+          <RangeStars color=''>⭐⭐⭐⭐⭐</RangeStars>
         </div>
       </AuthorBox>
       <ReviewText>{review.comment}</ReviewText>
     </ReviewCard>
     </SwiperSlide>))}
-    </Swiper>}else{
+    </Swiper> :
     <Swiper
            initialSlide={1}
-          //  {isMobile || isTablet} ? slidesPerView={1} : slidesPerView={2}
+        // {isMobile || isTablet ? slidesPerView={1} : slidesPerView={2}}
           slidesPerView={2}
           navigation={{ prevEl: 'SwiperPrev', nextEl: 'SwiperNext' }}
           modules={[Navigation]}

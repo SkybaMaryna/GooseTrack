@@ -30,7 +30,7 @@ import { useDispatch, useSelector } from 'react-redux';
 //   HiOutlineArrowNarrowLeft,
 //   HiOutlineArrowNarrowRight,
 // } from 'react-icons/hi';
-import ReviewsCards from './ReviewsCard';
+import ReviewsCards from './ReviewsCards';
 import { useEffect } from 'react';
 import { refreshThunk } from 'redux/Auth/authOperations';
 
@@ -222,12 +222,6 @@ const HomePage = () => {
         <ReviewTitle>REVIEWS</ReviewTitle>
         <SwiperWraper>
                   <ReviewsCards />
-                    {/* <div>
-            <HiOutlineArrowNarrowLeft />
-          </div>
-          <div>
-            <HiOutlineArrowNarrowRight />
-          </div> */}
         </SwiperWraper>
       </ReviewSection>
     </div>
