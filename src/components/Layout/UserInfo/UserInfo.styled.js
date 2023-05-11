@@ -7,7 +7,7 @@ export const Name = styled.span`
   font-weight: 700;
   font-size: 14px;
   line-height: 18px;
-  color: var(--calendar-date-color);
+  color: var(--blackSecond);
   @media screen and (min-width: 768px) {
     font-size: 18px;
   }

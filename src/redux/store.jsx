@@ -15,6 +15,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './Auth/authSlice';
 import { modalReducer } from './Modal/modalSlice';
+import { themeReducer } from './Theme/themeSlice';
 
 const persistConfig = {
   key: 'token',
@@ -23,12 +24,20 @@ const persistConfig = {
   whitelist: ['accessToken', 'refreshToken'],
 };
 
+const persistConfigTheme = {
+  key: 'theme',
+  version: 1,
+  storage,
+  whitelist: ['theme'],
+};
+
 export const store = configureStore({
   reducer: {
     auth: persistReducer(persistConfig, authReducer),
     tasks: tasksReducer,
     reviews: reviewsReducer,
     modal: modalReducer,
+    theme: persistReducer(persistConfigTheme, themeReducer),
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
