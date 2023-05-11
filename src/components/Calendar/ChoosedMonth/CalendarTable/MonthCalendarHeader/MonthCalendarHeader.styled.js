@@ -11,8 +11,8 @@ font-weight: 600;
 font-size: 16px;
 line-height: 1.12;
 text-transform: uppercase;
-color: var(--task-field-text-color);
-background-color: var(--main-background-color);
+color: #616161;
+background-color: #ffffff;
 @media screen and (min-width: 768px) {
     margin-bottom: 18px;
 padding: 14px 40px;
@@ -24,4 +24,4 @@ padding: 14px 60px;
 `
 
 export const MonthCalendarHeaderItem = styled.li`
-color: var(--accent) ;`
+color: #3e85f3 ;`

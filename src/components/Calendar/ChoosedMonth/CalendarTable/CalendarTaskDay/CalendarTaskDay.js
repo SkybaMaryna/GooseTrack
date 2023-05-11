@@ -1,8 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import { TaskItem } from '../CalendarTable';
+import { TaskItem } from '../CalendarTable.styled';
 
 export const CalendarTaskDay = ({ task }) => {
-  console.log(task);
   const navigate = useNavigate();
   let priorityColor = '';
   let priorityTextColor = '';
@@ -17,13 +16,15 @@ export const CalendarTaskDay = ({ task }) => {
     priorityColor = '#ffd2dd';
     priorityTextColor = '#ea3d65';
   }
+  const  taskDate = task.date.slice(0, 10);
+  
   const handleTaskItemClick = () => {
-    navigate(`/calendar/day/${task.date}`); 
-  };
+    navigate(`main/calendar/day/${taskDate}`);
+      };
   return (
     <TaskItem
       type="button"
-      onClick={handleTaskItemClick} 
+      onClick={handleTaskItemClick}
       style={{ backgroundColor: priorityColor, color: priorityTextColor }}
     >
       {task.title}
