@@ -32,7 +32,6 @@ const CalendarPage = () => {
     const month = String(currentDate.getMonth('M') + 1).padStart(2, '0');
     dispatch(fetchTasks({ month, year }));
   }, [currentDate, dispatch]);
-
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
       {/* <Navigate to={`month/${today}`} />; */}

@@ -14,7 +14,7 @@ const UserNav = () => {
     <UserNavContainer>
       <NavTitle>User panel</NavTitle>
       <LinkWrapper>
-        <NavLinkStyled to="/account">
+        <NavLinkStyled to="account">
           <IconWrapper>
             <BsFillPersonCheckFill />
             <NavSecondaryTitle>My account</NavSecondaryTitle>
@@ -22,7 +22,7 @@ const UserNav = () => {
         </NavLinkStyled>
       </LinkWrapper>
       <LinkWrapper>
-        <NavLinkStyled to="/calendar/month/:currentDate">
+        <NavLinkStyled to="calendar/month/:currentDate">
           <IconWrapper>
             <BsCalendar />
             <NavSecondaryTitle>Calendar</NavSecondaryTitle>
