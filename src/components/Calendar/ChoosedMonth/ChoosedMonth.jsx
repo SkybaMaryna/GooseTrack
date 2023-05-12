@@ -12,15 +12,15 @@ const ChoosedMonth = () => {
   const { startDay, today } = useOutletContext();
   const tasks = useSelector(selectAllTasks);
 
-  const { currentDate } = useParams();
-  const currentYear = currentDate.slice(0, 4);
-  const currentMonth = currentDate.slice(5, 7);
+  // const { currentDate } = useParams();
+  // const currentYear = currentDate.slice(0, 4);
+  // const currentMonth = currentDate.slice(6, 7);
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchTasks({ year: currentYear, month: currentMonth }));
-  }, [currentMonth, currentYear, dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchTasks({ year: currentYear, month: currentMonth }));
+  // }, [currentMonth, currentYear, dispatch]);
 
   return (
     <>

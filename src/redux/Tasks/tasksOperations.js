@@ -5,7 +5,7 @@ export const fetchTasks = createAsyncThunk(
   'tasks/fetchTasks',
   async ({ year, month }, { rejectWithValue }) => {
     try {
-      const res = await axios.get('/task/by-month', { year, month });
+      const res = await axios.get('/task/by-month', {params: {year, month} });
       return res.data;
     } catch (error) {
       return rejectWithValue(error.message);

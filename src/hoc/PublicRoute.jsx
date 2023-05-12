@@ -5,10 +5,10 @@ import { selectIsLoggedIn } from 'redux/Auth/authSelectors';
 import moment from 'moment';
 export const PublicRoute = ({ children }) => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  const currentDay = moment().format('YYYY-MM-DD');
+  const date = new Date().toISOString().split('T')[0];
 
   return isLoggedIn ? (
-    <Navigate to={`/main/calendar/month/${currentDay}`} />
+    <Navigate to={`/main/calendar/month/${date}`} />
   ) : (
     children
   );
