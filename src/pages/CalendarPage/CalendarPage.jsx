@@ -70,7 +70,7 @@ const CalendarPage = () => {
         nextHandler={nextHandler}
       />
       {/* <ChoosedMonth startDay={startDay} today={today} /> */}
-      {/* <ChoosedDay /> */}
+      <ChoosedDay />
       <Outlet context={{ startDay, today, currentDate }} />
     </div>
   );

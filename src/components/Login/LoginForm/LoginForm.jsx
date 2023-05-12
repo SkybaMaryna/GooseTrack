@@ -39,7 +39,6 @@ const LoginForm = () => {
         .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.'),
       })}
       onSubmit={(values) => {
-        console.log(values);
         dispatch(loginThunk(values));
         
       }}
