@@ -69,8 +69,7 @@ export const refreshThunk = createAsyncThunk(
     }
     try {
       setToken(savedToken);
-      const res = await axios.post('/user/refresh');
-      return res.data;
+      return savedToken;
     } catch (error) {
       thunkAPI.rejectWithValue(error.message);
     }
