@@ -15,25 +15,26 @@ import { selectAllTasks } from 'redux/Tasks/tasksSelectors.js';
 
 const CalendarPage = () => {
   const { currentDate } = useParams();
-  const actualDate =
-    currentDate === ':currentDate'
-      ? new Date().toISOString().split('T')[0]
-      : currentDate;
-  console.log(new Date().toISOString().split('T')[0]);
+
   // const navigate = useNavigate();
   const tasks = useSelector(selectAllTasks);
   const [today, setToday] = useState(moment());
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   // const currentDate = new Date(today);
 
   moment.updateLocale('en', { week: { dow: 1 } });
   const startDay = today.clone().startOf('month').startOf('week');
 
-  const prevHandler = () => {
-    setToday(prev => prev.clone().subtract(1, 'month'));
+  const prevHandler = type => {
+    setToday(prev => prev.clone().subtract(1, type));
+    const date = today.clone().subtract(1, type).toISOString().split('T')[0];
+    navigate(`/main/calendar/${type}/${date}`);
   };
-  const nextHandler = () => {
-    setToday(prev => prev.clone().add(1, 'month'));
+  const nextHandler = type => {
+    setToday(prev => prev.clone().add(1, type));
+    const date = today.clone().add(1, type).toISOString().split('T')[0];
+    navigate(`/main/calendar/${type}/${date}`);
   };
   // const navigate = useNavigate();
   // const currentDate = moment().format('YYYY-MM');
@@ -47,8 +48,8 @@ const CalendarPage = () => {
   //   if (pathname.endsWith('calendar')) handleNavigate();
   // }, [handleNavigate, pathname]);
 
-  const currentYear = actualDate?.slice(0, 4);
-  const currentMonth = actualDate?.slice(6, 7);
+  const currentYear = currentDate?.slice(0, 4);
+  const currentMonth = currentDate?.slice(6, 7);
 
   useEffect(() => {
     dispatch(fetchTasks({ year: currentYear, month: currentMonth }));
