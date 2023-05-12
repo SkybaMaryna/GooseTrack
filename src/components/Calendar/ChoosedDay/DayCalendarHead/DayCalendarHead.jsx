@@ -97,7 +97,7 @@ export function DayCalendarHead({ clickChooseDay }) {
               }}
               style={{
                 backgroundColor: isCurrentDay ? 'var(--mainBlue)' : 'inherit',
-                color: isCurrentDay ? 'var(--mainBlack)' : 'inherit',
+                color: isCurrentDay ? 'var(--mainWhite)' : 'inherit',
               }}
             >
               <p>{dayValue}</p>

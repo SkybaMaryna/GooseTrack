@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import TasksColumnsList from './TasksColumnsList/TasksColumnsList';
 import { TasksColumnsListWrapper } from './ChoosedDay.styled';
-// import { DayCalendarHead } from './DayCalendarHead/DayCalendarHead';
+import { DayCalendarHead } from './DayCalendarHead/DayCalendarHead';
 import { useDispatch, useSelector } from 'react-redux';
 // import { toast } from 'react-toastify';
 import { useParams } from 'react-router-dom';
@@ -92,7 +92,7 @@ const ChoosedDay = () => {
 
   return (
     <TasksColumnsListWrapper>
-      {/* <DayCalendarHead clickChooseDay={chooseDay} /> */}
+      <DayCalendarHead clickChooseDay={chooseDay} />
       <TasksColumnsList
         tasks={tasksFilter}
         getTypeOfColumn={getTypeOfColumn}
