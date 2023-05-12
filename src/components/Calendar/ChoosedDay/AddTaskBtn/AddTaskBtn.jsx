@@ -1,9 +1,9 @@
 import { openModalAddTask } from '../../../../redux/Modal/modalSlice';
 import { useDispatch } from 'react-redux';
-import {AiOutlinePlus} from 'react-icons/ai'
 import {
   AddTaskBtnStyled,
   AddTaskBtnTextStyled,
+  OutlinePlus,
 } from './AddTaskBtn.styled';
 
 export const AddTaskBtn = ({ getTypeOfColumn, title }) => {
@@ -17,7 +17,7 @@ export const AddTaskBtn = ({ getTypeOfColumn, title }) => {
   return (
     <>
       <AddTaskBtnStyled onClick={openModal}>
-      <AiOutlinePlus size={20}/>
+      <OutlinePlus/>
         {' '}
         <AddTaskBtnTextStyled>Add task</AddTaskBtnTextStyled>
       </AddTaskBtnStyled>
