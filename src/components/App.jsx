@@ -10,8 +10,17 @@ import ChoosedMonth from './Calendar/ChoosedMonth/ChoosedMonth';
 import NotFound from './NotFound/NotFound';
 import PrivateRoute from 'hoc/PrivateRoute';
 import PublicRoute from 'hoc/PublicRoute';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { refreshThunk } from 'redux/Auth/authOperations';
 
 export const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshThunk());
+  }, [dispatch]);
+
   return (
     <div>
       <Routes>
@@ -56,8 +65,8 @@ export const App = () => {
               </PrivateRoute>
             }
           >
-            <Route path="day/:currentDay" element={<ChoosedDay />} />
             <Route path="month/:currentDate" element={<ChoosedMonth />} />
+            <Route path="day/:currentDay" element={<ChoosedDay />} />
             <Route />
           </Route>
         </Route>
