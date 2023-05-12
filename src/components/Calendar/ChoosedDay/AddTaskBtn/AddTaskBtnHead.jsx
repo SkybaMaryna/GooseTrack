@@ -1,7 +1,6 @@
-import { AddTaskBtnStyled } from './AddTaskBtnHead.styled';
+import { AddTaskBtnStyled, Plus } from './AddTaskBtnHead.styled';
 import { useDispatch } from 'react-redux';
 import { openModalAddTask } from 'redux/Modal/modalSlice';
-import { BsPlusCircle } from 'react-icons/bs'
 
 const AddTaskBtnHead = ({ title, getTypeOfColumn, tasks }) => {
   const dispatch = useDispatch();
@@ -14,7 +13,7 @@ const AddTaskBtnHead = ({ title, getTypeOfColumn, tasks }) => {
   return (
     <>
       <AddTaskBtnStyled onClick={openModal}>
-        <BsPlusCircle size={20}/>
+        <Plus/>
       </AddTaskBtnStyled>
     </>
   );

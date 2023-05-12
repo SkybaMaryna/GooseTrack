@@ -1,4 +1,6 @@
+import {GoPlus} from 'react-icons/go'
 import styled from 'styled-components';
+
 
 export const AddTaskBtnStyled = styled.button`
 display: flex;
@@ -12,13 +14,27 @@ display: flex;
   border: 1px dashed var(--mainBlue);
   border-radius: 8px;
   cursor: pointer;
-  transition: all ease-in-out 400ms;
-  :hover {
-    background: var(--rangBlue);
+  transition: all ease-in-out 250ms;
+  &:hover {
+    background: var(--mainBlue);
     border-style: solid;
+    .AddTaskBtnTextStyled {
+      color: var(--mainWhite);
+    }
   }
 
 `;
+
+export const OutlinePlus = styled(GoPlus)`
+color: var(--mainBlack);
+height: 14px;
+width: 14px;
+transition: all ease-in-out 250ms;
+${AddTaskBtnStyled}:hover & {
+  color: var(--mainWhite);
+}
+
+`
 
 export const AddTaskBtnIconStyled = styled.div``;
 
@@ -29,4 +45,8 @@ export const AddTaskBtnTextStyled = styled.div`
   line-height: 18px;
   color: var(--mainBlack);
   margin-left: 10px;
+  transition: all ease-in-out 250ms;
+  ${AddTaskBtnStyled}:hover & {
+    color: var(--mainWhite);
+  }
 `;

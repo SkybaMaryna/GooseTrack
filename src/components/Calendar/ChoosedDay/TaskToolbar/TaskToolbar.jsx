@@ -5,9 +5,10 @@ import {
   TaskModalChangeStatusBtn,
   TaskModalChangeStatusBtnElem,
   StateStatus,
+  ArrowRight,
+  Pencil,
+  Trash,
 } from './TaskToolbar.styled';
-import { FiArrowRightCircle, FiTrash } from 'react-icons/fi';
-import { HiOutlinePencil } from 'react-icons/hi';
 import { useDispatch } from 'react-redux';
 import {
   openModalUpdateTask,
@@ -57,7 +58,7 @@ export const TaskToolbar = ({ task, getTask }) => {
     <>
       <TaskToolbarStyled>
         <TaskToolbarBtn onClick={() => toggleModal()}>
-          <FiArrowRightCircle />
+          <ArrowRight />
         </TaskToolbarBtn>
         {isModalOpen && (
           <TaskModalChangeStatusWrapper data-modal="true">
@@ -72,7 +73,7 @@ export const TaskToolbar = ({ task, getTask }) => {
                 >
                   <TaskModalChangeStatusBtnElem>
                     <StateStatus>{state}</StateStatus>
-                    <FiArrowRightCircle />
+                    <ArrowRight />
                   </TaskModalChangeStatusBtnElem>
                 </TaskModalChangeStatusBtn>
               ))}
@@ -80,11 +81,11 @@ export const TaskToolbar = ({ task, getTask }) => {
         )}
 
         <TaskToolbarBtn onClick={() => openModal(task._id)}>
-          <HiOutlinePencil />
+          <Pencil />
         </TaskToolbarBtn>
 
         <TaskToolbarBtn onClick={confirmationOpen}>
-          <FiTrash />
+          <Trash />
         </TaskToolbarBtn>
       </TaskToolbarStyled>
     </>
