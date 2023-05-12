@@ -1,3 +1,4 @@
+import { logoutThunk } from 'redux/Auth/authOperations';
 import { fetchTasks } from './tasksOperations';
 
 const { createSlice } = require('@reduxjs/toolkit');
@@ -24,6 +25,8 @@ const tasksSlice = createSlice({
       state.loading = false;
       state.error = payload;
     },
+    [logoutThunk.fulfilled]: state => {
+      state.tasks = [];}
   },
 });
 

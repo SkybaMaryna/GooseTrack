@@ -8,10 +8,15 @@ display: flex;
   width: 304px;
   height: 52px;
   margin: 32px 20px 28px 20px;
-  background: #e3f3ff;
-  border: 1px dashed #3e85f3;
+  background: var(--lightblue);
+  border: 1px dashed var(--mainBlue);
   border-radius: 8px;
   cursor: pointer;
+  transition: all ease-in-out 400ms;
+  :hover {
+    background: var(--rangBlue);
+    border-style: solid;
+  }
 
 `;
 
@@ -22,6 +27,6 @@ export const AddTaskBtnTextStyled = styled.div`
   font-weight: 600;
   font-size: 14px;
   line-height: 18px;
-  color: #111111;
+  color: var(--mainBlack);
   margin-left: 10px;
 `;

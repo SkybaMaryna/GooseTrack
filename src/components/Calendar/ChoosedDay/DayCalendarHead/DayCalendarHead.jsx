@@ -92,12 +92,12 @@ export function DayCalendarHead({ clickChooseDay }) {
               onClick={() => {
                 handleClickDay(day, dayValue, monthValue, yearValue);
                 navigate(
-                  `/calendar/day/${yearValue}-${monthValue}-${dayValue}`
+                  `/main/calendar/day/${yearValue}-${monthValue}-${dayValue}`
                 );
               }}
               style={{
-                backgroundColor: isCurrentDay ? '#3e85f3' : 'inherit',
-                color: isCurrentDay ? '#ffffff' : 'inherit',
+                backgroundColor: isCurrentDay ? 'var(--mainBlue)' : 'inherit',
+                color: isCurrentDay ? 'var(--mainBlack)' : 'inherit',
               }}
             >
               <p>{dayValue}</p>
