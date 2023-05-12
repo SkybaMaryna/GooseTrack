@@ -16,7 +16,7 @@ export const ModalBody = styled.div`
   @media screen and (min-width: 768px) {
     width: 396px;
     height: 360px;
-    padding: 62px, 28px;
+    padding: 40px 28px;
   }
 `;
 

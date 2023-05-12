@@ -17,7 +17,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { Cross } from '../Modal/Cross/Cross';
 import { TaskForm } from '../TaskForm/TaskForm';
 import { EditForm } from '../Modal/EditForm/EditForm';
-import { LogOutForm } from '../Modal/LogOutForm/LogOutForm';
+// import { LogOutForm } from '../Modal/LogOutForm/LogOutForm';
 import { DeleteForm } from '../Modal/DeleteForm.jsx/DeleteForm';
 
 export const TaskModal = ({
@@ -93,9 +93,6 @@ export const TaskModal = ({
             typeOfColumn={typeOfColumn}
             taskFromCard={taskFromCard}
           />
-        )}
-        {typeOfModal === 'logout' && (
-          <LogOutForm closeModal={close} actionFu={actionFu} />
         )}
         {typeOfModal === 'deleteTask' && (
           <DeleteForm closeModal={close} actionFu={actionFu} />

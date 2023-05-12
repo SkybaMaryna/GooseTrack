@@ -20,6 +20,7 @@ export const TaskForm = ({
   const [end, setEnd] = useState('');
   const [priorities, setPriorities] = useState('Low');
   console.log(enterText, start, end, priorities);
+  console.log(typeOfColumn, choosedDay);
 
   const [obj, setObj] = useState([
     { status: true, key: 'Low', color: 'blue' },

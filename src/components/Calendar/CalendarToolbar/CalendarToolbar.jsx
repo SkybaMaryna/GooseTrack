@@ -12,8 +12,6 @@ export const CalendarToolbar = ({ today, prevHandler, nextHandler }) => {
   const [type, setType] = useState('month');
 
   const location = useLocation();
-  const dispatch = useDispatch();
-  const modalOpen = useSelector(selectAddTaskOpen)
 
   const pathname = location.pathname.slice(0, -11);
 
@@ -26,8 +24,6 @@ export const CalendarToolbar = ({ today, prevHandler, nextHandler }) => {
   }, [pathname]);
   return (
     <ToolbarWrapper>
-        <button onClick={()=>dispatch(openModalAddTask())}>OPEN MODAL</button>
-        {modalOpen && <TaskModal typeOfModal={'deleteTask'}/>}
       <PeriodPaginator
         today={today}
         prevHandler={prevHandler}

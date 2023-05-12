@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 export const StyledInputText = styled.input`
-  border-color: transparent;
-  border-radius: 8px;   
+  border-radius: 8px; 
+  border-color: transparent;  
   color: var(--textGrey);
   background-color: #F7F7F7;
   cursor: text;
   width: 100%;
   height: 42px;
-  padding: 12px  14px;
+  padding: 12px 14px;
   font-family: 'Inter';
   font-weight: 600;
   font-size: 14px;
@@ -17,6 +17,7 @@ export const StyledInputText = styled.input`
   @media screen and (min-width: 769px) {
     width: 340px;
     height: 46px;
+    padding: 14px 18px;
   }
 `;
 
