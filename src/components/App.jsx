@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import HomePage from 'pages/HomePage/HomePage';
 import LoginPage from 'pages/LoginPage/LoginPage';
 import RegisterPage from 'pages/RegisterPage/RegisterPage';
@@ -13,13 +13,31 @@ import PublicRoute from 'hoc/PublicRoute';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { refreshThunk } from 'redux/Auth/authOperations';
+import axios from 'axios';
+import { logout } from 'redux/Auth/authSlice';
 
 export const App = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(refreshThunk());
   }, [dispatch]);
+
+  axios.interceptors.response.use(
+    function (response) {
+      return response;
+    },
+    function (error) {
+      if (401 === error.response.status) {
+        localStorage.removeItem('token');
+        dispatch(logout);
+        navigate('/login');
+      } else {
+        return Promise.reject(error);
+      }
+    }
+  );
 
   return (
     <div>

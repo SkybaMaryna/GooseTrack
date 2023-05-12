@@ -108,6 +108,13 @@ const authSlice = createSlice({
       state.error = payload;
     },
   },
+  reducers: {
+    logout: state => {
+      state.isLoggedIn = false;
+      state.accessToken = '';
+    },
+  },
 });
 
 export const authReducer = authSlice.reducer;
+export const logout = authSlice.actions;

@@ -40,7 +40,7 @@ export const loginThunk = createAsyncThunk(
       setToken(res.data.data.accessToken);
       return res.data;
     } catch (error) {
-    toast.error(`Email doesn't exist or Password is wrong`);
+      toast.error(`Email doesn't exist or Password is wrong`);
       return rejectWithValue(error.message);
     }
   }
