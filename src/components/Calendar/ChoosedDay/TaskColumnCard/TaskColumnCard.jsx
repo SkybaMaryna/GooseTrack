@@ -21,24 +21,24 @@ const truncateString = (str, maxLength) => {
 };
 
 const choosePriorityBackgroundColor = priority => {
-  if (priority === 'Low') {
+  if (priority === 'low') {
     return 'var(--rangBlue)';
   }
-  if (priority === 'Medium') {
+  if (priority === 'medium') {
     return 'var(--rangYellow)';
   }
-  if (priority === 'High') {
+  if (priority === 'high') {
     return 'var(--rangPink)';
   }
 };
 const choosePriorityTextColor = priority => {
-  if (priority === 'Low') {
+  if (priority === 'low') {
     return 'var(--cardGrey)';
   }
-  if (priority === 'Medium') {
+  if (priority === 'medium') {
     return 'var(--cardGrey)';
   }
-  if (priority === 'High') {
+  if (priority === 'high') {
     return 'var(--cardGrey)';
   }
 };
