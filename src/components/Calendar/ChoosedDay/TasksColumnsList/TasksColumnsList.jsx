@@ -1,7 +1,6 @@
 import { TasksColumnsListWrapper } from './TasksColumnsList.styled';
 import TasksColumn from '../TasksColumn/TasksColumn';
 
-
 const TasksColumnsList = ({ getTypeOfColumn, getTask, tasks=[] }) => {
   console.log(tasks);
 
@@ -14,6 +13,7 @@ const tasksList = tasks[0]?.tasks;
   
   const filterTodo = tasksList?.filter(task => task.category === "to-do")
   
+
   // console.log(filterTodo)
 
   return (

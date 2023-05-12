@@ -22,7 +22,7 @@ import {
 } from './HomePage.styled';
 import CalendarButton from 'components/Layout/CalendarButton/CalendarButton';
 import { selectIsLoggedIn } from 'redux/Auth/authSelectors';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 // import 'swiper/css';
 // import 'swiper/css/pagination';
 // import 'swiper/css/navigation';
@@ -31,8 +31,6 @@ import { useDispatch, useSelector } from 'react-redux';
 //   HiOutlineArrowNarrowRight,
 // } from 'react-icons/hi';
 import ReviewsCards from './ReviewsCards';
-import { useEffect } from 'react';
-import { refreshThunk } from 'redux/Auth/authOperations';
 
 // const { isMobile, isTablet, isDesktop, isRetina } = useMediaRules;
 
@@ -44,10 +42,7 @@ const HomePage = () => {
   const isDesktop = useMediaQuery({ query: '(min-width: 1440px)' });
   const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' });
   const IsLoggedIn = useSelector(selectIsLoggedIn);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(refreshThunk());
-  }, [dispatch]);
+
   return (
     <div>
       <Herosection>
@@ -221,7 +216,7 @@ const HomePage = () => {
       <ReviewSection>
         <ReviewTitle>REVIEWS</ReviewTitle>
         <SwiperWraper>
-                  <ReviewsCards />
+          <ReviewsCards />
         </SwiperWraper>
       </ReviewSection>
     </div>
