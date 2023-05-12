@@ -92,7 +92,7 @@ export function DayCalendarHead({ clickChooseDay }) {
               onClick={() => {
                 handleClickDay(day, dayValue, monthValue, yearValue);
                 navigate(
-                  `/calendar/day/${yearValue}-${monthValue}-${dayValue}`
+                  `/main/calendar/day/${yearValue}-${monthValue}-${dayValue}`
                 );
               }}
               style={{
