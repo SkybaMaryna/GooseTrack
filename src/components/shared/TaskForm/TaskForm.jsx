@@ -6,19 +6,13 @@ import { Form } from '../Modal/Form/Form';
 import { Priority } from '../Modal/Priority/Priority';
 import { toast } from 'react-toastify';
 import { AddButton, ButtonsWrapper, CancelButton } from './TaskFormStyled';
-import {BiPlus} from 'react-icons/bi'
+import { BiPlus } from 'react-icons/bi';
 
-
-export const TaskForm = ({
-  closeModal,
-  typeOfColumn,
-  choosedDay,
-}) => {
+export const TaskForm = ({ closeModal, typeOfColumn, choosedDay }) => {
   const [enterText, setEnterText] = useState('');
   const [start, setStart] = useState('');
   const [end, setEnd] = useState('');
   const [priorities, setPriorities] = useState('Low');
-
 
   const [obj, setObj] = useState([
     { status: true, key: 'Low', color: 'blue' },
@@ -36,14 +30,14 @@ export const TaskForm = ({
 
   const objectFormation = () => {
     if (timeFormValidation() === 'invalid') {
-      toast.error('End Time of your task can not be less then Start Time')
+      toast.error('End Time of your task can not be less then Start Time');
       return;
     }
     if (start.length < 5 && end.length < 5 && enterText.length < 1) {
       toast.error('fields cannot be empty');
       return;
     }
-    const category =  typeOfColumn.status.toLowerCase().replace('', '-')
+    const category = typeOfColumn.status.toLowerCase().replace(' ', '-');
 
     const taskObject = {
       title: enterText,
@@ -52,7 +46,6 @@ export const TaskForm = ({
       createdAt: choosedDay,
       priority: priorities.toLowerCase(),
       category,
-      
     };
 
     dispatch(addTask(taskObject));
@@ -76,7 +69,6 @@ export const TaskForm = ({
   useEffect(() => {
     if (start && String(start).length > 5) {
       toast.error('Enter the correct time in the format 00:00');
-       
     }
     if (end && String(end).length > 5) {
       setEnd('');
@@ -88,20 +80,15 @@ export const TaskForm = ({
     }
   }, [start, end, enterText]);
 
-
   const timeFormatValidation = (hour, minutes) => {
     let valid = 'valid';
 
     if (Number(hour) > 23) {
-      toast.error(
-        'you cannot specify the hours value more than 23'
-      );
+      toast.error('you cannot specify the hours value more than 23');
       return (valid = 'invalid');
     }
     if (Number(minutes > 59)) {
-      toast.error(
-        'you cannot specify the minutes value more than 59'
-      );
+      toast.error('you cannot specify the minutes value more than 59');
       return (valid = 'invalid');
     }
     return valid;
@@ -249,7 +236,6 @@ export const TaskForm = ({
   return (
     <>
       <Form
-   
         titleSetter={titleSetter}
         startSetter={startSetter}
         endSetter={endSetter}
@@ -262,7 +248,9 @@ export const TaskForm = ({
       <Priority obj={obj} prioritySelector={prioritySelector} />
 
       <ButtonsWrapper>
-        <AddButton onClick={()=>dispatch(objectFormation)}><BiPlus/> Add</AddButton>
+        <AddButton onClick={() => dispatch(objectFormation)}>
+          <BiPlus /> Add
+        </AddButton>
         <CancelButton onClick={closeModal}>Cancel</CancelButton>
       </ButtonsWrapper>
     </>
