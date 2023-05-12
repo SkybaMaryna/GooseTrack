@@ -10,7 +10,6 @@ import {BiPlus} from 'react-icons/bi'
 
 
 export const TaskForm = ({
-  typeOfModal,
   closeModal,
   typeOfColumn,
   choosedDay,
@@ -19,8 +18,7 @@ export const TaskForm = ({
   const [start, setStart] = useState('');
   const [end, setEnd] = useState('');
   const [priorities, setPriorities] = useState('Low');
-  console.log(enterText, start, end, priorities);
-  console.log(typeOfColumn, choosedDay);
+
 
   const [obj, setObj] = useState([
     { status: true, key: 'Low', color: 'blue' },
@@ -45,16 +43,17 @@ export const TaskForm = ({
       toast.error('fields cannot be empty');
       return;
     }
+    const category =  typeOfColumn.status.toLowerCase().replace('', '-')
 
     const taskObject = {
       title: enterText,
       start: start.slice(0, 5),
       end: end.slice(0, 5),
       createdAt: choosedDay,
-      priority: priorities,
-      ...typeOfColumn,
+      priority: priorities.toLowerCase(),
+      category,
+      
     };
-    console.log(taskObject);
 
     dispatch(addTask(taskObject));
     dispatch(closeModalAddTask());
@@ -62,7 +61,6 @@ export const TaskForm = ({
 
   const onFocusFu = event => {
     const { name, value } = event.target;
-    console.log(name, value);
     switch (name) {
       case 'start':
         setStart(value);
