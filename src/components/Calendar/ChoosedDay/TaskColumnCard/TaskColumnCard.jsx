@@ -74,8 +74,13 @@ const TaskColumnCard = ({ task, getTask }) => {
                 <AvatarImg src={avatar} alt="Avatar" />
               )}
             </TaskCardAvatar>
-            <TaskCardPriority style={{ backgroundColor: priorityBackgroundColor, color: priorityTextColor, }}>
-              {priority}
+            <TaskCardPriority
+              style={{
+                backgroundColor: priorityBackgroundColor,
+                color: priorityTextColor,
+              }}
+            >
+              {priority[0].toUpperCase() + priority.slice(1)}
             </TaskCardPriority>
           </TaskAvatarPriorityWrapper>
           <TaskToolbar getTask={getTask} task={task} />
