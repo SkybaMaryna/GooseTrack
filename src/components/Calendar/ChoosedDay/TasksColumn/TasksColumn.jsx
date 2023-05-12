@@ -5,7 +5,7 @@ import { AddTaskBtn } from '../AddTaskBtn/AddTaskBtn'
 import ColumnHeadBar from '../ColumnHeadBar/ColumnHeadBar'
 
 
-const TasksColumn = ({ getTypeOfColumn, title, tasks, getTask }) => {
+const TasksColumn = ({ getTypeOfColumn, title, tasks=[], getTask }) => {
 
   return (
     <ColumnWrapper>

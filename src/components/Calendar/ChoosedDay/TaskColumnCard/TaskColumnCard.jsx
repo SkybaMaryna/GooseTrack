@@ -48,8 +48,8 @@ const TaskColumnCard = ({ task, getTask }) => {
 
   const isLoading = useSelector(selectIsIsLoading);
   const userSelector = useSelector(selectUser);
-  const name = userSelector.user?.name || 'Name';
-  const avatar = userSelector.user?.avatarURL;
+  const name = userSelector?.user?.name || 'Name';
+  const avatar = userSelector?.user?.avatarURL;
   const firstLetter = name.trim().slice(0, 1).toUpperCase();
 
   const originalString = title;
