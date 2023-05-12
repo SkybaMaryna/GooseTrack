@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import  TasksColumnsList  from './TasksColumnsList/TasksColumnsList';
+import TasksColumnsList from './TasksColumnsList/TasksColumnsList';
 import { TasksColumnsListWrapper } from './ChoosedDay.styled';
 import { DayCalendarHead } from './DayCalendarHead/DayCalendarHead';
 import { useDispatch, useSelector } from 'react-redux';
@@ -44,6 +44,7 @@ const ChoosedDay = () => {
   const [taskFromCard, setTaskFromCard] = useState(null);
 
   const tasksMonth = useSelector(selectAllTasks);
+  console.log(tasksMonth);
   const modalAddState = useSelector(selectAddTaskOpen);
   const modalEditState = useSelector(selectUpDateTaskModal);
   const modalConfirmationState = useSelector(selectModalConfirmation);
@@ -84,7 +85,7 @@ const ChoosedDay = () => {
     setTasksFilter(dayFilter(tasksMonth, choosedDay));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tasksMonth, currentDay, choosedDay]);
-  
+
   const chooseDay = ({ day, month, year }) => {
     setChoosedDay(`${year}-${month}-${day}`);
     setTasksFilter(dayFilter(tasksMonth, `${year}-${month}-${day}`));
@@ -98,31 +99,33 @@ const ChoosedDay = () => {
         getTypeOfColumn={getTypeOfColumn}
         getTask={getTask}
       />
-      {modalAddState && (
-        {/* <Modal
+      {modalAddState &&
+        {
+          /* <Modal
           closeModal={closeModal}
           typeOfModal={'add'}
           typeOfColumn={typeOfColumn}
           choosedDay={choosedDay}
-        /> */}
-      )}
-      {modalEditState && (
-        {/* <Modal
+        /> */
+        }}
+      {modalEditState &&
+        {
+          /* <Modal
           closeModal={closeEditModal}
           typeOfModal={'edit'}
           taskFromCard={taskFromCard}
-        /> */}
-      )}
-      {modalConfirmationState && (
-        {/* <Modal
+        /> */
+        }}
+      {modalConfirmationState &&
+        {
+          /* <Modal
           closeModal={closeDeleteModal}
           actionFu={deleteTaskFu}
           typeOfModal={'deleteTask'}
-        /> */}
-      )}
+        /> */
+        }}
     </TasksColumnsListWrapper>
   );
 };
-
 
 export default ChoosedDay;
