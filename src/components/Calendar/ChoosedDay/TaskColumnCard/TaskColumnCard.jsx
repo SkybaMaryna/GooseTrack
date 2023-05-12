@@ -48,8 +48,8 @@ const TaskColumnCard = ({ task, getTask }) => {
 
   const isLoading = useSelector(selectIsIsLoading);
   const userSelector = useSelector(selectUser);
-  const name = userSelector?.user?.name || 'Name';
-  const avatar = userSelector?.user?.avatarURL;
+  const name = userSelector?.name || 'Name';
+  const avatar = userSelector?.userImgUrl;
   const firstLetter = name.trim().slice(0, 1).toUpperCase();
 
   const originalString = title;
@@ -68,7 +68,7 @@ const TaskColumnCard = ({ task, getTask }) => {
             <TaskCardAvatar>
               {isLoading ? (
                 <AvatarLetter>{firstLetter}</AvatarLetter>
-              ) : avatar === null ? (
+              ) : !avatar ? (
                 <AvatarLetter>{firstLetter}</AvatarLetter>
               ) : (
                 <AvatarImg src={avatar} alt="Avatar" />

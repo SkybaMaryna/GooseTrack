@@ -32,7 +32,7 @@ export const TaskCardAvatar = styled.div`
   height: 32px;
   border-radius: 50%;
   margin: 0px 8px 0px 0px;
-  border: 1.8px solid #3e85f3;
+  border: 1.8px solid var(--mainBlue);
 `;
 export const TaskCardPriority = styled.div`
   width: 63px;
@@ -55,7 +55,7 @@ export const AvatarLetter = styled.span`
   justify-content: center;
   font-weight: 700;
   font-size: 24px;
-  color: #3e85f3;
+  color: var(--mainBlue);
   text-shadow: 0px 47px 355px rgba(0, 0, 0, 0.07),
     0px 9.4px 57.6875px rgba(0, 0, 0, 0.035);
   @media screen and (min-width: 768px) {

@@ -43,7 +43,6 @@ const ChoosedDay = () => {
   const [taskFromCard, setTaskFromCard] = useState(null);
 
   const tasksMonth = useSelector(selectAllTasks);
-  console.log(tasksMonth);
   const modalAddState = useSelector(selectAddTaskOpen);
   const modalEditState = useSelector(selectUpDateTaskModal);
   const modalConfirmationState = useSelector(selectModalConfirmation);
