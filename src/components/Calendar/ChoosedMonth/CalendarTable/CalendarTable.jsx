@@ -17,6 +17,7 @@ import { CalendarTaskDay } from './CalendarTaskDay/CalendarTaskDay.js';
 const CalendarTable = ({ startDay, today, tasks }) => {
   const navigate = useNavigate();
   const totalDays = 42;
+  console.log(startDay);
   const day = startDay.clone().subtract(1, 'day');
 
   const daysMap = [...Array(totalDays)].map(() => day.add(1, 'day').clone());
@@ -44,7 +45,6 @@ const CalendarTable = ({ startDay, today, tasks }) => {
             isSelectedMonth={isSelectedMonth(dayItem)}
             type="button"
             onClick={() => {
-
               navigate(`/main/calendar/day/${dayItem.format('YYYY-MM-DD')}`);
             }}
           >
