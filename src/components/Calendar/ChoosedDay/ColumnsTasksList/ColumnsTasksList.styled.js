@@ -15,12 +15,12 @@ export const TasksListWrapper = styled.div`
     width: 8px;
     height: 376px;
     display: true;
-    background: #f2f2f2;
+    background: var(--scrollBarBg);
     border-radius: 12px;
     
   }
   &::-webkit-scrollbar-thumb {
-    background: #E7E5E5;
+    background: var(--scrollBar);
     border-radius: 12px;
   }
 `;
