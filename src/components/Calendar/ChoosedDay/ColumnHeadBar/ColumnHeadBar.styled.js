@@ -6,7 +6,7 @@ export const TitleColumn = styled.div`
   font-weight: 700;
   font-size: 20px;
   background-color: transparent;
-  color: #111111;
+  color: var(--mainBlack);
   margin: 25px 0px 35px 25px;
 `;
 

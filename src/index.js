@@ -53,7 +53,7 @@ p {
 }`;
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <PersistGate loading={null} persistor={persistor}>
       <BrowserRouter basename="/GooseTrack">
         <Provider store={store}>
@@ -63,5 +63,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Global />
       </BrowserRouter>
     </PersistGate>
-  </React.StrictMode>
+  // </React.StrictMode>
 );

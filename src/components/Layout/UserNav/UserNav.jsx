@@ -8,7 +8,7 @@ import {
   UserNavContainer,
 } from './UserNav.styled';
 import { BsCalendar, BsFillPersonCheckFill } from 'react-icons/bs';
-
+const date = new Date().toISOString().split('T')[0];
 const UserNav = () => {
   return (
     <UserNavContainer>
@@ -22,7 +22,7 @@ const UserNav = () => {
         </NavLinkStyled>
       </LinkWrapper>
       <LinkWrapper>
-        <NavLinkStyled to="calendar/month/:currentDate">
+        <NavLinkStyled to={`/main/calendar/month/${date}`}>
           <IconWrapper>
             <BsCalendar />
             <NavSecondaryTitle>Calendar</NavSecondaryTitle>

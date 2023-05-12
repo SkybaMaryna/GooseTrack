@@ -24,7 +24,7 @@ export const Svg = styled.svg`
   width: 16px;
   height: 16px;
   fill: transparent;
-  stroke: #111111;
+  stroke: var(--mainBlack);
   &:hover {
     stroke: #3e85f3;
   }
@@ -39,7 +39,7 @@ export const TaskModalChangeStatusWrapper = styled.div`
   top: 10%;
   left: 50%;
   transform: translate(-50%, 30%);
-  background: #ffffff;
+  background: var(--mainWhite);
   border: 1px solid transparent;
   border-radius: 5px;
   width: 147px;
@@ -55,7 +55,7 @@ export const TaskModalChangeStatusBtn = styled.button`
   border: none;
   background: transparent;
   cursor: pointer;
-  color: #111111;
+  color: var(--mainBlack);
   &:hover {
     color: #3e85f3;
     stroke: #3e85f3;
@@ -72,8 +72,8 @@ export const TaskModalChangeStatusBtnElem = styled.div`
   font-weight: 500;
   font-size: 14px;
   &:hover {
-    color: #3e85f3;
-    stroke: #3e85f3;
+    color: var(--mainBlue);
+    stroke: var(--mainBlue);
   }
 `;
 
