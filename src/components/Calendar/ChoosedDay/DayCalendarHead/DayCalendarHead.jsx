@@ -31,16 +31,16 @@ const chooseIndexOfCurrentDay = date => {
 };
 const dateParts = currentDay =>
   currentDay !== ':currentDay'
-    ? currentDay.split('-')
+    ? currentDay?.split('-')
     : format(new Date(), 'yyyy-MM-dd').split('-');
 
 export function DayCalendarHead({ clickChooseDay }) {
   const navigate = useNavigate();
   const { currentDay } = useParams();
 
-  const year = dateParts(currentDay)[0];
-  const month = dateParts(currentDay)[1] - 1;
-  const dayFromParams = dateParts(currentDay)[2];
+  const year = dateParts(currentDay)?.[0];
+  const month = dateParts(currentDay)?.[1] - 1;
+  const dayFromParams = dateParts(currentDay)?.[2];
 
   const currentDate = new Date(year, month, dayFromParams);
 

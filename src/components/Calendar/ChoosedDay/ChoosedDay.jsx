@@ -66,7 +66,6 @@ const ChoosedDay = () => {
   const getTypeOfColumn = data => {
     setTypeOfColumn(prevState => (prevState = data));
   };
-  console.log(getTypeOfColumn);
 
   const getTask = task => {
     setTaskFromCard(task);
@@ -77,7 +76,7 @@ const ChoosedDay = () => {
   useEffect(() => {
     setChoosedDay(dayFromParams);
     setTasksFilter(dayFilter(tasksMonth, choosedDay));
-  }, [tasksMonth, currentDay, choosedDay]);
+  }, [tasksMonth, dayFromParams, choosedDay]);
 
   const chooseDay = ({ day, month, year }) => {
     setChoosedDay(`${year}-${month}-${day}`);
@@ -97,7 +96,7 @@ const ChoosedDay = () => {
           closeModal={closeModal}
           typeOfModal={'add'}
           typeOfColumn={typeOfColumn}
-          choosedDay={chooseDay}
+          choosedDay={choosedDay}
         />
         }
       {modalEditState &&

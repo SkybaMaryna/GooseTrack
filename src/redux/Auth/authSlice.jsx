@@ -71,7 +71,6 @@ const authSlice = createSlice({
     [refreshThunk.fulfilled]: (state, { payload }) => {
       state.isLoggedIn = true;
       state.isLoading = false;
-      state.user = payload;
     },
     [refreshThunk.pending]: state => {
       state.isLoading = true;
