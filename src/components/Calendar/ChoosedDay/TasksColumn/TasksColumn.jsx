@@ -2,7 +2,7 @@ import React from "react";
 import { ColumnWrapper } from "./TasksColumn.styled";
 import  ColumnsTasksList  from '../ColumnsTasksList/ColumnsTasksList'
 import { AddTaskBtn } from '../AddTaskBtn/AddTaskBtn'
-import {ColumnHeadBar} from '../ColumnHeadBar/ColumnHeadBar'
+import ColumnHeadBar from '../ColumnHeadBar/ColumnHeadBar'
 
 
 const TasksColumn = ({ getTypeOfColumn, title, tasks, getTask }) => {
@@ -14,7 +14,7 @@ const TasksColumn = ({ getTypeOfColumn, title, tasks, getTask }) => {
         getTypeOfColumn={getTypeOfColumn}
         tasks={tasks}
       />
-      {tasks?.length && <ColumnsTasksList tasks={tasks} getTask={getTask} />}
+      {tasks?.length > 0 && <ColumnsTasksList tasks={tasks} getTask={getTask} />}
       <AddTaskBtn getTypeOfColumn={getTypeOfColumn} title={title} />
     </ColumnWrapper>
   );

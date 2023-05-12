@@ -6,11 +6,10 @@ import {
 
 export const MonthCalendarHeader = () => {
  const isMobile = useMediaRules();
-  // const arrayMonth = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-  // const arrayMonthSlice = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+  
   return (
     <>
-      {isMobile ? (
+      {!isMobile ? (
         <MonthCalendarHeaderList>
           <li>M</li>
           <li>T</li>

@@ -1,3 +1,6 @@
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
 import PeriodPaginator from './PeriodPaginator/PeriodPaginator';
 import { PeriodTypeSelect } from './PeriodTypeSelect/PeriodTypeSelect';
 import { ToolbarWrapper } from './CalendarToolbar.styled';
@@ -6,20 +9,32 @@ import { openModalAddTask } from 'redux/Modal/modalSlice';
 import { TaskModal } from 'components/shared/TaskModal/TaskModal';
 import { selectAddTaskOpen } from 'redux/Modal/modalSelectors';
 export const CalendarToolbar = ({ today, prevHandler, nextHandler }) => {
-const dispatch = useDispatch()
-const modalOpen = useSelector(selectAddTaskOpen)
+  const [type, setType] = useState('month');
 
+  const location = useLocation();
+  const dispatch = useDispatch();
+  const modalOpen = useSelector(selectAddTaskOpen)
 
+  const pathname = location.pathname.slice(0, -11);
+
+  useEffect(() => {
+    if (pathname === '/calendar/day') {
+      setType('day');
+      return;
+    }
+    setType('month');
+  }, [pathname]);
   return (
     <ToolbarWrapper>
         <button onClick={()=>dispatch(openModalAddTask())}>OPEN MODAL</button>
-        {modalOpen && <TaskModal typeOfModal={'add'}/>}
+        {modalOpen && <TaskModal typeOfModal={'deleteTask'}/>}
       <PeriodPaginator
         today={today}
         prevHandler={prevHandler}
         nextHandler={nextHandler}
+        type={type}
       />
-      <PeriodTypeSelect />
+      <PeriodTypeSelect today={today} onChangeType={setType} />
     </ToolbarWrapper>
   );
 };

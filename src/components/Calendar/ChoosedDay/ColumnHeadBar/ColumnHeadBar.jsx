@@ -2,7 +2,7 @@ import  AddTaskBtnHead  from "../AddTaskBtn/AddTaskBtnHead";
 import { ColumnHeadWrapper, TitleColumn } from "./ColumnHeadBar.styled";
 
 
-export const ColumnHeadBar = ({ getTypeOfColumn, title, tasks }) => {
+const ColumnHeadBar = ({ getTypeOfColumn, title, tasks }) => {
   return (
     <ColumnHeadWrapper>
       <TitleColumn>{title}</TitleColumn>
@@ -17,4 +17,4 @@ export const ColumnHeadBar = ({ getTypeOfColumn, title, tasks }) => {
   );
 };
 
-// export default ColumnHeadBar;
+export default ColumnHeadBar;
