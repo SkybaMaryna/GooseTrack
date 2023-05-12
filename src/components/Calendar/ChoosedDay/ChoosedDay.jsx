@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import TasksColumnsList from './TasksColumnsList/TasksColumnsList';
 import { TasksColumnsListWrapper } from './ChoosedDay.styled';
-import { DayCalendarHead } from './DayCalendarHead/DayCalendarHead';
+// import { DayCalendarHead } from './DayCalendarHead/DayCalendarHead';
 import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import { useParams } from 'react-router-dom';
 import { selectAllTasks } from 'redux/Tasks/tasksSelectors';
 
@@ -12,14 +12,13 @@ import {
   selectUpDateTaskModal,
   selectModalConfirmation,
 } from 'redux/Modal/modalSelectors';
-// import { Modal } from 'components/Modal/Modal';
 
-import {
-  closeModalAddTask,
-  closeModalUpdateTask,
-  closeModalConfirmation,
-} from 'redux/Modal/modalSlice';
-import { deleteTask } from 'redux/Tasks/tasksOperations';
+// import {
+//   closeModalAddTask,
+//   closeModalUpdateTask,
+//   closeModalConfirmation,
+// } from 'redux/Modal/modalSlice';
+// import { deleteTask } from 'redux/Tasks/tasksOperations';
 
 const dayFilter = (tasksMonth, today) => {
   const filteredTasks = tasksMonth.filter(({ date }) => {
@@ -51,22 +50,22 @@ const ChoosedDay = () => {
 
   const dispatch = useDispatch();
 
-  const closeModal = () => {
-    dispatch(closeModalAddTask());
-    setTaskFromCard(null);
-  };
+  // const closeModal = () => {
+  //   dispatch(closeModalAddTask());
+  //   setTaskFromCard(null);
+  // };
 
-  const closeEditModal = () => dispatch(closeModalUpdateTask());
-  const closeDeleteModal = () => dispatch(closeModalConfirmation());
+  // const closeEditModal = () => dispatch(closeModalUpdateTask());
+  // const closeDeleteModal = () => dispatch(closeModalConfirmation());
 
-  const deleteTaskFu = () => {
-    closeDeleteModal();
+  // const deleteTaskFu = () => {
+  //   closeDeleteModal();
 
-    dispatch(deleteTask(taskFromCard._id))
-      .then(() => toast.success('taskDeleted'))
-      .catch(() => toast.error('taskDeleteError'));
-    setTaskFromCard(null);
-  };
+  //   dispatch(deleteTask(taskFromCard._id))
+  //     .then(() => toast.success('taskDeleted'))
+  //     .catch(() => toast.error('taskDeleteError'));
+  //   setTaskFromCard(null);
+  // };
 
   // functions for add task =============================>
 
@@ -93,7 +92,7 @@ const ChoosedDay = () => {
 
   return (
     <TasksColumnsListWrapper>
-      <DayCalendarHead clickChooseDay={chooseDay} />
+      {/* <DayCalendarHead clickChooseDay={chooseDay} /> */}
       <TasksColumnsList
         tasks={tasksFilter}
         getTypeOfColumn={getTypeOfColumn}

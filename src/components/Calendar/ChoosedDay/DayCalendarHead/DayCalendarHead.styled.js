@@ -4,11 +4,11 @@ export const Container = styled.div`
   height: 68px;
   width: 1087px;
   padding: 15px 40px;
-  background: #ffffff;
+  background: var(--mainWhite);
   border: 1px solid rgba(220, 227, 229, 0.8);
   border-radius: 8px;
   margin-bottom: 16px;
-  background-color: #ffffff;
+  background-color: var(--mainWhite);
 `;
 
 export const WeekInfoWrapper = styled.div`
@@ -24,7 +24,7 @@ export const DayOfWeek = styled.div`
   font-weight: 600;
   font-size: 14px;
   line-height: 18px;
-  color: #616161;
+  color: var(--textGrey);
   margin: 0px 0px 4px 0px;
 `;
 
@@ -43,12 +43,13 @@ export const DateContainer = styled.button`
   height: 26px;
   border-radius: 8px;
   background-color: transparent;
-  color: #111111;
+  color: var(--mainBlack);
   padding: 0px 0px 0px 0px;
   border: none;
   cursor: pointer;
+  transition: all ease-in-out 400ms;
   &:hover {
-    background-color: #3e85f3;
-    color: #e3f3ff;
+    background-color: var(--mainBlue);
+    color: var(--lightblue);
   }
 `;
