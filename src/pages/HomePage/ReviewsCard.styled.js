@@ -14,6 +14,7 @@ gap: 24px;
 border-radius: 8px;
 border: 1px solid var(--textGrey);
 padding: 24px;
+overflow: auto;
 @media screen and (min-width: 768px) {
     width: 580px;
 height: 187px;

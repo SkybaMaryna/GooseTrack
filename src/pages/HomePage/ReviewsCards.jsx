@@ -49,7 +49,7 @@ const ReviewsCards = () => {
           loop={true}
         >
            {reviews.map(review => (
-          <SwiperSlide key={review.id}>
+          <SwiperSlide key={review._id}>
     <ReviewCard>
       <AuthorBox>
         <Avatar>
@@ -57,7 +57,7 @@ const ReviewsCards = () => {
         </Avatar>
         <div>
           <ReviewAuthor>{review.name}</ReviewAuthor>
-          <RangeStars color=''>⭐⭐⭐⭐⭐</RangeStars>
+          <RangeStars color='yellow'>⭐⭐⭐⭐⭐</RangeStars>
         </div>
       </AuthorBox>
       <ReviewText>{review.comment}</ReviewText>
