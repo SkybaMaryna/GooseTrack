@@ -52,7 +52,9 @@ const CalendarPage = () => {
   const currentMonth = currentDate?.slice(6, 7);
 
   useEffect(() => {
-    dispatch(fetchTasks({ year: currentYear, month: currentMonth }));
+    currentYear &&
+      currentMonth &&
+      dispatch(fetchTasks({ year: currentYear, month: currentMonth }));
   }, [currentMonth, currentYear, dispatch]);
 
   // useEffect(() => {

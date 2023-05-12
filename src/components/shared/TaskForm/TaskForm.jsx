@@ -43,7 +43,7 @@ export const TaskForm = ({ closeModal, typeOfColumn, choosedDay }) => {
       title: enterText,
       start: start.slice(0, 5),
       end: end.slice(0, 5),
-      createdAt: choosedDay,
+      date: choosedDay,
       priority: priorities.toLowerCase(),
       category,
     };

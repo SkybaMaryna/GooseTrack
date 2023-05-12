@@ -17,8 +17,8 @@ export const addTask = createAsyncThunk(
   'tasks/addTask',
   async (task, { rejectWithValue, dispatch }) => {
     try {
-      await axios.post('/task', task);
-      dispatch(fetchTasks());
+      const response = await axios.post('/task', task);
+      return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
     }
