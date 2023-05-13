@@ -21,7 +21,6 @@ export const CalendarToolbar = ({ today, prevHandler, nextHandler }) => {
   return (
     <ToolbarWrapper>
       <PeriodPaginator
-        today={today}
         prevHandler={prevHandler}
         nextHandler={nextHandler}
         type={type}
