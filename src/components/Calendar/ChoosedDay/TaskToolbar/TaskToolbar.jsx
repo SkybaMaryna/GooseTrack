@@ -16,13 +16,14 @@ import {
 } from 'redux/Modal/modalSlice';
 import { useEffect, useState } from 'react';
 import { fetchTasks, updateTask } from 'redux/Tasks/tasksOperations';
-import Notiflix from 'notiflix';
+import { toast } from 'react-toastify';
+
 
 export const TaskToolbar = ({ task, getTask }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const statusStates = ['To do', 'In progress', 'Done'];
-  const status = task.status;
+  const status = task.category;
   const toggleModal = () => {
     setIsModalOpen(prev => !prev);
   };
@@ -51,7 +52,7 @@ export const TaskToolbar = ({ task, getTask }) => {
       },
     };
     dispatch(updateTask(taskForUpdate));
-    Notiflix.Notify.success(`Task status changed to ${state}`);
+    toast.success(`Task status changed to ${state}`);
   };
 
   return (
@@ -63,7 +64,7 @@ export const TaskToolbar = ({ task, getTask }) => {
         {isModalOpen && (
           <TaskModalChangeStatusWrapper data-modal="true">
             {statusStates
-              .filter(states => states !== status)
+              .filter(state => state.toLowerCase().replace(' ', '-') !== status)
               .map((state, index) => (
                 <TaskModalChangeStatusBtn
                   key={index}

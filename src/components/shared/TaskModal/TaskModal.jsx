@@ -1,5 +1,5 @@
 import { DivOverlay, ModalBody } from './TaskModalStyled';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
   closeModalAddTask,
   closeModalConfirmation,
@@ -7,17 +7,10 @@ import {
   closeModalUpdateTask,
 } from '../../../redux/Modal/modalSlice';
 
-import {
-  selectAddTaskOpen,
-  selectModalLogout,
-  selectModalConfirmation,
-  selectUpDateTaskModal,
-} from '../../../redux/Modal/modalSelectors';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect } from 'react';
 import { Cross } from '../Modal/Cross/Cross';
 import { TaskForm } from '../TaskForm/TaskForm';
 import { EditForm } from '../Modal/EditForm/EditForm';
-// import { LogOutForm } from '../Modal/LogOutForm/LogOutForm';
 import { DeleteForm } from '../Modal/DeleteForm.jsx/DeleteForm';
 
 export const TaskModal = ({
@@ -29,11 +22,6 @@ export const TaskModal = ({
 }) => {
   const dispatch = useDispatch();
 
-  const modalAdd = useSelector(selectAddTaskOpen);
-  const modalEdit = useSelector(selectUpDateTaskModal);
-  const modalConfirm = useSelector(selectModalConfirmation);
-  const modalExit = useSelector(selectModalLogout);
-
   const closeAll = useCallback(() => {
     dispatch(closeModalAddTask());
     dispatch(closeModalUpdateTask());
@@ -43,7 +31,6 @@ export const TaskModal = ({
 
   const close = useCallback(() => {
     closeAll();
-    setIsVisible(false);
   }, [closeAll]);
 
   const handleKeyDown = useCallback(
@@ -63,15 +50,7 @@ export const TaskModal = ({
     };
   }, [handleKeyDown]);
 
-  const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {
-    if (modalAdd || modalEdit || modalConfirm || modalExit) {
-      setIsVisible(true);
-      return;
-    }
-    setIsVisible(false);
-  }, [modalAdd, modalEdit, modalConfirm, modalExit]);
 
   return (
     <>
