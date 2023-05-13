@@ -13,13 +13,13 @@ import PublicRoute from 'hoc/PublicRoute';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { refreshThunk } from 'redux/Auth/authOperations';
-import { ThemeProvider } from "styled-components";
-import { selectTheme } from '../redux/Theme/themeSelectors'
+import { ThemeProvider } from 'styled-components';
+import { selectTheme } from '../redux/Theme/themeSelectors';
 import axios from 'axios';
 import { logout } from 'redux/Auth/authSlice';
 
 export const App = () => {
-  const theme = useSelector(selectTheme)
+  const theme = useSelector(selectTheme);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -33,7 +33,6 @@ export const App = () => {
     },
     function (error) {
       if (401 === error.response.status) {
-        console.log('401 recieved, clean up auth');
         localStorage.removeItem('token');
         dispatch(logout());
         navigate('/login');
@@ -46,41 +45,41 @@ export const App = () => {
   return (
     <div>
       <ThemeProvider theme={{ mode: theme }}>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route
-          path="/register"
-          element={
-            <PublicRoute>
-              <RegisterPage />
-            </PublicRoute>
-          }
-        />
-        <Route
-          path="/login"
-          element={
-            <PublicRoute>
-              <LoginPage />
-            </PublicRoute>
-          }
-        />
-        <Route
-          path="/main"
-          element={
-            <PrivateRoute>
-              <MainLayout />
-            </PrivateRoute>
-          }
-        >
-          <Route path="calendar" element={<CalendarPage />}>
-            <Route path="month/:currentDate" element={<ChoosedMonth />} />
-            <Route path="day/:currentDay" element={<ChoosedDay />} />
-            <Route />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route
+            path="/register"
+            element={
+              <PublicRoute>
+                <RegisterPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <PublicRoute>
+                <LoginPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/main"
+            element={
+              <PrivateRoute>
+                <MainLayout />
+              </PrivateRoute>
+            }
+          >
+            <Route path="calendar" element={<CalendarPage />}>
+              <Route path="month/:currentDate" element={<ChoosedMonth />} />
+              <Route path="day/:currentDay" element={<ChoosedDay />} />
+              <Route />
+            </Route>
+            <Route path="account" element={<AccountPage />} />
           </Route>
-          <Route path="account" element={<AccountPage />} />
-        </Route>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </ThemeProvider>
     </div>
   );
