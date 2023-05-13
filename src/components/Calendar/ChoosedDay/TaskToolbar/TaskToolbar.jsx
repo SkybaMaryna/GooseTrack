@@ -80,7 +80,7 @@ export const TaskToolbar = ({ task, getTask }) => {
           </TaskModalChangeStatusWrapper>
         )}
 
-        <TaskToolbarBtn onClick={() => openModal(task._id)}>
+        <TaskToolbarBtn onClick={openModal}>
           <Pencil />
         </TaskToolbarBtn>
 
