@@ -30,9 +30,9 @@ export const App = () => {
     },
     function (error) {
       if (401 === error.response.status) {
-        localStorage.removeItem('token');
+        localStorage.removeItem('persist:token');
         dispatch(logout);
-        navigate('/login');
+        setTimeout(() => navigate('/login'));
       } else {
         return Promise.reject(error);
       }

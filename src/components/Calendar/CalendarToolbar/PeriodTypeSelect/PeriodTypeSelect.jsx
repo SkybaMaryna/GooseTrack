@@ -30,33 +30,3 @@ export const PeriodTypeSelect = ({ today, onChangeType }) => {
     </List>
   );
 };
-
-// import { useNavigate } from 'react-router-dom';
-// import {
-//   PeriodTypeSelectButtonDay,
-//   PeriodTypeSelectButtonMonth,
-//   PeriodTypeSelectWrap,
-// } from './PeriodTypeSelect.styled';
-// import moment from 'moment';
-
-// export const PeriodTypeSelect = () => {
-//   const navigate = useNavigate();
-//   return (
-//     <PeriodTypeSelectWrap>
-//       <PeriodTypeSelectButtonMonth
-//         type="button"
-//         onClick={() => navigate('/main/calendar/month/:currentDate')}
-//       >
-//         Month
-//       </PeriodTypeSelectButtonMonth>
-//       <PeriodTypeSelectButtonDay
-//         type="button"
-//         onClick={() =>
-//           navigate(`/main/calendar/day/${moment().format('YYYY-MM-DD')}`)
-//         }
-//       >
-//         Day
-//       </PeriodTypeSelectButtonDay>
-//     </PeriodTypeSelectWrap>
-//   );
-// };
