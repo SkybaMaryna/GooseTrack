@@ -1,5 +1,4 @@
 import React from 'react';
-// import moment from 'moment';
 import {
   DivWrapper,
   TitleWrapper,
@@ -18,18 +17,11 @@ const PeriodPaginator = ({ today, prevHandler, nextHandler, type }) => {
           {type === 'month'
             ? currentDate.slice(3, currentDate.length)
             : currentDate}
-          {/* {today.format('MMMM')} {today.format('YYYY')} */}
         </TitleWrapper>
       </div>
       <ButtonsWrapper>
-        <ButtonWrapper1 onClick={() => prevHandler(type)}>
-          {' '}
-          &lt;{' '}
-        </ButtonWrapper1>
-        <ButtonWrapper2 onClick={() => nextHandler(type)}>
-          {' '}
-          &gt;{' '}
-        </ButtonWrapper2>
+        <ButtonWrapper1 onClick={() => prevHandler(type)}>&lt;</ButtonWrapper1>
+        <ButtonWrapper2 onClick={() => nextHandler(type)}>&gt;</ButtonWrapper2>
       </ButtonsWrapper>
     </DivWrapper>
   );
