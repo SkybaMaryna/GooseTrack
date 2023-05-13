@@ -4,7 +4,7 @@ import {
   CancelButton,
   LogoutButton,
   StyledP,
-} from '../LogOutForm/LogOutFormStyled';
+} from './DeleteFormStyled';
 
 export const DeleteForm = ({ actionFu, closeModal }) => {
   return (
