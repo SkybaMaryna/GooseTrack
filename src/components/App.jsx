@@ -30,6 +30,7 @@ export const App = () => {
     },
     function (error) {
       if (401 === error.response.status) {
+        console.log('401 recieved, clean up auth');
         localStorage.removeItem('token');
         dispatch(logout());
         navigate('/login');
