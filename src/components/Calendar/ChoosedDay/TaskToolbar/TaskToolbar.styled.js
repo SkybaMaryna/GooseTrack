@@ -1,9 +1,10 @@
 import { FiArrowRightCircle, FiTrash } from 'react-icons/fi';
 import { HiOutlinePencil } from 'react-icons/hi';
+import { borderInputModal, mainTextColor, sideBackgroundColor } from 'redux/Theme/Theme';
 import styled from 'styled-components';
 
 export const ArrowRight = styled(FiArrowRightCircle)`
-color: var(--mainBlack);
+color: ${mainTextColor};
 width: 16px;
 height: 16px;
 transition: all ease-in-out 200ms;
@@ -13,7 +14,7 @@ transition: all ease-in-out 200ms;
 `
 
 export const Trash = styled(FiTrash)`
-color: var(--mainBlack);
+color: ${mainTextColor};
 width: 16px;
 height: 16px;
 transition: all ease-in-out 200ms;
@@ -23,7 +24,7 @@ transition: all ease-in-out 200ms;
 `
 
 export const Pencil = styled(HiOutlinePencil)`
-color: var(--mainBlack);
+color: ${mainTextColor};
 width: 16px;
 height: 16px;
 transition: all ease-in-out 200ms;
@@ -71,13 +72,12 @@ export const TaskModalChangeStatusWrapper = styled.div`
   top: 10%;
   left: 50%;
   transform: translate(-50%, 30%);
-  background: var(--mainWhite);
-  border: 1px solid transparent;
-  border-radius: 5px;
+  background: ${sideBackgroundColor};
+  border-color: ${borderInputModal};
+  box-shadow: 0px 4px 16px rgba(17, 17, 17, 0.1);
   width: 147px;
   height: 90px;
   z-index: 1000;
-  box-shadow: 0px 4px 16px rgba(17, 17, 17, 0.1);
   border-radius: 8px;
 `;
 
@@ -87,7 +87,7 @@ export const TaskModalChangeStatusBtn = styled.button`
   border: none;
   background: transparent;
   cursor: pointer;
-  color: var(--mainBlack);
+  color: ${mainTextColor};
   &:hover {
     color: #3e85f3;
     stroke: #3e85f3;
@@ -103,6 +103,8 @@ export const TaskModalChangeStatusBtnElem = styled.div`
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
+  color: ${mainTextColor };
+  stroke: ${mainTextColor};
   &:hover {
     color: var(--mainBlue);
     stroke: var(--mainBlue);

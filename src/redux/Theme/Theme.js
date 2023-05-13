@@ -1,6 +1,6 @@
 import theme from 'styled-theming';
 // --- background ---
-export const mainBackgroundColor = theme('mode', {
+export const c = theme('mode', {
   light: 'var(--cardGrey)',
   dark: 'var(--mainBlack)',
 });
@@ -28,7 +28,10 @@ export const greyButtonBackgroundColor = theme('mode', {
   light: 'var(--elementsGrey)',
   dark: 'var(--mainWhite)',
 });
+
+
 //   ---text---
+
 export const mainTextColor = theme('mode', {
   light: 'var(--mainBlack)',
   dark: 'var(--mainWhite)',
@@ -55,6 +58,26 @@ export const elementTextHoverColor = theme('mode', {
 });
 //   --- border---
 export const buttonBorderColor = theme('mode', {
-  light: '1px dashed var(--mainBlue)',
-  dark: 'var(--mainBlue)',
+    light: '1px dashed var(--mainBlue)',
+    dark: 'var(--mainBlue)',
+  });
+
+export const textLabelInputModal = theme('mode', {
+    light: 'rgba(52, 52, 52, 0.8)',
+    dark: 'rgba(250, 250, 250, 0.3)',
+});
+
+export const inputModal = theme('mode', {
+   light: '#F7F7F7;',
+   dark: 'var(--mainBlack)',
+});
+
+export const borderInputModal = theme('mode', {
+  light: 'none',
+  dark: '1px solid rgba(255, 255, 255, 0.15)'
+});
+
+export const blueButtonsHover = theme('mode', {
+  light: 'var(--mainBlue)',
+  dark:  '#2B78EF',
 });
