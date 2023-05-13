@@ -49,29 +49,28 @@ const ReviewsCards = () => {
           direction={'horizontal'}
           loop={true}
         >
-          {reviews.map(review => (
-            <SwiperSlide key={review._id}>
-              <ReviewCard>
-                <AuthorBox>
-                  <Avatar>
-                    <FiUser size={48} />
-                  </Avatar>
-                  <div>
-                    <ReviewAuthor>{review.name}</ReviewAuthor>
-                    <RangeStars color="">⭐⭐⭐⭐⭐</RangeStars>
-                  </div>
-                </AuthorBox>
-                <ReviewText>{review.comment}</ReviewText>
-              </ReviewCard>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      ) : (
-        <Swiper
-          initialSlide={1}
-          // {isMobile || isTablet ? slidesPerView={1} : slidesPerView={2}}
+           {reviews.map(review => (
+          <SwiperSlide key={review._id}>
+    <ReviewCard key={review._id}>
+      <AuthorBox>
+        <Avatar>
+          <FiUser size={48} fill='var(--cardLightYellow)'/>
+        </Avatar>
+        <div>
+          <ReviewAuthor>{review.name}</ReviewAuthor>
+          <RangeStars><img src={require('../../images/mainPage/stars.png')} alt='five stars'  width="110"
+          height="14"/></RangeStars>
+        </div>
+      </AuthorBox>
+      <ReviewText>{review.comment}</ReviewText>
+    </ReviewCard>
+    </SwiperSlide>))}
+    </Swiper> :
+    <Swiper
+           initialSlide={1}
+        // {isMobile || isTablet ? slidesPerView={1} : slidesPerView={2}}
           slidesPerView={2}
-          navigation={{ prevEl: 'SwiperPrev', nextEl: 'SwiperNext' }}
+          navigation={{ prevEl: "#my-prev-button", nextEl: '#my-next-button' }}
           modules={[Navigation]}
           direction={'horizontal'}
           loop={true}

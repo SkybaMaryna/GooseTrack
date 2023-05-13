@@ -2,7 +2,7 @@ import moment from 'moment';
 import { useNavigate } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { useState } from 'react';
 import { fetchTasks } from 'redux/Tasks/tasksOperations';
 import { CalendarToolbar } from 'components/Calendar/CalendarToolbar/CalendarToolbar';
@@ -10,12 +10,12 @@ import { useParams } from 'react-router-dom';
 
 const CalendarPage = () => {
   const { currentDate } = useParams();
-
   const [today, setToday] = useState(moment());
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   moment.updateLocale('ua', { week: { dow: 1 } });
+
   const startDay = today.clone().startOf('month').startOf('week');
 
   const prevHandler = type => {
@@ -47,6 +47,7 @@ const CalendarPage = () => {
       />
       <Outlet context={{ startDay, today, currentDate }} />
     </div>
+  
   );
 };
 

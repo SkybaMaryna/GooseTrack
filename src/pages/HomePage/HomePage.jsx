@@ -1,8 +1,5 @@
 import { useMediaQuery } from 'react-responsive';
 import AuthNavigate from 'components/shared/AuthNavigate/AuthNavigate';
-// import { isMobile, isTablet, isDesktop } from '../../hooks/mediaRules';
-// import { useMediaRules } from '../../hooks/mediaRules';
-// import { Swiper, SwiperSlide } from 'swiper/react';
 import {
   HeroGooseImg,
   HeroTitle,
@@ -23,16 +20,7 @@ import {
 import CalendarButton from 'components/Layout/CalendarButton/CalendarButton';
 import { selectIsLoggedIn } from 'redux/Auth/authSelectors';
 import { useSelector } from 'react-redux';
-// import 'swiper/css';
-// import 'swiper/css/pagination';
-// import 'swiper/css/navigation';
-// import {
-//   HiOutlineArrowNarrowLeft,
-//   HiOutlineArrowNarrowRight,
-// } from 'react-icons/hi';
 import ReviewsCards from './ReviewsCards';
-
-// const { isMobile, isTablet, isDesktop, isRetina } = useMediaRules;
 
 const HomePage = () => {
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
