@@ -6,17 +6,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { useParams } from 'react-router-dom';
 import { selectAllTasks } from 'redux/Tasks/tasksSelectors';
+
 import {
   selectAddTaskOpen,
   selectUpDateTaskModal,
   selectModalConfirmation,
 } from 'redux/Modal/modalSelectors';
+
 import { TaskModal } from 'components/shared/TaskModal/TaskModal';
+
 import {
   closeModalAddTask,
   closeModalConfirmation,
   closeModalUpdateTask,
 } from 'redux/Modal/modalSlice';
+
 import { deleteTask } from 'redux/Tasks/tasksOperations';
 
 const dayFilter = (tasksMonth, today) => {
@@ -64,8 +68,6 @@ const ChoosedDay = () => {
     setTaskFromCard(null);
   };
 
-  // functions for add task =============================>
-
   const getTypeOfColumn = data => {
     setTypeOfColumn(prevState => (prevState = data));
   };
@@ -73,8 +75,6 @@ const ChoosedDay = () => {
   const getTask = task => {
     setTaskFromCard(task);
   };
-
-  // functions for add task =============================>
 
   useEffect(() => {
     setChoosedDay(dayFromParams);
