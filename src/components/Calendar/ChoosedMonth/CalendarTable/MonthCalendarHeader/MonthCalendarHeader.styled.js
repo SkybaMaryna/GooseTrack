@@ -1,3 +1,4 @@
+import { calendarBackgroundColor, mainTextColor } from 'redux/Theme/Theme';
 import styled from 'styled-components';
 
 export const MonthCalendarHeaderList = styled.ul`
@@ -11,8 +12,8 @@ font-weight: 600;
 font-size: 16px;
 line-height: 1.12;
 text-transform: uppercase;
-color: #616161;
-background-color: #ffffff;
+color: ${mainTextColor};
+background-color: ${calendarBackgroundColor};
 @media screen and (min-width: 768px) {
     margin-bottom: 18px;
 padding: 14px 40px;

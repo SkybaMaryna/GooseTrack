@@ -25,6 +25,18 @@ export const NavLinkStyled = styled(NavLink)`
   font-weight: 600;
   color: #84828a;
   transition: all ease-in-out 400ms;
+  
+`;
+
+export const IconWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 13px;
+`;
+
+export const NavSecondaryTitle = styled.p`
+  font-size: 16px;
+  line-height: 19px;
   &.active {
     background-color: #e3f3ff;
     color: #3e85f3;
@@ -37,17 +49,6 @@ export const NavLinkStyled = styled(NavLink)`
   :hover {
     color: #3e85f3;
   }
-`;
-
-export const IconWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 13px;
-`;
-
-export const NavSecondaryTitle = styled.p`
-  font-size: 16px;
-  line-height: 19px;
 `;
 
 export const NavTitle = styled.h2`
