@@ -12,7 +12,7 @@ import {
 import { useDispatch } from 'react-redux';
 import {
   openModalUpdateTask,
-  openModalConfirmation
+  openModalConfirmation,
 } from 'redux/Modal/modalSlice';
 import { useEffect, useState } from 'react';
 import { fetchTasks, updateTask } from 'redux/Tasks/tasksOperations';
@@ -47,10 +47,10 @@ export const TaskToolbar = ({ task, getTask }) => {
     const taskForUpdate = {
       id: task._id,
       task: {
-        status: state,
+        category: state.toLowerCase().replace(' ', '-'),
       },
     };
-    dispatch(updateTask(taskForUpdate, task._id));
+    dispatch(updateTask(taskForUpdate));
     Notiflix.Notify.success(`Task status changed to ${state}`);
   };
 
