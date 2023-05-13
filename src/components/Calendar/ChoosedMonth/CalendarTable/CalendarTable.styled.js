@@ -4,7 +4,9 @@ export const GridWrapper = styled.div`
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(4, 1fr);
   border: 1px solid rgba(220, 227, 229, 0.8);
+  border-bottom: none;
   border-radius: 8px;
+  overflow: hidden;
   background-color: #ffffff;
 `;
 
@@ -33,7 +35,11 @@ export const CellWrapper = styled.div`
   height: 125px;
   cursor: pointer;
   padding: 12px 10px;
-  border: 1px solid rgba(220, 227, 229, 0.8);
+  border-block-end: 1px solid rgba(220, 227, 229, 0.8);
+  border-inline-end: 1px solid rgba(220, 227, 229, 0.8);
+  &:nth-child(7n) {
+    border-right: none;
+  }
   color: ${props => (props.isSelectedMonth ? ' #343434' : 'transparent')};
 `;
 
@@ -53,7 +59,6 @@ export const TaskListWrapper = styled.ul`
   gap: 2px;
 `;
 export const CalendarTableMoreBtn = styled.button`
-  /* color: var(--btn-text-color); */
   border: none;
   border-radius: 8px;
   color: transparent;
