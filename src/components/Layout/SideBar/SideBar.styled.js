@@ -18,9 +18,11 @@ export const StyledSideBar = styled.div`
     padding-left: 32px;
     padding-right: 32px;
     padding-top: 24px;
+    justify-content: space-between;
   }
   @media screen and (min-width: 1440px) {
     width: 289px;
+    height: 1087px;
     padding-left: 24px;
     padding-top: 32px;
     border-right: solid 1px var(--elementsGrey);

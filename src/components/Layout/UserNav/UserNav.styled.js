@@ -1,5 +1,15 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import { BsCalendar, BsFillPersonCheckFill } from 'react-icons/bs';
+import { addTaskBtnColor, addTaskBtnHover, elementTextColor } from 'redux/Theme/Theme';
+
+export const AccountIcon = styled(BsFillPersonCheckFill)`
+color: ${elementTextColor};
+`
+
+export const CalendarIcon = styled(BsCalendar)`
+color:${elementTextColor};
+`
 
 export const UserNavContainer = styled.ul`
   display: flex;
@@ -22,10 +32,19 @@ export const NavLinkStyled = styled(NavLink)`
   border-radius: 8px;
   font-size: 14px;
   line-height: 17px;
-  font-weight: 600;
-  color: #84828a;
-  transition: all ease-in-out 400ms;
-  
+  font-weight: 600;  
+  &.active {
+    background-color: ${addTaskBtnColor};
+    color: #3e85f3;
+  }
+  &:focus {
+    color: #3e85f3;
+    background-color: ${addTaskBtnColor};
+  }
+
+  &:hover {
+    color: #3e85f3;
+  }
 `;
 
 export const IconWrapper = styled.div`
@@ -34,21 +53,21 @@ export const IconWrapper = styled.div`
   gap: 13px;
 `;
 
-export const NavSecondaryTitle = styled.p`
+export const NavSecondaryTitleAcc = styled.p`
   font-size: 16px;
   line-height: 19px;
-  &.active {
-    background-color: #e3f3ff;
-    color: #3e85f3;
-  }
-  :focus {
-    color: #3e85f3;
-    background-color: #e3f3ff;
-  }
-
+  color: ${elementTextColor};
+  transition: all ease-in-out 400ms;
   :hover {
-    color: #3e85f3;
+    color: ${addTaskBtnHover};
   }
+ 
+`;
+export const NavSecondaryTitleCal = styled.p`
+  font-size: 16px;
+  line-height: 19px;
+  color: ${elementTextColor};
+  transition: all ease-in-out 400ms;
 `;
 
 export const NavTitle = styled.h2`

@@ -2,7 +2,7 @@ import theme from 'styled-theming';
 // --- background ---
 export const mainBackgroundColor = theme('mode', {
   light: 'var(--cardGrey)',
-  dark: 'var(--mainBlack)',
+  dark: 'var(--darkBackground)',
 });
 export const sideBackgroundColor = theme('mode', {
   light: 'var(--mainWhite)',
@@ -58,3 +58,34 @@ export const buttonBorderColor = theme('mode', {
   light: '1px dashed var(--mainBlue)',
   dark: 'var(--mainBlue)',
 });
+
+export const taskBackgroundColor = theme('mode', {
+  light: 'var(--cardGrey)',
+  dark: 'var(--darkBackground)',
+});
+
+export const scrollBar = theme('mode', {
+  light: 'var(--scrollBarBg)',
+  dark: 'var(--darkScrollBarBg)',
+});
+
+export const scrollBarThumb = theme('mode', {
+  light: 'var(--scrollBar)',
+  dark: 'var(--darkBackground)',
+});
+
+export const addTaskBtnColor = theme('mode', {
+  light: 'var(--lightblue)',
+  dark: 'var(--mainBlue)',
+});
+
+export const addTaskBtnHover = theme('mode', {
+  light: 'var(--mainBlue)',
+  dark: 'var(--lightblue)',
+});
+
+
+
+
+
+
