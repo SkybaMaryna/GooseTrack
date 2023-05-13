@@ -33,16 +33,17 @@ import {
 
 const validationSchema = Yup.object({
   name: Yup.string()
-  .max(15, 'Length must be less then 15')
-  .required('Your name is required'),
+    .max(15, 'Length must be less then 15')
+    .required('Your name is required'),
   birthday: Yup.date(),
-  email: Yup.string().email('Invalid e-mail').required('Your e-mail is required'),
+  email: Yup.string()
+    .email('Invalid e-mail')
+    .required('Your e-mail is required'),
   skype: Yup.string().max(16),
 });
 
 const UserForm = () => {
-
-  const { userInfo } = useSelector(selectUser);
+  const userInfo = useSelector(selectUser);
 
   const [userImgUrl, setUserImgUrl] = useState(null);
 
@@ -51,16 +52,15 @@ const UserForm = () => {
   const [isUpdateForm, setIsUpdateForm] = useState(null);
 
   const [isOpen, setIsOpen] = useState(false);
-  
+
   const dispatch = useDispatch();
 
   const [updatedData, setUpdatedData] = useState({});
 
-
   const handleDatePickerClose = () => {
     setIsOpen(false);
   };
-  
+
   // useEffect(() => {
   //   if (isUpdateForm) {
   //     dispatch(getUserInfoThunk());
@@ -108,12 +108,7 @@ const UserForm = () => {
               ? new Date(newBirthday || formData.birthday || userInfo?.birthday)
               : new Date(),
         }}
-
-
-        onSubmit={async (values,) => {
-          
-          
-
+        onSubmit={async values => {
           const formData = new FormData();
           formData.append('name', values.name);
           formData.append('email', values.email);
@@ -130,40 +125,49 @@ const UserForm = () => {
 
           await dispatch(updateUserThunk(formData));
           setUpdatedData(values);
-
         }}
         validationSchema={validationSchema}
       >
-        {({ values, handleSubmit, handleChange, handleBlur, errors, touched }) => (
+        {({
+          values,
+          handleSubmit,
+          handleChange,
+          handleBlur,
+          errors,
+          touched,
+        }) => (
           <StyledForm autoComplete="off" onSubmit={handleSubmit}>
-          <StyledContainerImg>
-                  {userImgUrl ? (
-                    <StyledImgAvatar src={URL.createObjectURL(userImgUrl)} alt="avatar" />
-                  ) : userInfo?.userImgUrl ? (
-                    <StyledImgAvatar src={userInfo.userImgUrl} alt="avatar" />
-                  ) : (
-                    <StyledSvgAvatar>
-                      <use href={Icon + '#icon-ph-user'}></use>
-                    </StyledSvgAvatar>
-                  )}
-                  <StyledLabelImg htmlFor="userImgUrl">
-                  <StyledImgBtn src={plus} alt="user" />
-                  <StyledInputFile
-                    id="userImgUrl"
-                    type="file"
-                    onChange={event => setUserImgUrl(event.target.files[0])}
-                    accept="image/*,.png,.jpg,.gif,.web"
-                    name="userImgUrl"
-                  ></StyledInputFile>
-                </StyledLabelImg>
-              </StyledContainerImg>
+            <StyledContainerImg>
+              {userImgUrl ? (
+                <StyledImgAvatar
+                  src={URL.createObjectURL(userImgUrl)}
+                  alt="avatar"
+                />
+              ) : userInfo?.userImgUrl ? (
+                <StyledImgAvatar src={userInfo.userImgUrl} alt="avatar" />
+              ) : (
+                <StyledSvgAvatar>
+                  <use href={Icon + '#icon-ph-user'}></use>
+                </StyledSvgAvatar>
+              )}
+              <StyledLabelImg htmlFor="userImgUrl">
+                <StyledImgBtn src={plus} alt="user" />
+                <StyledInputFile
+                  id="userImgUrl"
+                  type="file"
+                  onChange={event => setUserImgUrl(event.target.files[0])}
+                  accept="image/*,.png,.jpg,.gif,.web"
+                  name="userImgUrl"
+                ></StyledInputFile>
+              </StyledLabelImg>
+            </StyledContainerImg>
 
             <h2>{userInfo?.name} </h2>
             <StyledUser>User</StyledUser>
             <StyledBlockInput>
               <StyledLabelInput htmlFor="name">
                 <p>User Name</p>
-              
+
                 <div>
                   <StyledInput
                     type="text"
@@ -174,12 +178,12 @@ const UserForm = () => {
                     onBlur={handleBlur}
                     placeholder="Your Name"
                   ></StyledInput>
-                  <StyledErrorMessage name="name" component="div"/>
+                  <StyledErrorMessage name="name" component="div" />
                   {/* {(errors.name && touched.name) && <StyledIconError  color='red'/>}  */}
-                  {(touched.name && !errors.name) && <StyledIconChecked color='green'/>}
+                  {touched.name && !errors.name && (
+                    <StyledIconChecked color="green" />
+                  )}
                 </div>
-
-                
               </StyledLabelInput>
 
               <StyledLabelInput htmlFor="phone">
@@ -211,9 +215,9 @@ const UserForm = () => {
                   }}
                   placeholder="Birthday"
                   dateFormat="dd/MM/yyyy"
-              open={isOpen}
-              onClickOutside={() => setIsOpen(false)}
-              onFocus={() => setIsOpen(true)}
+                  open={isOpen}
+                  onClickOutside={() => setIsOpen(false)}
+                  onFocus={() => setIsOpen(true)}
                 />
 
                 <StyledVectorPng>
@@ -240,20 +244,21 @@ const UserForm = () => {
               <StyledLabelInput htmlFor="email">
                 <p>Email</p>
                 <div>
-                    <StyledInput
-                      type="email"
-                      name="email"
-                      id="email"
-                      placeholder="Email"
-                      value={values.email}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                    ></StyledInput>
-                    <StyledErrorMessage name="email" component="div"/>
-                    {/* {(errors.email && touched.email) && <StyledIconError  color='red'/>} */}
-                    {(touched.email && !errors.email) && <StyledIconChecked color='green'/>}
+                  <StyledInput
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Email"
+                    value={values.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  ></StyledInput>
+                  <StyledErrorMessage name="email" component="div" />
+                  {/* {(errors.email && touched.email) && <StyledIconError  color='red'/>} */}
+                  {touched.email && !errors.email && (
+                    <StyledIconChecked color="green" />
+                  )}
                 </div>
-                
               </StyledLabelInput>
             </StyledBlockInput>
             <StyledBtn type="submit">Save changes</StyledBtn>

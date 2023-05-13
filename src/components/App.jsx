@@ -30,9 +30,10 @@ export const App = () => {
     },
     function (error) {
       if (401 === error.response.status) {
-        localStorage.removeItem('persist:token');
-        dispatch(logout);
-        setTimeout(() => navigate('/login'));
+        console.log('401 recieved, clean up auth');
+        localStorage.removeItem('token');
+        dispatch(logout());
+        navigate('/login');
       } else {
         return Promise.reject(error);
       }

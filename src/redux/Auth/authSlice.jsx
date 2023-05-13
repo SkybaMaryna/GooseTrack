@@ -22,7 +22,6 @@ const authSlice = createSlice({
   initialState,
   extraReducers: {
     [registerThunk.fulfilled]: (state, { payload }) => {
-      state.user = payload;
       state.accessToken = payload.data.accessToken;
       state.refreshToken = payload.data.refreshToken;
       state.isLoggedIn = true;
@@ -38,7 +37,6 @@ const authSlice = createSlice({
       state.error = payload.error;
     },
     [loginThunk.fulfilled]: (state, { payload }) => {
-      state.user = payload;
       state.accessToken = payload.data.accessToken;
       state.refreshToken = payload.data.refreshToken;
       state.isLoggedIn = true;
@@ -116,4 +114,4 @@ const authSlice = createSlice({
 });
 
 export const authReducer = authSlice.reducer;
-export const logout = authSlice.actions;
+export const logout = authSlice.actions.logout;
