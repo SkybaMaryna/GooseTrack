@@ -32,9 +32,8 @@ const tasksSlice = createSlice({
     [addTask.fulfilled]: (state, { payload }) => {
       const date = payload.date.split('T')[0];
       let tasks = state.tasks.find(t => t.date === date);
-      tasks = !tasks ? {tasks: [], date} : tasks;
-      tasks.tasks.push(payload);
-      state.tasks = [...state.tasks, tasks];
+      tasks && tasks.tasks.push(payload);
+      !tasks && (state.tasks = [...state.tasks, {tasks: [payload], date}]);
     },
     [deleteTask.fulfilled]: (state, { payload }) => {
       const date = payload.date.split('T')[0];

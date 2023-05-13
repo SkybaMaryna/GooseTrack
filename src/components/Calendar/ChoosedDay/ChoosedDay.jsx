@@ -12,7 +12,11 @@ import {
   selectModalConfirmation,
 } from 'redux/Modal/modalSelectors';
 import { TaskModal } from 'components/shared/TaskModal/TaskModal';
-import { closeModalAddTask, closeModalConfirmation, closeModalUpdateTask } from 'redux/Modal/modalSlice';
+import {
+  closeModalAddTask,
+  closeModalConfirmation,
+  closeModalUpdateTask,
+} from 'redux/Modal/modalSlice';
 import { deleteTask } from 'redux/Tasks/tasksOperations';
 
 const dayFilter = (tasksMonth, today) => {
@@ -42,7 +46,6 @@ const ChoosedDay = () => {
   const modalEditState = useSelector(selectUpDateTaskModal);
   const modalConfirmationState = useSelector(selectModalConfirmation);
   const dispatch = useDispatch();
-
 
   const closeModal = () => {
     dispatch(closeModalAddTask());
@@ -91,28 +94,28 @@ const ChoosedDay = () => {
         getTypeOfColumn={getTypeOfColumn}
         getTask={getTask}
       />
-      {modalAddState &&
+      {modalAddState && (
         <TaskModal
           closeModal={closeModal}
           typeOfModal={'add'}
           typeOfColumn={typeOfColumn}
           choosedDay={choosedDay}
         />
-        }
-      {modalEditState &&
+      )}
+      {modalEditState && (
         <TaskModal
           closeModal={closeEditModal}
           typeOfModal={'edit'}
           taskFromCard={taskFromCard}
-        /> 
-        }
-      {modalConfirmationState &&
+        />
+      )}
+      {modalConfirmationState && (
         <TaskModal
           closeModal={closeDeleteModal}
           actionFu={deleteTaskFu}
           typeOfModal={'deleteTask'}
-        /> 
-        }
+        />
+      )}
     </TasksColumnsListWrapper>
   );
 };

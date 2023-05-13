@@ -5,22 +5,25 @@ import { Form } from '../Form/Form';
 // import { EditButtons } from '../EditButtons/EditButtons';
 import { Priority } from '../Priority/Priority';
 import { updateTask } from '../../../../redux/Tasks/tasksOperations';
-import { StyledDiv, StyledEditButton, StyledPencilIcon } from './EditFormStyled';
+import {
+  StyledDiv,
+  StyledEditButton,
+  StyledPencilIcon,
+} from './EditFormStyled';
 import { toast } from 'react-toastify';
 
-
 export const EditForm = ({ taskFromCard, closeModal }) => {
-  const [editText, setEditText] = useState('');
-  const [startText, setStartText] = useState('');
-  const [endText, setEndText] = useState('');
-  const [priorities, setPriorities] = useState('Low');
+  const [editText, setEditText] = useState(taskFromCard.title);
+  const [startText, setStartText] = useState(taskFromCard.start);
+  const [endText, setEndText] = useState(taskFromCard.end);
+  const [priorities, setPriorities] = useState(taskFromCard.priority);
 
   const dispatch = useDispatch();
 
   const [obj, setObj] = useState([
-    { status: true, key: 'Low', color: 'blue' },
-    { status: false, key: 'Medium', color: 'orange' },
-    { status: false, key: 'High', color: 'red' },
+    { status: priorities === 'low', key: 'Low', color: 'blue' },
+    { status: priorities === 'medium', key: 'Medium', color: 'orange' },
+    { status: priorities === 'high', key: 'High', color: 'red' },
   ]);
 
   const prioritySelector = event => {
@@ -48,15 +51,11 @@ export const EditForm = ({ taskFromCard, closeModal }) => {
     let valid = 'valid';
 
     if (Number(hour) > 23) {
-      toast.error(
-        'you cannot specify an hour value greater than 23'
-      );
+      toast.error('you cannot specify an hour value greater than 23');
       return (valid = 'invalid');
     }
     if (Number(minutes > 59)) {
-      toast.error(
-        'you cannot specify an minutes value greater than 59'
-      );
+      toast.error('you cannot specify an minutes value greater than 59');
       return (valid = 'invalid');
     }
     return valid;
@@ -193,7 +192,7 @@ export const EditForm = ({ taskFromCard, closeModal }) => {
         start: startText,
         end: endText,
         createdAt: taskFromCard.createdAt,
-        priority: priorities,
+        priority: priorities.toLowerCase(),
       },
     };
 
@@ -265,7 +264,9 @@ export const EditForm = ({ taskFromCard, closeModal }) => {
       />
       <Priority obj={obj} prioritySelector={prioritySelector} />
       <StyledDiv>
-        <StyledEditButton onClick={()=>dispatch(updateTaskFu)}> <StyledPencilIcon  size='1.5em'/> Edit</StyledEditButton>
+        <StyledEditButton onClick={() => dispatch(updateTaskFu)}>
+          <StyledPencilIcon size="1.5em" /> Edit
+        </StyledEditButton>
       </StyledDiv>
     </>
   );
