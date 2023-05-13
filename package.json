@@ -4,9 +4,6 @@
   "private": true,
   "homepage": "https://SkybaMaryna.github.io/GooseTrack/",
   "dependencies": {
-    "@fullcalendar/core": "^6.1.6",
-    "@fullcalendar/daygrid": "^6.1.6",
-    "@fullcalendar/react": "^6.1.6",
     "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
@@ -15,7 +12,6 @@
     "date-fns": "^2.30.0",
     "formik": "^2.2.9",
     "moment": "^2.29.4",
-    "notiflix": "^3.2.6",
     "prop-types": "^15.8.1",
     "react": "^18.1.0",
     "react-datepicker": "^4.11.0",
@@ -58,8 +54,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "tailwindcss": "^3.3.2"
   }
 }
