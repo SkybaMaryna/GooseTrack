@@ -52,6 +52,7 @@ export const TaskToolbar = ({ task, getTask }) => {
       },
     };
     dispatch(updateTask(taskForUpdate));
+    setIsModalOpen(prev => !prev);
     toast.success(`Task status changed to ${state}`);
   };
 
