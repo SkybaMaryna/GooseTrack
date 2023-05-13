@@ -1,3 +1,5 @@
+import { CgClose } from 'react-icons/cg';
+import { mainTextColor } from 'redux/Theme/Theme';
 import styled from 'styled-components';
 
 export const ModalCloseWrapper = styled.div`
@@ -8,3 +10,7 @@ export const ModalCloseWrapper = styled.div`
   right: 14px;
   top: 14px;
 `;
+
+export const CrossIconStyled = styled(CgClose)`
+color: ${mainTextColor};
+`
