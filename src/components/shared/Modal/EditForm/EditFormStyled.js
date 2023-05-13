@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {BsPencil} from 'react-icons/bs'
+import { blueButtonsHover } from 'redux/Theme/Theme';
 
 export const StyledDiv = styled.div`
   width: 100%;
@@ -15,23 +16,19 @@ width: 267px;
 height: 42px;
 left: 18px;
 padding: 12px;
-background: #EFEFEF;
+background: var(--mainBlue);
 border-radius: 8px;
 border-color: transparent;
+box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
 font-weight: 600;
 font-size: 14px;
 line-height: 18px;
 transition: 0.5s;
 outline: none;
-color: #616161;
+color: var(--mainWhite);
 cursor: pointer;
 &:hover {
-    background-color: var(--mainBlue);
-    color: white;
-
-    .StyledPencilIcon {
-      color: white;
-    }
+    background-color: ${blueButtonsHover};
 }
 
 @media screen and (min-width: 769px) {
@@ -41,5 +38,5 @@ cursor: pointer;
 `
 export const StyledPencilIcon = styled(BsPencil)`
 size: 2em;
-transition: 200ms;
+color: var(--mainWhite);
 `
