@@ -31,7 +31,7 @@ export const App = () => {
     function (error) {
       if (401 === error.response.status) {
         localStorage.removeItem('token');
-        dispatch(logout);
+        dispatch(logout());
         navigate('/login');
       } else {
         return Promise.reject(error);
