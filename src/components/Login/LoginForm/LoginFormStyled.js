@@ -10,11 +10,11 @@ flex-direction: column;
 align-items: center;
 `
 export const StyledFormInsight = styled(Form)`
-position: absolute; 
+/* position: absolute; 
 top: 50%; 
 left: 50%;
-transform: translate(-50%, -50%);
-width: 335px;
+transform: translate(-50%, -50%); */
+width: 100%;
 display: flex;
 background-color: white;
 flex-direction: column;

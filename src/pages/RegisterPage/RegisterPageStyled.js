@@ -11,6 +11,20 @@ export const StyledDiv = styled.div`
     }
 `;
 
+export const StyledRegisterFormWrapper = styled.div`
+ position: fixed;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ min-width: 335px;
+ text-align: center;
+
+ @media screen and (min-width: 768px){
+    width: 480px;
+    }
+
+`
+
 export const StyledImg = styled.img`
   display: none;
 
