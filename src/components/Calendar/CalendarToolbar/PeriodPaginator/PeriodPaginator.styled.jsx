@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import theme from 'styled-theming';
 
 export const DivWrapper = styled('div')`
   display: flex;
@@ -34,14 +35,25 @@ export const ButtonsWrapper = styled('div')`
   border: none;
   margin-left: 8px;
 `;
-
+const calendarBackgroundColor = theme('mode', {
+  light: 'var(--mainWhite)',
+  dark: 'var(--blackBackground)',
+});
+const calendarTextColor = theme('theme', {
+  light: 'var(--cardGrey)',
+  dark: 'var(--textGrey)',
+});
+const calendarHoverColor = theme('theme', {
+  light: 'var(--textGrey)',
+  dark: 'var(--mainWhite)',
+});
 export const ButtonWrapper1 = styled('button')`
   height: 34px;
   width: 35px;
-  background-color: #ffffff;
+  background-color: ${calendarBackgroundColor};
   /* color: ${props => (props.unPressed ? '#27282A' : '#565759')}; */
   font-size: 20px;
-  color: rgba(220, 227, 229, 0.8);
+  color: ${calendarTextColor};
   border: 1px solid rgba(220, 227, 229, 0.8);
   border-radius: 8px;
   border-bottom-right-radius: 0;
@@ -49,7 +61,7 @@ export const ButtonWrapper1 = styled('button')`
   /* color: ${props => (props.unPressed ? '#a4a6a9' : '#E6E6E6')}; */
   cursor: pointer;
   &:hover {
-    color: #565759;
+    color: ${calendarHoverColor};
   }
   /* &:not(:last-child) {
     margin-right: 2px;
@@ -61,7 +73,7 @@ export const ButtonWrapper1 = styled('button')`
 export const ButtonWrapper2 = styled('button')`
   height: 34px;
   width: 35px;
-  background-color: #ffffff;
+  background-color: ${calendarBackgroundColor};
   /* color: ${props => (props.unPressed ? '#27282A' : '#565759')}; */
   font-size: 20px;
   color: rgba(220, 227, 229, 0.8);

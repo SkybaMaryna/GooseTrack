@@ -53,11 +53,12 @@ const ReviewsCards = () => {
     <ReviewCard>
       <AuthorBox>
         <Avatar>
-          <FiUser size={48} />
+          <FiUser size={48} fill='var(--cardLightYellow)'/>
         </Avatar>
         <div>
           <ReviewAuthor>{review.name}</ReviewAuthor>
-          <RangeStars color='yellow'>⭐⭐⭐⭐⭐</RangeStars>
+          <RangeStars><img src={require('../../images/mainPage/stars.png')} alt='five stars'  width="110"
+          height="14"/></RangeStars>
         </div>
       </AuthorBox>
       <ReviewText>{review.comment}</ReviewText>
@@ -68,7 +69,7 @@ const ReviewsCards = () => {
            initialSlide={1}
         // {isMobile || isTablet ? slidesPerView={1} : slidesPerView={2}}
           slidesPerView={2}
-          navigation={{ prevEl: 'SwiperPrev', nextEl: 'SwiperNext' }}
+          navigation={{ prevEl: "#my-prev-button", nextEl: '#my-next-button' }}
           modules={[Navigation]}
           direction={'horizontal'}
           loop={true}

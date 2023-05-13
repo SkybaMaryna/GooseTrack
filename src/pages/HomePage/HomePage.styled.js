@@ -98,6 +98,8 @@ export const InfoBox = styled.div`
   display: flex;
   flex-direction: column;
     margin-bottom: 40px;
+    margin-left: auto;
+  margin-right: auto;
   @media screen and (min-width: 768px) {
     width: 275px;
     height: 340px;

@@ -9,6 +9,9 @@ import { fetchTasks } from 'redux/Tasks/tasksOperations';
 import { CalendarToolbar } from 'components/Calendar/CalendarToolbar/CalendarToolbar';
 // import { useParams } from 'react-router-dom';
 import ChoosedMonth from 'components/Calendar/ChoosedMonth/ChoosedMonth';
+// import {light, dark} from "../../redux/Theme/Theme.styled"
+import { ThemeProvider } from "styled-components";
+import theme from "styled-theming";
 
 const CalendarPage = () => {
   // const { currentDay } = useParams();
@@ -32,7 +35,8 @@ const CalendarPage = () => {
     const month = String(currentDate.getMonth('M') + 1).padStart(2, '0');
     dispatch(fetchTasks({ month, year }));
   }, [currentDate, dispatch]);
-  return (
+
+  return (<ThemeProvider theme={theme}>
     <div style={{ display: 'flex', flexDirection: 'column' }}>
       {/* <Navigate to={`month/${today}`} />; */}
       <CalendarToolbar
@@ -44,6 +48,7 @@ const CalendarPage = () => {
 
       {/* <Outlet context={{ startDay, today, currentDate }} /> */}
     </div>
+      </ThemeProvider>
   );
 };
 
