@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import {
   DivWrapper,
   TitleWrapper,
@@ -6,8 +7,11 @@ import {
   ButtonWrapper1,
   ButtonWrapper2,
 } from './PeriodPaginator.styled';
+import { useParams } from 'react-router';
 
-const PeriodPaginator = ({ today, prevHandler, nextHandler, type }) => {
+const PeriodPaginator = ({ prevHandler, nextHandler, type }) => {
+  const params = useParams();
+  const today = moment(params.currentDay ?? params.currentDate, 'YYYY-MM-DD');
   const currentDate = today.format('DD MMMM YYYY');
 
   return (
