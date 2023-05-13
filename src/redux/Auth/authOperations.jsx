@@ -40,10 +40,8 @@ export const loginThunk = createAsyncThunk(
       setToken(res.data.data.accessToken);
       return res.data;
     } catch (error) {
-      rejectWithValue(error.message);
-      if (error.message === 'Request failed with status code 409') {
-        toast.error(`Email doesn't exist or Password is wrong`);
-      }
+      toast.error(`Email doesn't exist or Password is wrong`);
+      return rejectWithValue(error.message);
     }
   }
 );
@@ -69,8 +67,7 @@ export const refreshThunk = createAsyncThunk(
     }
     try {
       setToken(savedToken);
-      const res = await axios.post('/user/refresh');
-      return res.data;
+      return savedToken;
     } catch (error) {
       thunkAPI.rejectWithValue(error.message);
     }

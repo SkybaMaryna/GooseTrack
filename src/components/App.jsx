@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import HomePage from 'pages/HomePage/HomePage';
 import LoginPage from 'pages/LoginPage/LoginPage';
 import RegisterPage from 'pages/RegisterPage/RegisterPage';
@@ -15,13 +15,33 @@ import { useDispatch, useSelector } from 'react-redux';
 import { refreshThunk } from 'redux/Auth/authOperations';
 import { ThemeProvider } from "styled-components";
 import { selectTheme } from '../redux/Theme/themeSelectors'
+import axios from 'axios';
+import { logout } from 'redux/Auth/authSlice';
 
 export const App = () => {
-  const dispatch = useDispatch();
   const theme = useSelector(selectTheme)
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   useEffect(() => {
     dispatch(refreshThunk());
   }, [dispatch]);
+
+  axios.interceptors.response.use(
+    function (response) {
+      return response;
+    },
+    function (error) {
+      if (401 === error.response.status) {
+        console.log('401 recieved, clean up auth');
+        localStorage.removeItem('token');
+        dispatch(logout());
+        navigate('/login');
+      } else {
+        return Promise.reject(error);
+      }
+    }
+  );
 
   return (
     <div>
@@ -52,26 +72,12 @@ export const App = () => {
             </PrivateRoute>
           }
         >
-          <Route
-            path="account"
-            element={
-              <PrivateRoute>
-                <AccountPage />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="calendar"
-            element={
-              <PrivateRoute>
-                <CalendarPage />
-              </PrivateRoute>
-            }
-          >
+          <Route path="calendar" element={<CalendarPage />}>
             <Route path="month/:currentDate" element={<ChoosedMonth />} />
             <Route path="day/:currentDay" element={<ChoosedDay />} />
             <Route />
           </Route>
+          <Route path="account" element={<AccountPage />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

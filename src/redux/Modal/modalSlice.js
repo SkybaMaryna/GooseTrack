@@ -6,6 +6,7 @@ const modalSlice = createSlice({
     isModalAddTaskOpen: false,
     isModalUpdateTask: false,
     isModalConfirmation: false,
+    isModalLogOut: false,
     isSideBar: false,
   },
 
@@ -34,6 +35,12 @@ const modalSlice = createSlice({
     closeSideBar(state) {
       state.isSideBar = false;
     },
+    openModalLogOut(state) {
+      state.isModalLogOut = true;
+    },
+    closeModalLogOut(state) {
+      state.isModalLogOut = false;
+    },
   },
 });
 export const {
@@ -43,6 +50,8 @@ export const {
   closeModalUpdateTask,
   openModalConfirmation,
   closeModalConfirmation,
+  openModalLogOut,
+  closeModalLogOut,
   openSideBar,
   closeSideBar,
 } = modalSlice.actions;

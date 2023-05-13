@@ -1,50 +1,51 @@
 import moment from 'moment';
-// import { Navigate } from 'react-router-dom';
-// import { Outlet } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch} from 'react-redux';
 import { useState } from 'react';
-
 import { fetchTasks } from 'redux/Tasks/tasksOperations';
 import { CalendarToolbar } from 'components/Calendar/CalendarToolbar/CalendarToolbar';
-// import { useParams } from 'react-router-dom';
-import ChoosedMonth from 'components/Calendar/ChoosedMonth/ChoosedMonth';
+import { useParams } from 'react-router-dom';
 
 const CalendarPage = () => {
-  // const { currentDay } = useParams();
-  // const navigate = useNavigate();
+  const { currentDate } = useParams();
   const [today, setToday] = useState(moment());
   const dispatch = useDispatch();
-  const currentDate = new Date(today);
+  const navigate = useNavigate();
 
+  moment.updateLocale('ua', { week: { dow: 1 } });
 
-  moment.updateLocale('en', { week: { dow: 1 } });
   const startDay = today.clone().startOf('month').startOf('week');
 
-  const prevHandler = () => {
-    setToday(prev => prev.clone().subtract(1, 'month'));
+  const prevHandler = type => {
+    setToday(prev => prev.clone().subtract(1, type));
+    const date = today.clone().subtract(1, type).toISOString().split('T')[0];
+    navigate(`/main/calendar/${type}/${date}`);
   };
-  const nextHandler = () => {
-    setToday(prev => prev.clone().add(1, 'month'));
+  const nextHandler = type => {
+    setToday(prev => prev.clone().add(1, type));
+    const date = today.clone().add(1, type).toISOString().split('T')[0];
+    navigate(`/main/calendar/${type}/${date}`);
   };
 
+  const currentYear = currentDate?.slice(0, 4);
+  const currentMonth = currentDate?.slice(6, 7);
+
   useEffect(() => {
-    const year = String(currentDate.getFullYear());
-    const month = String(currentDate.getMonth('M') + 1).padStart(2, '0');
-    dispatch(fetchTasks({ month, year }));
-  }, [currentDate, dispatch]);
+    currentYear &&
+      currentMonth &&
+      dispatch(fetchTasks({ year: currentYear, month: currentMonth }));
+  }, [currentMonth, currentYear, dispatch]);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
-      {/* <Navigate to={`month/${today}`} />; */}
       <CalendarToolbar
         today={today}
         prevHandler={prevHandler}
         nextHandler={nextHandler}
       />
-      <ChoosedMonth startDay={startDay} today={today} />
-
-      {/* <Outlet context={{ startDay, today, currentDate }} /> */}
+      <Outlet context={{ startDay, today, currentDate }} />
     </div>
   
   );

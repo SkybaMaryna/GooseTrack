@@ -21,7 +21,6 @@ import CalendarButton from 'components/Layout/CalendarButton/CalendarButton';
 import { selectIsLoggedIn } from 'redux/Auth/authSelectors';
 import { useSelector } from 'react-redux';
 import ReviewsCards from './ReviewsCards';
-// import { useEffect } from 'react';
 
 const HomePage = () => {
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });

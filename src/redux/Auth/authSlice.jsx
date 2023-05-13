@@ -22,9 +22,8 @@ const authSlice = createSlice({
   initialState,
   extraReducers: {
     [registerThunk.fulfilled]: (state, { payload }) => {
-      state.user = payload;
-      state.accessToken = payload.accessToken;
-      state.refreshToken = payload.refreshToken;
+      state.accessToken = payload.data.accessToken;
+      state.refreshToken = payload.data.refreshToken;
       state.isLoggedIn = true;
       state.isLoading = false;
       state.error = null;
@@ -38,9 +37,8 @@ const authSlice = createSlice({
       state.error = payload.error;
     },
     [loginThunk.fulfilled]: (state, { payload }) => {
-      state.user = payload;
-      state.accessToken = payload.accessToken;
-      state.refreshToken = payload.refreshToken;
+      state.accessToken = payload.data.accessToken;
+      state.refreshToken = payload.data.refreshToken;
       state.isLoggedIn = true;
       state.isLoading = false;
       state.error = null;
@@ -67,10 +65,9 @@ const authSlice = createSlice({
       state.error = payload;
       state.isLoading = false;
     },
-    [refreshThunk.fulfilled]: (state, { payload }) => {
+    [refreshThunk.fulfilled]: state => {
       state.isLoggedIn = true;
       state.isLoading = false;
-      state.user = payload;
     },
     [refreshThunk.pending]: state => {
       state.isLoading = true;
@@ -108,6 +105,13 @@ const authSlice = createSlice({
       state.error = payload;
     },
   },
+  reducers: {
+    logout: state => {
+      state.isLoggedIn = false;
+      state.accessToken = '';
+    },
+  },
 });
 
 export const authReducer = authSlice.reducer;
+export const logout = authSlice.actions.logout;

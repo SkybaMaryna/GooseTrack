@@ -5,23 +5,25 @@ import {
   TaskModalChangeStatusBtn,
   TaskModalChangeStatusBtnElem,
   StateStatus,
+  ArrowRight,
+  Pencil,
+  Trash,
 } from './TaskToolbar.styled';
-import { FiArrowRightCircle, FiTrash } from 'react-icons/fi';
-import { HiOutlinePencil } from 'react-icons/hi';
 import { useDispatch } from 'react-redux';
 import {
   openModalUpdateTask,
-  openModalConfirmation
+  openModalConfirmation,
 } from 'redux/Modal/modalSlice';
 import { useEffect, useState } from 'react';
 import { fetchTasks, updateTask } from 'redux/Tasks/tasksOperations';
-import Notiflix from 'notiflix';
+import { toast } from 'react-toastify';
+
 
 export const TaskToolbar = ({ task, getTask }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const statusStates = ['To do', 'In progress', 'Done'];
-  const status = task.status;
+  const status = task.category;
   const toggleModal = () => {
     setIsModalOpen(prev => !prev);
   };
@@ -46,23 +48,23 @@ export const TaskToolbar = ({ task, getTask }) => {
     const taskForUpdate = {
       id: task._id,
       task: {
-        status: state,
+        category: state.toLowerCase().replace(' ', '-'),
       },
     };
-    dispatch(updateTask(taskForUpdate, task._id));
-    Notiflix.Notify.success(`Task status changed to ${state}`);
+    dispatch(updateTask(taskForUpdate));
+    toast.success(`Task status changed to ${state}`);
   };
 
   return (
     <>
       <TaskToolbarStyled>
         <TaskToolbarBtn onClick={() => toggleModal()}>
-          <FiArrowRightCircle />
+          <ArrowRight />
         </TaskToolbarBtn>
         {isModalOpen && (
           <TaskModalChangeStatusWrapper data-modal="true">
             {statusStates
-              .filter(states => states !== status)
+              .filter(state => state.toLowerCase().replace(' ', '-') !== status)
               .map((state, index) => (
                 <TaskModalChangeStatusBtn
                   key={index}
@@ -72,19 +74,19 @@ export const TaskToolbar = ({ task, getTask }) => {
                 >
                   <TaskModalChangeStatusBtnElem>
                     <StateStatus>{state}</StateStatus>
-                    <FiArrowRightCircle />
+                    <ArrowRight />
                   </TaskModalChangeStatusBtnElem>
                 </TaskModalChangeStatusBtn>
               ))}
           </TaskModalChangeStatusWrapper>
         )}
 
-        <TaskToolbarBtn onClick={() => openModal(task._id)}>
-          <HiOutlinePencil />
+        <TaskToolbarBtn onClick={openModal}>
+          <Pencil />
         </TaskToolbarBtn>
 
         <TaskToolbarBtn onClick={confirmationOpen}>
-          <FiTrash />
+          <Trash />
         </TaskToolbarBtn>
       </TaskToolbarStyled>
     </>

@@ -5,11 +5,11 @@ import {
 } from './MonthCalendarHeader.styled';
 
 export const MonthCalendarHeader = () => {
- const isMobile = useMediaRules();
-  
+  const mediaRules = useMediaRules();
+  const isMobile = mediaRules.isMobile;
   return (
     <>
-      {!isMobile ? (
+      {isMobile ? (
         <MonthCalendarHeaderList>
           <li>M</li>
           <li>T</li>

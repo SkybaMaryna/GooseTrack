@@ -3,10 +3,12 @@ import { useSelector } from 'react-redux';
 import CalendarTable from './CalendarTable/CalendarTable';
 import { MonthCalendarHeader } from './CalendarTable/MonthCalendarHeader/MonthCalendarHeader';
 import { selectAllTasks } from 'redux/Tasks/tasksSelectors.js';
+import { useOutletContext } from 'react-router-dom';
 
-const ChoosedMonth = ({ startDay, today }) => {
-  // const { startDay, today } = useOutletContext();
+const ChoosedMonth = () => {
+  const { startDay, today } = useOutletContext();
   const tasks = useSelector(selectAllTasks);
+
   return (
     <>
       <MonthCalendarHeader />

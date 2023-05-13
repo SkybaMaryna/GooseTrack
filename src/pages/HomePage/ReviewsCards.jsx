@@ -38,12 +38,13 @@ const ReviewsCards = () => {
     dispatch(fetchReviews());
   }, [dispatch]);
 
-  return <div>
-    {isMobile || isTablet ?
-    <Swiper
+  return (
+    <div>
+      {isMobile || isTablet ? (
+        <Swiper
           initialSlide={1}
           slidesPerView={1}
-          navigation={{ prevEl: "#my-prev-button", nextEl: '#my-next-button' }}
+          navigation={{ prevEl: '#my-prev-button', nextEl: '#my-next-button' }}
           modules={[Navigation]}
           direction={'horizontal'}
           loop={true}
@@ -75,29 +76,33 @@ const ReviewsCards = () => {
           loop={true}
         >
           {reviews.map(review => (
-          <SwiperSlide key={review.id}>
-    <ReviewCard>
-      <AuthorBox>
-        <Avatar>
-          <FiUser size={48} />
-        </Avatar>
-        <div>
-          <ReviewAuthor>{review.name}</ReviewAuthor>
-          <RangeStars>⭐⭐⭐⭐⭐</RangeStars>
-        </div>
-      </AuthorBox>
-      <ReviewText>{review.comment}</ReviewText>
-    </ReviewCard>
-    </SwiperSlide>))}
-    </Swiper>}
-    <ButtonSwiperBox>
-  <SwiperPrev id="my-prev-button">
-  <HiOutlineArrowNarrowLeft size={50}/>
-       </SwiperPrev>
-      <SwiperNext id="my-next-button">
-        <HiOutlineArrowNarrowRight size={50}/>
-       </SwiperNext></ButtonSwiperBox>
-       </div>
+            <SwiperSlide key={review.id}>
+              <ReviewCard>
+                <AuthorBox>
+                  <Avatar>
+                    <FiUser size={48} />
+                  </Avatar>
+                  <div>
+                    <ReviewAuthor>{review.name}</ReviewAuthor>
+                    <RangeStars>⭐⭐⭐⭐⭐</RangeStars>
+                  </div>
+                </AuthorBox>
+                <ReviewText>{review.comment}</ReviewText>
+              </ReviewCard>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      )}
+      <ButtonSwiperBox>
+        <SwiperPrev id="my-prev-button">
+          <HiOutlineArrowNarrowLeft size={50} />
+        </SwiperPrev>
+        <SwiperNext id="my-next-button">
+          <HiOutlineArrowNarrowRight size={50} />
+        </SwiperNext>
+      </ButtonSwiperBox>
+    </div>
+  );
 };
 
 export default ReviewsCards;

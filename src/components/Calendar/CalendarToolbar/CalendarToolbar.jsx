@@ -12,7 +12,7 @@ export const CalendarToolbar = ({ today, prevHandler, nextHandler }) => {
   const pathname = location.pathname.slice(0, -11);
 
   useEffect(() => {
-    if (pathname === '/calendar/day') {
+    if (pathname.endsWith('/calendar/day')) {
       setType('day');
       return;
     }
@@ -21,7 +21,6 @@ export const CalendarToolbar = ({ today, prevHandler, nextHandler }) => {
   return (
     <ToolbarWrapper>
       <PeriodPaginator
-        today={today}
         prevHandler={prevHandler}
         nextHandler={nextHandler}
         type={type}

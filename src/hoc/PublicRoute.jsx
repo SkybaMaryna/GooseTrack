@@ -2,12 +2,13 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { selectIsLoggedIn } from 'redux/Auth/authSelectors';
-
+import moment from 'moment';
 export const PublicRoute = ({ children }) => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const date = new Date().toISOString().split('T')[0];
 
   return isLoggedIn ? (
-    <Navigate to="/main/calendar/month/:currentDate" />
+    <Navigate to={`/main/calendar/month/${date}`} />
   ) : (
     children
   );

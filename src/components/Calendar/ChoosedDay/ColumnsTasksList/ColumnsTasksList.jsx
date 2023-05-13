@@ -2,7 +2,7 @@ import TaskColumnCard  from '../TaskColumnCard/TaskColumnCard';
 import { TasksListWrapper } from './ColumnsTasksList.styled';
 
 
-const ColumnsTasksList = ({ tasks, getTask }) => {
+const ColumnsTasksList = ({ tasks=[], getTask }) => {
 
   return (
     <TasksListWrapper>

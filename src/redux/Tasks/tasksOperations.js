@@ -5,7 +5,7 @@ export const fetchTasks = createAsyncThunk(
   'tasks/fetchTasks',
   async ({ year, month }, { rejectWithValue }) => {
     try {
-      const res = await axios.get('/task/by-month', { year, month });
+      const res = await axios.get('/task/by-month', {params: {year, month} });
       return res.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -15,10 +15,10 @@ export const fetchTasks = createAsyncThunk(
 
 export const addTask = createAsyncThunk(
   'tasks/addTask',
-  async (task, { rejectWithValue, dispatch }) => {
+  async (task, { rejectWithValue }) => {
     try {
-      await axios.post('/task', task);
-      dispatch(fetchTasks());
+      const response = await axios.post('/task', task);
+      return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -27,10 +27,10 @@ export const addTask = createAsyncThunk(
 
 export const deleteTask = createAsyncThunk(
   'tasks/deleteTask',
-  async (id, { rejectWithValue, dispatch }) => {
+  async (id, { rejectWithValue }) => {
     try {
-      await axios.delete(`/task/${id}`);
-      dispatch(fetchTasks());
+      const response = await axios.delete(`/task/${id}`);
+      return response.data;
     } catch (error) {
       rejectWithValue(error.message);
     }
@@ -39,10 +39,10 @@ export const deleteTask = createAsyncThunk(
 
 export const updateTask = createAsyncThunk(
   'tasks/updateTask',
-  async (id, { rejectWithValue, dispatch }) => {
+  async (task, { rejectWithValue }) => {
     try {
-      await axios.put(`/task/${id}`);
-      dispatch(fetchTasks());
+      const response = await axios.put(`/task/${task.id}`, task.task);
+      return response.data;
     } catch (error) {
       rejectWithValue(error.message);
     }
