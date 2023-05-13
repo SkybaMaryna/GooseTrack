@@ -38,7 +38,6 @@ const authSlice = createSlice({
       state.error = payload.error;
     },
     [loginThunk.fulfilled]: (state, { payload }) => {
-      console.log(payload);
       state.user = payload;
       state.accessToken = payload.data.accessToken;
       state.refreshToken = payload.data.refreshToken;
