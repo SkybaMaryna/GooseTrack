@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
 import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-
 import { selectUser } from 'redux/Auth/authSelectors';
 import { getUserInfoThunk, updateUserThunk } from 'redux/Auth/authOperations';
 
@@ -27,7 +25,6 @@ import {
   StyledVectorPng,
   StyledBtn,
   StyledErrorMessage,
-  StyledIconError,
   StyledIconChecked,
 } from './UserForm.styled';
 
@@ -57,17 +54,6 @@ const UserForm = () => {
 
   const [updatedData, setUpdatedData] = useState({});
 
-  const handleDatePickerClose = () => {
-    setIsOpen(false);
-  };
-
-  // useEffect(() => {
-  //   if (isUpdateForm) {
-  //     dispatch(getUserInfoThunk());
-  //     setIsUpdateForm(null);
-  //   }
-  // }, [dispatch, isUpdateForm]);
-
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -93,6 +79,10 @@ const UserForm = () => {
   useEffect(() => {
     localStorage.setItem('formData', JSON.stringify(formData));
   }, [formData]);
+
+  const handleDatePickerClose = () => {
+    setIsOpen(false);
+  };
 
   return (
     <StyledWrapper>
@@ -122,7 +112,6 @@ const UserForm = () => {
           if (userImgUrl) {
             formData.append('userImgUrl', userImgUrl);
           }
-
           await dispatch(updateUserThunk(formData));
           setUpdatedData(values);
         }}
