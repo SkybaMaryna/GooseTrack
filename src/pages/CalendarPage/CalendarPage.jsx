@@ -2,17 +2,13 @@ import moment from 'moment';
 // import { Navigate } from 'react-router-dom';
 // import { Outlet } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { useState } from 'react';
 
 import { fetchTasks } from 'redux/Tasks/tasksOperations';
 import { CalendarToolbar } from 'components/Calendar/CalendarToolbar/CalendarToolbar';
 // import { useParams } from 'react-router-dom';
 import ChoosedMonth from 'components/Calendar/ChoosedMonth/ChoosedMonth';
-import {light} from "../../redux/Theme/Theme.js"
-import { ThemeProvider } from "styled-components";
-import { selectTheme } from 'redux/Theme/themeSelectors.js';
-// import theme from "styled-theming";
 
 const CalendarPage = () => {
   // const { currentDay } = useParams();
@@ -20,7 +16,7 @@ const CalendarPage = () => {
   const [today, setToday] = useState(moment());
   const dispatch = useDispatch();
   const currentDate = new Date(today);
-  const theme = useSelector(selectTheme)
+
 
   moment.updateLocale('en', { week: { dow: 1 } });
   const startDay = today.clone().startOf('month').startOf('week');
@@ -38,7 +34,7 @@ const CalendarPage = () => {
     dispatch(fetchTasks({ month, year }));
   }, [currentDate, dispatch]);
 
-  return (<ThemeProvider theme={light}>
+  return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
       {/* <Navigate to={`month/${today}`} />; */}
       <CalendarToolbar
@@ -50,7 +46,7 @@ const CalendarPage = () => {
 
       {/* <Outlet context={{ startDay, today, currentDate }} /> */}
     </div>
-      </ThemeProvider>
+  
   );
 };
 

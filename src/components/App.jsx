@@ -11,18 +11,21 @@ import NotFound from './NotFound/NotFound';
 import PrivateRoute from 'hoc/PrivateRoute';
 import PublicRoute from 'hoc/PublicRoute';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { refreshThunk } from 'redux/Auth/authOperations';
+import { ThemeProvider } from "styled-components";
+import { selectTheme } from '../redux/Theme/themeSelectors'
 
 export const App = () => {
   const dispatch = useDispatch();
-
+  const theme = useSelector(selectTheme)
   useEffect(() => {
     dispatch(refreshThunk());
   }, [dispatch]);
 
   return (
     <div>
+      <ThemeProvider theme={{ mode: theme }}>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route
@@ -72,6 +75,7 @@ export const App = () => {
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
+      </ThemeProvider>
     </div>
   );
 };

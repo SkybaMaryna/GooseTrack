@@ -19,7 +19,7 @@ import {
 } from './HomePage.styled';
 import CalendarButton from 'components/Layout/CalendarButton/CalendarButton';
 import { selectIsLoggedIn } from 'redux/Auth/authSelectors';
-import {  useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import ReviewsCards from './ReviewsCards';
 // import { useEffect } from 'react';
 
@@ -205,7 +205,7 @@ const HomePage = () => {
       <ReviewSection>
         <ReviewTitle>REVIEWS</ReviewTitle>
         <SwiperWraper>
-                  <ReviewsCards />
+          <ReviewsCards />
         </SwiperWraper>
       </ReviewSection>
     </div>

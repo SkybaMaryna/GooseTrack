@@ -50,7 +50,7 @@ const ReviewsCards = () => {
         >
            {reviews.map(review => (
           <SwiperSlide key={review._id}>
-    <ReviewCard>
+    <ReviewCard key={review._id}>
       <AuthorBox>
         <Avatar>
           <FiUser size={48} fill='var(--cardLightYellow)'/>

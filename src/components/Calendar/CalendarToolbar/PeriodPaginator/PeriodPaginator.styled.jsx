@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import theme from 'styled-theming';
+import {calendarBackgroundColor, calendarHoverColor, calendarTextColor} from '../../../../redux/Theme/Theme.js';
 
 export const DivWrapper = styled('div')`
   display: flex;
@@ -35,18 +35,6 @@ export const ButtonsWrapper = styled('div')`
   border: none;
   margin-left: 8px;
 `;
-const calendarBackgroundColor = theme('mode', {
-  light: 'var(--mainWhite)',
-  dark: 'var(--blackBackground)',
-});
-const calendarTextColor = theme('theme', {
-  light: 'var(--cardGrey)',
-  dark: 'var(--textGrey)',
-});
-const calendarHoverColor = theme('theme', {
-  light: 'var(--textGrey)',
-  dark: 'var(--mainWhite)',
-});
 export const ButtonWrapper1 = styled('button')`
   height: 34px;
   width: 35px;
