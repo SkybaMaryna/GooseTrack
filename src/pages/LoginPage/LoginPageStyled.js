@@ -3,14 +3,29 @@ import styled from 'styled-components';
 
 export const StyledDiv = styled.div`
   height: 100vh;
-  background-color: #dcebf7;
-  position: relative;
-  text-align: center;
-  padding-top: 546px;
+  width: 100vw;
+  background-color: var(--mainLightblue);
+  position: fixed;
+  /* text-align: center; */
+  /* padding-top: 546px; */
   @media screen and (min-width: 768px){
     padding-top: 590px; 
     }
 `;
+
+export const StyledLoginFormWrapper = styled.div`
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ min-width: 335px;
+ text-align: center;
+
+ @media screen and (min-width: 768px){
+    width: 480px;
+    }
+
+`
 
 export const StyledImg = styled.img`
   display: none;
@@ -25,7 +40,8 @@ export const StyledImg = styled.img`
   }
 `;
 export const StyledNavLink = styled(NavLink)`
-display: block;
+  display: block;
+  margin-top: 18px;
   font-weight: 600;
   font-size: 12px;
   line-height: 14px;
@@ -34,5 +50,7 @@ display: block;
   text-shadow: 0px 47px 355px rgba(0, 0, 0, 0.07),
     0px 9.4px 57.6875px rgba(0, 0, 0, 0.035);
 
-   
+    @media screen and (min-width: 768px) {
+  margin-top: 24px;
+  }
 `;
