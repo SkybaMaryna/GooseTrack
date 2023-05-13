@@ -2,7 +2,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { RiErrorWarningLine } from "react-icons/ri";
 import { IoIosCheckmarkCircleOutline } from 'react-icons/io';
 import styled from "styled-components";
-import { sideBackgroundColor } from "redux/Theme/Theme";
+
 
 export const StyledForm = styled(Formik)`
 max-width: 335px;

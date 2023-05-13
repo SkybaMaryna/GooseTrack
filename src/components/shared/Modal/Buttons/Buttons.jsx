@@ -1,4 +1,3 @@
-import {AddButtons} from '../AddButtons/Addbuttons'
 import { ButtonsWrapper } from './ButtonsStyled';
 
 export const Buttons = ({ actionFu, closeModal, typeOfButton }) => {
