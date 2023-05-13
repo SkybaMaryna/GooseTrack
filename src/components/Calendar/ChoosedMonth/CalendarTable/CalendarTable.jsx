@@ -28,16 +28,6 @@ const CalendarTable = ({ startDay, today, tasks }) => {
   return (
     <>
       <GridWrapper>
-        {/* {[...Array(7)].map((_, i) => (
-          <CellWrapper isHeader isSelectedMonth key={i}>
-            <RowInCell justifyContent={'center'} pr={1}>
-              {moment()
-                .day(i + 1)
-                .format('ddd')}
-            </RowInCell>
-          </CellWrapper>
-        ))} */}
-
         {daysMap.map(dayItem => (
           <CellWrapper
             isWeekday={dayItem.day() === 6 || dayItem.day() === 0}

@@ -50,8 +50,6 @@ export const TaskModal = ({
     };
   }, [handleKeyDown]);
 
-
-
   return (
     <>
       <DivOverlay onClick={close}></DivOverlay>
