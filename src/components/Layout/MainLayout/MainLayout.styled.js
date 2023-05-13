@@ -1,3 +1,4 @@
+import { mainBackgroundColor } from 'redux/Theme/Theme';
 import styled from 'styled-components';
 
 export const StyledContainer = styled.div`
@@ -21,7 +22,7 @@ export const StyledContainer = styled.div`
 
 export const StyledMain = styled.main`
   padding: 24px 20px;
-  background-color: var(--cardGrey);
+  background-color: ${mainBackgroundColor};
   flex-grow: 1;
   max-width: 375px;
 

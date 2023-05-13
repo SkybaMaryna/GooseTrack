@@ -18,13 +18,14 @@ import SideBar from '../SideBar/SideBar';
 import { selectSideBar } from 'redux/Modal/modalSelectors';
 import { closeSideBar, openSideBar } from 'redux/Modal/modalSlice';
 import { RxHamburgerMenu } from 'react-icons/rx';
+import { selectTheme } from 'redux/Theme/themeSelectors';
 
 const Header = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const isActivePageCalendar = location.pathname.includes('calendar');
-
   const tasksList = useSelector(selectAllTasks);
+  const theme = useSelector(selectTheme);
   const { isMobile, isDesktop, isRetina } = useMediaRules();
 
   const openMobileMenu = () => dispatch(openSideBar());
@@ -45,13 +46,23 @@ const Header = () => {
     <Container>
       {!isDesktop ? (
         <Wrapper>
-          <Svg onClick={openMobileMenu}>
-            {isMobile ? (
-              <RxHamburgerMenu size={24} />
-            ) : (
-              <RxHamburgerMenu size={34} />
-            )}
-          </Svg>
+          {theme === 'light' ? (
+            <Svg onClick={openMobileMenu}>
+              {isMobile ? (
+                <RxHamburgerMenu size={24} />
+              ) : (
+                <RxHamburgerMenu size={34} />
+              )}
+            </Svg>
+          ) : (
+            <Svg onClick={openMobileMenu}>
+              {isMobile ? (
+                <RxHamburgerMenu size={24} color="#ffffff" />
+              ) : (
+                <RxHamburgerMenu size={34} color="#ffffff" />
+              )}
+            </Svg>
+          )}
           <Overlay
             onClick={handleOverlayClick}
             isVisible={sideBarState}

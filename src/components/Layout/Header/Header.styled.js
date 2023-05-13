@@ -1,7 +1,9 @@
+import { mainTextColor } from 'redux/Theme/Theme';
 import styled from 'styled-components';
 
 export const Container = styled.div`
   margin-bottom: 64px;
+
   @media screen and (min-width: 1440px) {
     margin-bottom: 32px;
   }
@@ -11,6 +13,7 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   position: relative;
+
   &:not(:first-child) {
     margin-left: auto;
   }
@@ -20,7 +23,7 @@ export const H2 = styled.h2`
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
-  color: var(--mainBlack);
+  color: ${mainTextColor};
   text-shadow: 0px 47px 355px rgba(0, 0, 0, 0.07),
     0px 9.4px 57.6875px rgba(0, 0, 0, 0.035);
 `;
@@ -29,7 +32,7 @@ export const Motivation = styled.span`
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
-  color: var(--mainBlack);
+  color: ${mainTextColor};
 `;
 
 export const Image = styled.img`

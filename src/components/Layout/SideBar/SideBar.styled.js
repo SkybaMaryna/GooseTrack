@@ -1,3 +1,4 @@
+import { sideBackgroundColor } from 'redux/Theme/Theme';
 import styled from 'styled-components';
 
 export const StyledSideBar = styled.div`
@@ -8,7 +9,7 @@ export const StyledSideBar = styled.div`
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 24px;
-  background-color: var(--mainWhite);
+  background-color: ${sideBackgroundColor};
   padding-bottom: 24px;
   justify-content: space-between;
 
