@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { secondTextColor } from 'redux/Theme/Theme';
 import styled from 'styled-components';
 
 export const Name = styled.span`
@@ -7,7 +8,7 @@ export const Name = styled.span`
   font-weight: 700;
   font-size: 14px;
   line-height: 18px;
-  color: var(--blackSecond);
+  color: ${secondTextColor};
   @media screen and (min-width: 768px) {
     font-size: 18px;
   }

@@ -33,6 +33,10 @@ export const mainTextColor = theme('mode', {
   light: 'var(--mainBlack)',
   dark: 'var(--mainWhite)',
 });
+export const secondTextColor = theme('mode', {
+  light: 'var(--blackSecond)',
+  dark: 'var(--mainWhite)',
+});
 export const calendarTextColor = theme('mode', {
   light: 'var(--cardGrey)',
   dark: 'var(--textGrey)',
