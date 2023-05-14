@@ -10,13 +10,12 @@ import {
 } from './EditFormStyled';
 import { toast } from 'react-toastify';
 
-
 export const EditForm = ({ taskFromCard, closeModal }) => {
   const [editText, setEditText] = useState(taskFromCard.title);
   const [start, setStart] = useState(taskFromCard.start);
   const [end, setEnd] = useState(taskFromCard.end);
   const [priorities, setPriorities] = useState(taskFromCard.priority);
- 
+
   const dispatch = useDispatch();
 
   const [obj, setObj] = useState([
@@ -38,7 +37,6 @@ export const EditForm = ({ taskFromCard, closeModal }) => {
     setEditText(editText.trim());
   }, [editText]);
 
-
   const timeFormValidation = () => {
     let status = 'valid';
     if (Number(start) >= Number(end)) {
@@ -49,9 +47,7 @@ export const EditForm = ({ taskFromCard, closeModal }) => {
 
   const updateTaskFu = () => {
     if (timeFormValidation() === 'invalid') {
-      toast.error(
-        'End Time of your task can not be less then Start Time'
-      );
+      toast.error('End Time of your task can not be less then Start Time');
       return;
     }
     if (!start && !end && !editText) {
@@ -109,19 +105,25 @@ export const EditForm = ({ taskFromCard, closeModal }) => {
     const { value } = event.target;
     setEditText(prevState => (prevState = value));
   };
-  const onChangeStart = startValue => {
-    if(startValue>=end){
-      toast.error('Start Time can not be bigger then end time')
-    return}
+  const onChangeStart = startDate => {
+    let startValue = startDate.toLocaleTimeString('en-UK');
+    startValue = startValue.substring(0, startValue.lastIndexOf(':'));
+    if (startValue >= end) {
+      toast.error('Start Time can not be bigger then end time');
+      return;
+    }
     setStart(startValue);
   };
-  const onChangeEnd = endValue => {
-    if(start>=endValue) {
-      toast.error('End Time of your task can not be less then Start Time')
-    return}
+  const onChangeEnd = endDate => {
+    let endValue = endDate.toLocaleTimeString('en-UK');
+    endValue = endValue.substring(0, endValue.lastIndexOf(':'));
+    if (start >= endValue) {
+      toast.error('End Time of your task can not be less then Start Time');
+      return;
+    }
     setEnd(endValue);
   };
- 
+
   return (
     <>
       <Form

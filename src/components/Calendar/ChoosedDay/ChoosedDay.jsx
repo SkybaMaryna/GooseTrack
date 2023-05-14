@@ -87,8 +87,10 @@ const ChoosedDay = () => {
   };
 
   return (
+    <>
+    <DayCalendarHead clickChooseDay={chooseDay} />
     <TasksColumnsListWrapper>
-      <DayCalendarHead clickChooseDay={chooseDay} />
+      
       <TasksColumnsList
         tasks={tasksFilter}
         getTypeOfColumn={getTypeOfColumn}
@@ -117,6 +119,7 @@ const ChoosedDay = () => {
         />
       )}
     </TasksColumnsListWrapper>
+    </>
   );
 };
 

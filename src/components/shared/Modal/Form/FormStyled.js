@@ -2,6 +2,10 @@ import {
   borderInputModal,
   elementTextColor,
   inputModal,
+  mainTextColor,
+  scrollBar,
+  scrollBarThumb,
+  taskBackgroundColor,
   textLabelInputModal,
 } from 'redux/Theme/Theme';
 import styled from 'styled-components';
@@ -68,8 +72,14 @@ export const StyledDivTimePicker = styled.div`
     width: 163px;
   }
 
-  & .react-ios-time-picker-input {
+  .react-datepicker__input-container input {
+    background-color: transparent;
     border: none;
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 14px;
+    outline: none;
+    color: ${elementTextColor};
   }
 
   & .react-ios-time-picker-container {
@@ -87,5 +97,45 @@ export const StyledDivTimePicker = styled.div`
     align-items: center;
   }
 
- 
+  .react-datepicker__time-container
+    .react-datepicker__time
+    .react-datepicker__time-box
+    ul.react-datepicker__time-list
+    li.react-datepicker__time-list-item--selected {
+    background-color: var(--mainBlue);
+    color: var(--mainWhite);
+    font-weight: bold;
+  }
+
+  .react-datepicker {
+    border-radius: 8px;
+    overflow: hidden;
+    &__time-container {
+      color: ${mainTextColor};
+    }
+
+    &__time {
+      background-color: ${taskBackgroundColor};
+      &-list {
+        &::-webkit-scrollbar {
+          width: 4px;
+          display: true;
+          background: ${scrollBar};
+          border-radius: 12px;
+        }
+        &::-webkit-scrollbar-thumb {
+          background: ${scrollBarThumb};
+          border-radius: 12px;
+        }
+      }
+    }
+
+    &__header {
+      background-color: ${taskBackgroundColor};
+    }
+    &-time__header {
+      color: ${mainTextColor};
+    }
+  }
+
 `;
