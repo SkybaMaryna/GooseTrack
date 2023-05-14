@@ -66,7 +66,14 @@ const CalendarTable = ({ startDay, today, tasks }) => {
                   .reduce((t1, t2) => t1.concat(t2), []).length > 2 && (
                   <li key="more">
                     <CalendarTableMoreBtn type="button">
-                      See all...
+                      +{' '}
+                      {tasks
+                        .filter(
+                          task => task.date === dayItem.format('YYYY-MM-DD')
+                        )
+                        .map(tasks => tasks.tasks)
+                        .reduce((t1, t2) => t1.concat(t2), []).length - 2}{' '}
+                      tasks...
                     </CalendarTableMoreBtn>
                   </li>
                 )}
