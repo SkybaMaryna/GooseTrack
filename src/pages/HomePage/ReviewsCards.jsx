@@ -17,7 +17,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
-// import {HiArrowLongLeft, HiArrowLongRight } from 'react-icons/hi2';
 import {FcButtingIn} from 'react-icons/fc'
 import { CgArrowLongLeft, CgArrowLongRight } from "react-icons/cg";
 

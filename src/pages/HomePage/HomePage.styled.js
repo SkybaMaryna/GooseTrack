@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Herosection = styled.section`
   width: 100%;
-  /* height: 100vh; */
   background-color: var(--mainBlue);
   margin-top: 0;
   margin-bottom: 64px;
@@ -73,7 +72,6 @@ export const HeroTitle = styled.div`
     font-size: 120px;
     line-height: 1.5;
     margin-bottom: 40px;
-    /* margin-left:88px; */
   }
 `;
 export const NavButtonBox = styled.div`
