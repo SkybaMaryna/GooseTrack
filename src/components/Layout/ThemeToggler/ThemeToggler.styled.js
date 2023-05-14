@@ -10,6 +10,8 @@ export const Button = styled.button`
 
 export const Svg = styled.svg`
   display: flex;
+  width: 25px;
+  height: 25px;
   align-items: center;
   fill: var(--mainBlue);
 `;
