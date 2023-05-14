@@ -130,6 +130,99 @@ export const StyledInput = styled(Field)`
     
 `;
 
+export const DatePickerWrap = styled.div`
+  .react-datepicker {
+    border-radius: 16px;
+    overflow: hidden;
+    border: none;
+    &__header {
+      background-color: var(--mainBlue);
+      color: var(--mainWhite);
+    }
+    &__month-container {
+      background-color: var(--mainBlue);
+    }
+    &__day {
+      color: var(--mainWhite);
+      &:hover {
+          border-radius: 50%;
+          background-color: var(--lightblue);
+          color: var(--mainBlue);
+          opacity: 0.7;
+          
+        }
+      &--weekend {
+        opacity: 40%;
+      }
+      &--today {
+        border-radius: 50%;
+        opacity: 1;
+        background-color: var(--mainWhite);
+        color: var(--mainBlue);
+        
+      }
+      &--selected {
+        border-radius: 50%;
+        opacity: 1;
+        background-color: var(--lightblue);
+        color: var(--mainBlue);
+        outline: none;
+      }
+      &--keyboard-selected {
+        border-radius: 50%;
+        opacity: 1;
+        background-color: var(--lightblue);
+        color: var(--mainBlue);
+        outline: none;
+      }
+    }
+    &__day-name {
+      color: var(--mainWhite);
+    }
+    &__current-month {
+      color: var(--mainWhite);
+    }
+    &__year {
+      
+    }
+    &__navigation--years {
+      background-color: var(--lightblue);
+      border-radius: 50%;
+      width: 10px;
+      height: 10px;
+      margin: 5px auto;
+      &:hover {
+        background-color: var(--mainBlue);
+        border: 1px solid var(--mainWhite);
+      }
+      
+    }
+    &__year-option {
+      background-color: var(--mainBlue);
+      color: var(--mainWhite);
+      &:hover {
+        background-color: var(--mainBlue);
+        font-size:14px;
+        font-weight: 700;
+      }      
+    }
+    &__year-dropdown {
+      background-color: var(--mainBlue);
+      &::-webkit-scrollbar {
+        width: 5px;
+    background: var(--mainBlue);
+    border-radius: 12px;
+    
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--lightblue);
+    border-radius: 12px;
+
+  }
+    }
+  }
+`;
+
 export const StyledDatePicker = styled(DatePicker)`
   width: 299px;
   height: 42px;
