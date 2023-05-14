@@ -12,13 +12,16 @@ export const Button = styled.button`
   color: var(--mainBlue);
   font-weight: 700;
   border-color: var(--mainBlue);
-  margin: 0 auto;
+  margin: 0 auto 140px auto;
   text-align: center;
   width: 150px;
   cursor: pointer;
   &:hover {
     background: var(--mainLightblue);
     box-shadow: 4px 2px 10px rgba(136, 165, 191, 0.8);
+   };
+   @media screen and (min-width: 768px) {
+     margin-bottom: 0 auto;
   }
 `;
 export const NavLinkStyled = styled(NavLink)`
