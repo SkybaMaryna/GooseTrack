@@ -7,11 +7,13 @@ import {
   StyledWrapper,
 } from './SideBar.styled';
 import { useMediaRules } from 'hooks/mediaRules';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { closeSideBar } from 'redux/Modal/modalSlice';
 import { CgClose } from 'react-icons/cg';
+import { selectTheme } from 'redux/Theme/themeSelectors';
 
 const SideBar = () => {
+  const theme = useSelector(selectTheme);
   const { isMobile, isTablet, isDesktop, isRetina } = useMediaRules();
   const dispatch = useDispatch();
   const closeMobileMenu = () => dispatch(closeSideBar());
@@ -56,11 +58,20 @@ const SideBar = () => {
           <StyledH2>
             G<i>oo</i>seTrack
           </StyledH2>
-          {!isDesktop && (
-            <span onClick={closeMobileMenu}>
-              {isMobile ? <CgClose size={24} /> : <CgClose size={33} />}
-            </span>
-          )}
+          {!isDesktop &&
+            (theme === 'light' ? (
+              <span onClick={closeMobileMenu}>
+                {isMobile ? <CgClose size={24} /> : <CgClose size={33} />}
+              </span>
+            ) : (
+              <span onClick={closeMobileMenu}>
+                {isMobile ? (
+                  <CgClose size={24} color="#ffffff" />
+                ) : (
+                  <CgClose size={33} color="#ffffff" />
+                )}
+              </span>
+            ))}
         </StyledWrapper>
 
         <UserNav />
