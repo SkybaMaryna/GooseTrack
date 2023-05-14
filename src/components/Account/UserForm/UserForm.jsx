@@ -26,18 +26,39 @@ import {
   StyledBtn,
   StyledErrorMessage,
   StyledIconChecked,
+  StyledIconError
 } from './UserForm.styled';
 
-const validationSchema = Yup.object({
+// const validationSchema = Yup.object({
+//   name: Yup.string()
+//     .max(15, 'Length must be less then 15')
+//     .required('Your name is required'),
+//   birthday: Yup.date(),
+//   email: Yup.string()
+//     .email('Invalid e-mail')
+//     .required('Your e-mail is required'),
+//   skype: Yup.string().max(16),
+// });
+
+const validationSchema = Yup.object().shape({
   name: Yup.string()
-    .max(15, 'Length must be less then 15')
-    .required('Your name is required'),
-  birthday: Yup.date(),
+      .max(15, 'Length must be less then 15')
+      .required('Your name is required'),
   email: Yup.string()
-    .email('Invalid e-mail')
-    .required('Your e-mail is required'),
-  skype: Yup.string().max(16),
+      .email('Invalid e-mail')
+      .required('Your e-mail is required'),
+  birthday: Yup.date().nullable(),
+  phone: Yup.string()
+      .matches(
+          /^\+380\d{9}$/,
+          'Enter your phone number in format +380'
+      )
+      .nullable(),
+  skype: Yup.string()
+      .max(16, 'Length must be less then 16')
+      .nullable(),
 });
+
 
 const UserForm = () => {
   const userInfo = useSelector(selectUser);
@@ -156,7 +177,6 @@ const UserForm = () => {
             <StyledBlockInput>
               <StyledLabelInput htmlFor="name">
                 <p>User Name</p>
-
                 <div>
                   <StyledInput
                     type="text"
@@ -168,7 +188,7 @@ const UserForm = () => {
                     placeholder="Your Name"
                   ></StyledInput>
                   <StyledErrorMessage name="name" component="div" />
-                  {/* {(errors.name && touched.name) && <StyledIconError  color='red'/>}  */}
+                  {(errors.name && touched.name) && <StyledIconError  color='red'/>} 
                   {touched.name && !errors.name && (
                     <StyledIconChecked color="green" />
                   )}
@@ -177,43 +197,56 @@ const UserForm = () => {
 
               <StyledLabelInput htmlFor="phone">
                 <p>Phone</p>
-                <StyledInput
-                  type="tel"
-                  name="phone"
-                  id="phone"
-                  value={values.phone ? values.phone : ''}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  placeholder="+380"
-                ></StyledInput>
-                <ErrorMessage name="phone" />
+                <div>
+                  <StyledInput
+                    type="tel"
+                    name="phone"
+                    id="phone"
+                    value={values.phone ? values.phone : ''}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    placeholder="+380"
+                  ></StyledInput>
+                  <ErrorMessage name="phone" />
+                  {(errors.phone && touched.phone) && <StyledIconError  color='red'/>}
+                    {touched.phone && !errors.phone && (
+                      <StyledIconChecked color="green" />
+                    )}
+                </div>
               </StyledLabelInput>
 
               <StyledLabelInput htmlFor="birthday">
                 <p>Birthday</p>
-                <StyledDatePicker
-                  type="date"
-                  name="birthday"
-                  id="birthday"
-                  input={true}
-                  maxDate={new Date()}
-                  selected={values.birthday}
-                  onChange={data => {
-                    setNewBirthday(data);
-                    handleDatePickerClose();
-                  }}
-                  placeholder="Birthday"
-                  dateFormat="dd/MM/yyyy"
-                  open={isOpen}
-                  onClickOutside={() => setIsOpen(false)}
-                  onFocus={() => setIsOpen(true)}
-                />
-
-                <StyledVectorPng>
-                  <use href={Icon + '#icon-chevron-right-new'}></use>
-                </StyledVectorPng>
-
-                <ErrorMessage name="birthday" />
+                <div>
+                  <StyledDatePicker
+                    type="date"
+                    name="birthday"
+                    id="birthday"
+                    input={true}
+                    maxDate={new Date()}
+                    selected={values.birthday}
+                    onChange={data => {
+                      setNewBirthday(data);
+                      handleDatePickerClose();
+                    }}
+                    placeholder="Birthday"
+                    dateFormat="yyyy/MM/dd"
+                    open={isOpen}
+                    onClickOutside={() => setIsOpen(false)}
+                    onFocus={() => setIsOpen(true)}
+                    showYearDropdown
+                    scrollableYearDropdown
+                    
+                  />
+                  <StyledVectorPng>
+                    <use href={Icon + '#icon-chevron-right-new'}></use>
+                  </StyledVectorPng>
+                  <StyledErrorMessage name="birthday" component="div"/>
+                  {(errors.birthday && touched.birthday) && <StyledIconError  color='red'/>}
+                      {touched.birthday && !errors.birthday && (
+                        <StyledIconChecked color="green" />
+                      )}
+                </div>
               </StyledLabelInput>
 
               <StyledLabelInput htmlFor="skype">
@@ -222,12 +255,16 @@ const UserForm = () => {
                   type="text"
                   name="skype"
                   id="skype"
-                  placeholder="Skype"
+                  placeholder="Add a skype number"
                   value={values.skype ? values.skype : ''}
                   onChange={handleChange}
                   onBlur={handleBlur}
                 ></StyledInput>
-                <ErrorMessage name="skype" />
+                <StyledErrorMessage name="skype" component="div"/>
+                {(errors.skype && touched.skype) && <StyledIconError  color='red'/>}
+                      {touched.skype && !errors.skype && (
+                        <StyledIconChecked color="green" />
+                      )}
               </StyledLabelInput>
 
               <StyledLabelInput htmlFor="email">
