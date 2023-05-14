@@ -72,11 +72,16 @@ export const StyledDivTimePicker = styled.div`
     width: 163px;
   }
 
-  & .react-ios-time-picker-input {
+  .react-datepicker__input-container input {
+    background-color: transparent;
     border: none;
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 14px;
+    outline: none;
+    color: ${elementTextColor};
   }
 
-<<<<<<< Updated upstream
   & .react-ios-time-picker-container {
     z-index: 1000;
     background-color: var(--blackBackground);
@@ -92,8 +97,6 @@ export const StyledDivTimePicker = styled.div`
     align-items: center;
   }
 
- 
-=======
   .react-datepicker__time-container
     .react-datepicker__time
     .react-datepicker__time-box
@@ -134,5 +137,5 @@ export const StyledDivTimePicker = styled.div`
       color: ${mainTextColor};
     }
   }
->>>>>>> Stashed changes
+
 `;

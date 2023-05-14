@@ -2,14 +2,26 @@ import { calendarBackgroundColor, mainTextColor } from 'redux/Theme/Theme';
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 68px;
-  width: 1087px;
-  padding: 15px 40px;
+  width: 335px;
+  height: 74px;
+  padding: 18px 20px;
   background: var(--mainWhite);
   border: 1px solid rgba(220, 227, 229, 0.8);
   border-radius: 8px;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   background-color: ${calendarBackgroundColor};
+
+  @media screen and (min-width: 768px) {
+    width: 704px;
+    height: 68px;
+    margin-bottom: 16px;
+    padding: 14px 32px;
+  }
+  @media screen and (min-width: 1440px) {
+    height: 68px;
+    width: 1087px;
+    padding: 14px 46px;
+  }
 `;
 
 export const WeekInfoWrapper = styled.div`

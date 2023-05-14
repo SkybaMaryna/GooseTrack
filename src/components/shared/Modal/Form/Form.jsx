@@ -1,3 +1,4 @@
+import ReactDatePicker from 'react-datepicker';
 import {
   // StyledInput,
   StyledInputText,
@@ -7,8 +8,6 @@ import {
   StyledDivTimePicker,
 } from './FormStyled';
 
-import { TimePicker } from 'react-ios-time-picker';
-
 export const Form = ({
   titleSetter,
   startSetter,
@@ -17,9 +16,19 @@ export const Form = ({
   startTime,
   endTime,
 }) => {
-console.log(enterText);
+  const timeToDate = time => {
+    if (!time) return null;
+    const todayStart = new Date();
+    const startParts = time.includes('-') ? time.split('-') : time.split(':');
+    todayStart.setHours(startParts[0]);
+    todayStart.setMinutes(startParts[1]);
+    return todayStart;
+  };
+  let todayStart = timeToDate(startTime);
+  let todayEnd = timeToDate(endTime);
+
   return (
-    <form  autoComplete="off">
+    <form autoComplete="off">
       <InputWrapper>
         <StyledLabel htmlFor="">Title</StyledLabel>
         <StyledInputText
@@ -34,18 +43,34 @@ console.log(enterText);
         <InputWrapper>
           <StyledLabel htmlFor="">Start</StyledLabel>
           <StyledDivTimePicker>
-          <TimePicker onChange={startSetter} value={startTime} />
+            <ReactDatePicker
+              onChange={date => startSetter(date)}
+              selected={todayStart}
+              showTimeSelect
+              showTimeSelectOnly
+              timeFormat="HH:mm"
+              timeIntervals={30}
+              timeCaption="Time"
+              dateFormat="HH:mm"
+            />
           </StyledDivTimePicker>
-        
         </InputWrapper>
         <InputWrapper>
           <StyledLabel htmlFor="">End</StyledLabel>
           <StyledDivTimePicker>
-          <TimePicker onChange={endSetter} value={endTime}/>
-          </StyledDivTimePicker>    
+            <ReactDatePicker
+              onChange={date => endSetter(date)}
+              selected={todayEnd}
+              showTimeSelect
+              showTimeSelectOnly
+              timeFormat="HH:mm"
+              timeIntervals={30}
+              timeCaption="Time"
+              dateFormat="HH:mm"
+            />
+          </StyledDivTimePicker>
         </InputWrapper>
       </StyledInputContainer>
     </form>
   );
 };
-
