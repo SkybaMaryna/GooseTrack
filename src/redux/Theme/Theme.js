@@ -1,5 +1,5 @@
 import theme from 'styled-theming';
-// --- background ---
+
 export const mainBackgroundColor = theme('mode', {
   light: 'var(--cardGrey)',
   dark: 'var(--darkBackground)',
@@ -29,7 +29,6 @@ export const greyButtonBackgroundColor = theme('mode', {
   dark: 'var(--mainWhite)',
 });
 
-//   ---text---
 
 export const mainTextColor = theme('mode', {
   light: 'var(--mainBlack)',
@@ -55,7 +54,7 @@ export const elementTextHoverColor = theme('mode', {
   light: 'var(--mainBlue)',
   dark: 'var(--mainWhite)',
 });
-//   --- border---
+
 export const buttonBorderColor = theme('mode', {
   light: '1px dashed var(--mainBlue)',
   dark: 'var(--mainBlue)',
@@ -96,7 +95,6 @@ export const blueButtonsHover = theme('mode', {
   light: 'var(--mainBlue)',
   dark: '#2B78EF',
 });
-
 export const AccountFormInput = theme('mode', {
   light: 'var(--mainBlack)',
   dark: 'var(--textGrey)'
