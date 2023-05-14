@@ -16,6 +16,7 @@ export const ButtonWraper = styled.div`
 `;
 
 export const StyledP = styled.div`
+  color: ${mainTextColor};
   padding-top: 16px;
   color: ${mainTextColor};
 `;

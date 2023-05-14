@@ -70,12 +70,12 @@ export const TaskModalChangeStatusWrapper = styled.div`
   gap: 10px;
   position: absolute;
   top: 10%;
-  left: 50%;
+  left: 45%;
   transform: translate(-50%, 30%);
   background: ${sideBackgroundColor};
   border-color: ${borderInputModal};
   box-shadow: 0px 4px 16px rgba(17, 17, 17, 0.1);
-  width: 147px;
+  width: 130px;
   height: 90px;
   z-index: 1000;
   border-radius: 8px;
