@@ -108,16 +108,15 @@ export const EditForm = ({ taskFromCard, closeModal }) => {
   const onChangeStart = startDate => {
     let startValue = startDate.toLocaleTimeString('en-UK');
     startValue = startValue.substring(0, startValue.lastIndexOf(':'));
-    if (startValue >= end) {
-      toast.error('Start Time can not be bigger then end time');
-      return;
+    if (startValue > end) {
+      setEnd(startValue);
     }
     setStart(startValue);
   };
   const onChangeEnd = endDate => {
     let endValue = endDate.toLocaleTimeString('en-UK');
     endValue = endValue.substring(0, endValue.lastIndexOf(':'));
-    if (start >= endValue) {
+    if (start > endValue) {
       toast.error('End Time of your task can not be less then Start Time');
       return;
     }
