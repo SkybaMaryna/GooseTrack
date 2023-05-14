@@ -15,14 +15,7 @@ export const StyledWrapper = styled.div`
   height: 100%;
   background: #ffffff;
   border-radius: 16px;
-  @media screen and (min-width: 768px) {
-    /* width: 704px;
-    height: 854px; */
-  }
-  @media screen and (min-width: 1440px) {
-    /* width: 1087px;
-    height: 752px; */
-  }
+ 
   h2 {
     margin-top: 59px;
     margin-bottom: 4px;
@@ -32,7 +25,7 @@ export const StyledWrapper = styled.div`
     font-weight: 700;
     font-size: 14px;
     line-height: calc(18 / 14);
-    color: #000000;
+    color: #343434;
     @media screen and (min-width: 768px) {
       margin-bottom: 8px;
       margin-top: 0px;
@@ -47,9 +40,9 @@ export const StyledUser = styled.p`
   font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 32px;
   line-height: calc(14 / 12);
-  color: var(--modal-input-text-color);
+  color: #616161;
   @media screen and (min-width: 768px) {
     font-size: 14px;
     line-height: calc(18 / 14);
@@ -60,7 +53,7 @@ export const StyledUser = styled.p`
 `;
 
 export const StyledForm = styled(Form)`
-  /* position: relative; */
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,14 +69,16 @@ export const StyledBlockInput = styled.div`
   justify-content: center;
   width: 299px;
   height: 392px;
+
   p {
     margin-bottom: 8px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
-    line-height: calc(14 / 12);
+    font-size: 14px;
+    line-height: calc(18 / 14);
   }
+  
   @media screen and (min-width: 768px) {
     width: 354px;
     height: 458px;
@@ -95,27 +90,42 @@ export const StyledBlockInput = styled.div`
   }
 `;
 
+export const StyledLabelInput = styled.label`
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: calc(18 / 14);
+  color: #111111;
+`;
+
 export const StyledInput = styled(Field)`
   width: 299px;
   height: 42px;
   margin-bottom: 18px;
-  padding-left: 18px;
+  padding: 14px 18px;
   border: 1px solid rgba(17, 17, 17, 0.15);
   border-radius: 8px;
   background: #ffffff;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 16px;
   line-height: calc(18 / 16);
-  color: #000000;
+  color: #111111;
   @media screen and (min-width: 768px) {
     margin-bottom: 24px;
     width: 354px;
     height: 46px;
     font-size: 16px;
     line-height: calc(18 / 16);
+    
   }
+  &:focus {
+      border-color: #3e85f3;
+      outline: none;
+    }
+    
 `;
 
 export const StyledDatePicker = styled(DatePicker)`
@@ -131,7 +141,7 @@ export const StyledDatePicker = styled(DatePicker)`
   font-weight: 600;
   font-size: 14px;
   line-height: calc(18 / 14);
-  color: #000000;
+  color: #111111;
   @media screen and (min-width: 768px) {
     width: 354px;
     height: 46px;
@@ -139,6 +149,10 @@ export const StyledDatePicker = styled(DatePicker)`
     font-size: 16px;
     line-height: calc(18 / 16);
   }
+  &:focus {
+      border-color: #3e85f3;
+      outline: none;
+    }
 `;
 
 export const StyledInputFile = styled.input`
@@ -228,18 +242,7 @@ export const StyledVectorPng = styled.svg`
   }
 `;
 
-export const StyledLabelInput = styled.label`
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: calc(18 / 14);
-  color: #111111;
-  @media screen and (min-width: 768px) {
-  }
-  @media screen and (min-width: 1440px) {
-  }
-`;
+
 
 export const StyledBtn = styled.button`
   margin-left: auto;
@@ -259,6 +262,7 @@ export const StyledBtn = styled.button`
   line-height: calc(18 / 14);
   background: #3e85f3;
   color: #ffffff;
+  cursor: pointer;
   @media screen and (min-width: 768px) {
     width: 262px;
     height: 48px;
