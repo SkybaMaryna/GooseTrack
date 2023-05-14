@@ -80,7 +80,7 @@ const TaskColumnCard = ({ task, getTask }) => {
                 color: priorityTextColor,
               }}
             >
-              {priority[0].toUpperCase() + priority.slice(1)}
+              {priority[0]?.toUpperCase() + priority.slice(1)}
             </TaskCardPriority>
           </TaskAvatarPriorityWrapper>
           <TaskToolbar getTask={getTask} task={task} />

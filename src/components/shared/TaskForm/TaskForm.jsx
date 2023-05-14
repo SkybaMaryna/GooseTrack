@@ -37,7 +37,7 @@ export const TaskForm = ({ closeModal, typeOfColumn, choosedDay }) => {
       toast.error('Fields cannot be empty');
       return;
     }
-    if(!enterText){
+    if (!enterText) {
       return;
     }
     const category = typeOfColumn.status.toLowerCase().replace(' ', '-');
@@ -55,16 +55,22 @@ export const TaskForm = ({ closeModal, typeOfColumn, choosedDay }) => {
     dispatch(closeModalAddTask());
   };
 
-  const onChangeStart = startValue => {
-    if(startValue>=end){
-      toast.error('Start Time can not be bigger then end time')
-    return}
+  const onChangeStart = startDate => {
+    let startValue = startDate.toLocaleTimeString('en-UK');
+    startValue = startValue.substring(0, startValue.lastIndexOf(':'));
+    if (startValue >= end) {
+      toast.error('Start Time can not be bigger then end time');
+      return;
+    }
     setStart(startValue);
   };
-  const onChangeEnd = endValue => {
-    if(start>=endValue) {
-      toast.error('End Time of your task can not be less then Start Time')
-    return}
+  const onChangeEnd = endDate => {
+    let endValue = endDate.toLocaleTimeString('en-UK');
+    endValue = endValue.substring(0, endValue.lastIndexOf(':'));
+    if (start >= endValue) {
+      toast.error('End Time of your task can not be less then Start Time');
+      return;
+    }
     setEnd(endValue);
   };
 
@@ -120,7 +126,6 @@ export const TaskForm = ({ closeModal, typeOfColumn, choosedDay }) => {
     setEnterText(prevState => (prevState = value));
   };
 
-
   return (
     <>
       <Form
@@ -128,8 +133,8 @@ export const TaskForm = ({ closeModal, typeOfColumn, choosedDay }) => {
         startSetter={onChangeStart}
         endSetter={onChangeEnd}
         enterText={enterText}
-        startTitle={start}
-        endTitle={end}
+        startTime={start}
+        endTime={end}
       />
       <Priority obj={obj} prioritySelector={prioritySelector} />
 
