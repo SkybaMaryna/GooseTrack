@@ -26,6 +26,7 @@ import {
   StyledIconChecked,
   StyledIconError,
   ChevronDown,
+  DatePickerWrap,
 } from './UserForm.styled';
 
 const validationSchema = Yup.object().shape({
@@ -194,7 +195,7 @@ const UserForm = () => {
 
               <StyledLabelInput htmlFor="birthday">
                 <p>Birthday</p>
-                <div>
+                <DatePickerWrap>
                   <StyledDatePicker
                     type="date"
                     name="birthday"
@@ -222,7 +223,7 @@ const UserForm = () => {
                   {touched.birthday && !errors.birthday && (
                     <StyledIconChecked color="green" />
                   )}
-                </div>
+                </DatePickerWrap>
               </StyledLabelInput>
 
               <StyledLabelInput htmlFor="skype">

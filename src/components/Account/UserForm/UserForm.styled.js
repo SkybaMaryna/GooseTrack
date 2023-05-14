@@ -1,30 +1,34 @@
 import styled from 'styled-components';
 import { Field, Form, ErrorMessage } from 'formik';
-import { IoIosCheckmarkCircleOutline } from "react-icons/io";
-import { RiErrorWarningLine } from "react-icons/ri";
+import { IoIosCheckmarkCircleOutline } from 'react-icons/io';
+import { RiErrorWarningLine } from 'react-icons/ri';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { AccountFormInput, calendarBackgroundColor, elementTextHoverColor, mainTextColor } from 'redux/Theme/Theme';
-import {MdOutlineKeyboardArrowDown} from 'react-icons/md'
+import {
+  AccountFormInput,
+  calendarBackgroundColor,
+  elementTextHoverColor,
+  mainTextColor,
+} from 'redux/Theme/Theme';
+import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 
 export const ChevronDown = styled(MdOutlineKeyboardArrowDown)`
-position: absolute;
-top: 52%;
-left: 88%;
-cursor: pointer;
-&:hover {
-  color: ${elementTextHoverColor};
-}
+  position: absolute;
+  top: 52%;
+  left: 88%;
+  cursor: pointer;
+  &:hover {
+    color: ${elementTextHoverColor};
+  }
 
-
-@media screen and (min-width: 768px) {
-  top: 50%;
-}
-@media screen and (min-width: 1440px) {
-  top: 50%;
-  left: 42%;
-}
-`
+  @media screen and (min-width: 768px) {
+    top: 50%;
+  }
+  @media screen and (min-width: 1440px) {
+    top: 50%;
+    left: 42%;
+  }
+`;
 export const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -35,7 +39,7 @@ export const StyledWrapper = styled.div`
   height: 100%;
   background: ${calendarBackgroundColor};
   border-radius: 16px;
- 
+
   h2 {
     margin-top: 59px;
     margin-bottom: 4px;
@@ -95,7 +99,7 @@ export const StyledBlockInput = styled.div`
     font-size: 14px;
     line-height: calc(18 / 14);
   }
-  
+
   @media screen and (min-width: 768px) {
     width: 354px;
     height: 458px;
@@ -137,15 +141,104 @@ export const StyledInput = styled(Field)`
     height: 46px;
     font-size: 16px;
     line-height: calc(18 / 16);
-    
   }
   &:focus {
-      border-color: #3e85f3;
-      outline: none;
-    }
-    
+    border-color: #3e85f3;
+    outline: none;
+  }
 `;
+export const DatePickerWrap = styled.div`
+  .react-datepicker {
+    border-radius: 16px;
+    overflow: hidden;
+    border: none;
+    &__header {
+      background-color: var(--mainBlue);
+      color: var(--mainWhite);
+    }
+    &__month-container {
+      background-color: var(--mainBlue);
+    }
+    &__day {
+      color: var(--mainWhite);
+      &:hover {
+          border-radius: 50%;
+          background-color: var(--lightblue);
+          color: var(--mainBlue);
+          opacity: 0.7;
+          
+        }
+      &--weekend {
+        opacity: 40%;
+      }
+      &--today {
+        border-radius: 50%;
+        opacity: 1;
+        background-color: var(--mainWhite);
+        color: var(--mainBlue);
+        
+      }
+      &--selected {
+        border-radius: 50%;
+        opacity: 1;
+        background-color: var(--lightblue);
+        color: var(--mainBlue);
+        outline: none;
+      }
+      &--keyboard-selected {
+        border-radius: 50%;
+        opacity: 1;
+        background-color: var(--lightblue);
+        color: var(--mainBlue);
+        outline: none;
+      }
+    }
+    &__day-name {
+      color: var(--mainWhite);
+    }
+    &__current-month {
+      color: var(--mainWhite);
+    }
+    &__year {
+      
+    }
+    &__navigation--years {
+      background-color: var(--lightblue);
+      border-radius: 50%;
+      width: 10px;
+      height: 10px;
+      margin: 5px auto;
+      &:hover {
+        background-color: var(--mainBlue);
+        border: 1px solid var(--mainWhite);
+      }
+      
+    }
+    &__year-option {
+      background-color: var(--mainBlue);
+      color: var(--mainWhite);
+      &:hover {
+        background-color: var(--mainBlue);
+        font-size:14px;
+        font-weight: 700;
+      }      
+    }
+    &__year-dropdown {
+      background-color: var(--mainBlue);
+      &::-webkit-scrollbar {
+        width: 5px;
+    background: var(--mainBlue);
+    border-radius: 12px;
+    
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--lightblue);
+    border-radius: 12px;
 
+  }
+    }
+  }
+`;
 export const StyledDatePicker = styled(DatePicker)`
   width: 299px;
   height: 42px;
@@ -160,6 +253,7 @@ export const StyledDatePicker = styled(DatePicker)`
   font-size: 14px;
   line-height: calc(18 / 14);
   color: ${mainTextColor};
+
   @media screen and (min-width: 768px) {
     width: 354px;
     height: 46px;
@@ -169,9 +263,9 @@ export const StyledDatePicker = styled(DatePicker)`
   }
 
   &:focus {
-      border-color: #3e85f3;
-      outline: none;
-    }
+    border-color: #3e85f3;
+    outline: none;
+  }
 `;
 
 export const StyledInputFile = styled.input`
@@ -261,8 +355,6 @@ export const StyledVectorPng = styled.svg`
   }
 `;
 
-
-
 export const StyledBtn = styled.button`
   margin-left: auto;
   margin-right: auto;
@@ -298,12 +390,12 @@ export const StyledBtn = styled.button`
   }
 `;
 
-export const StyledErrorMessage = styled(ErrorMessage) `
+export const StyledErrorMessage = styled(ErrorMessage)`
   position: relative;
-font-weight: 400;
-font-size: 12px;
-line-height: 14px;
-color: #DA1414;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #da1414;
 
   /* background-color: #ff0000;
   color: #ffffff;
@@ -312,19 +404,18 @@ color: #DA1414;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   top: -20px;
   left: 0; */
-`
+`;
 
 export const StyledIconError = styled(RiErrorWarningLine)`
-position: relative;
-/* right: 30px;
+  position: relative;
+  /* right: 30px;
 top: 55%; */
-transform: translateY(-50%);
-`
-
+  transform: translateY(-50%);
+`;
 
 export const StyledIconChecked = styled(IoIosCheckmarkCircleOutline)`
-position: relative;
-/* right: 20px;
+  position: relative;
+  /* right: 20px;
 top: 51%; */
-/* transform: translateY(-50%); */
-`
+  /* transform: translateY(-50%); */
+`;
