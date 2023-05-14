@@ -67,14 +67,12 @@ const CalendarTable = ({ startDay, today, tasks }) => {
                   <li key="more">
                     <CalendarTableMoreBtn type="button">
                       +{' '}
-                      {
-                        tasks
-                          .filter(
-                            task => task.date === dayItem.format('YYYY-MM-DD')
-                          )
-                          .map(tasks => tasks.tasks)
-                          .reduce((t1, t2) => t1.concat(t2), []).length
-                      }{' '}
+                      {tasks
+                        .filter(
+                          task => task.date === dayItem.format('YYYY-MM-DD')
+                        )
+                        .map(tasks => tasks.tasks)
+                        .reduce((t1, t2) => t1.concat(t2), []).length - 2}{' '}
                       tasks...
                     </CalendarTableMoreBtn>
                   </li>
