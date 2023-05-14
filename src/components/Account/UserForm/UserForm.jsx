@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Formik, ErrorMessage } from 'formik';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { selectUser } from 'redux/Auth/authSelectors';
 import { getUserInfoThunk, updateUserThunk } from 'redux/Auth/authOperations';
@@ -26,6 +26,8 @@ import {
   StyledIconChecked,
   StyledIconError,
   ChevronDown,
+  StyledInputWrapper,
+  StyledIconWrapper
 } from './UserForm.styled';
 
 const validationSchema = Yup.object().shape({
@@ -148,9 +150,9 @@ const UserForm = () => {
             <h2>{userInfo?.name} </h2>
             <StyledUser>User</StyledUser>
             <StyledBlockInput>
-              <StyledLabelInput htmlFor="name">
+            <StyledLabelInput htmlFor="name">
                 <p>User Name</p>
-                <div>
+                <StyledInputWrapper>
                   <StyledInput
                     type="text"
                     name="name"
@@ -161,36 +163,49 @@ const UserForm = () => {
                     placeholder="Your Name"
                   />
                   <StyledErrorMessage name="name" component="div" />
-                  {errors.name && touched.name && (
-                    <StyledIconError color="red" />
-                  )}
-                  {touched.name && !errors.name && (
-                    <StyledIconChecked color="green" />
-                  )}
-                </div>
+                      {(errors.name && touched.name) && (
+                        <StyledIconWrapper>
+                          <StyledIconError color="red" />
+                        </StyledIconWrapper>
+                      )}
+                      {touched.name && !errors.name && (
+                        <StyledIconWrapper>
+                          <StyledIconChecked color="green" />
+                        </StyledIconWrapper>
+                      )}
+                </StyledInputWrapper>
               </StyledLabelInput>
 
+
               <StyledLabelInput htmlFor="phone">
-                <p>Phone</p>
-                <div>
-                  <StyledInput
-                    type="tel"
-                    name="phone"
-                    id="phone"
-                    value={values.phone ? values.phone : ''}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    placeholder="+380"
-                  />
-                  <ErrorMessage name="phone" />
-                  {errors.phone && touched.phone && (
-                    <StyledIconError color="red" />
-                  )}
-                  {touched.phone && !errors.phone && (
-                    <StyledIconChecked color="green" />
-                  )}
-                </div>
-              </StyledLabelInput>
+                      <p>Phone</p>
+                      <StyledInputWrapper>
+                        <div style={{ display: "flex", flexDirection: "column", color: "red"}
+                                    }>
+                          <StyledInput
+                            type="tel"
+                            name="phone"
+                            id="phone"
+                            value={values.phone ? values.phone : ''}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            placeholder="+380"
+                          />
+                          <StyledErrorMessage name="phone" component="div"/>
+                        </div>
+                        {(errors.phone && touched.phone) && (
+                              <StyledIconWrapper>
+                                <StyledIconError color="red" />
+                              </StyledIconWrapper>
+                            )}
+                            {touched.phone && !errors.phone && values.phone && (
+                              <StyledIconWrapper>
+                                <StyledIconChecked color="green" />
+                              </StyledIconWrapper>
+                            )}
+                      </StyledInputWrapper>
+                    </StyledLabelInput>
+
 
               <StyledLabelInput htmlFor="birthday">
                 <p>Birthday</p>
@@ -216,52 +231,67 @@ const UserForm = () => {
                   />
                   <ChevronDown size={30}/>
                   <StyledErrorMessage name="birthday" component="div" />
-                  {errors.birthday && touched.birthday && (
-                    <StyledIconError color="red" />
-                  )}
-                  {touched.birthday && !errors.birthday && (
-                    <StyledIconChecked color="green" />
-                  )}
+                  
                 </div>
               </StyledLabelInput>
 
               <StyledLabelInput htmlFor="skype">
                 <p>Skype</p>
-                <StyledInput
-                  type="text"
-                  name="skype"
-                  id="skype"
-                  placeholder="Add a skype number"
-                  value={values.skype ? values.skype : ''}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                />
-                <StyledErrorMessage name="skype" component="div" />
-                {errors.skype && touched.skype && (
-                  <StyledIconError color="red" />
-                )}
-                {touched.skype && !errors.skype && (
-                  <StyledIconChecked color="green" />
-                )}
+                <StyledInputWrapper>
+                  <div style={{ display: "flex", flexDirection: "column", color: "red"}
+                  }>
+                    <StyledInput
+                      type="text"
+                      name="skype"
+                      id="skype"
+                      placeholder="Add a skype number"
+                      value={values.skype ? values.skype : ''}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                    />
+                    <StyledErrorMessage name="skype" component="div"/>
+                  </div>
+                  {(errors.skype && touched.skype) && (
+                        <StyledIconWrapper>
+                          <StyledIconError color="red" />
+                        </StyledIconWrapper>
+                      )}
+                      {touched.skype && !errors.skype && values.skype && (
+                        <StyledIconWrapper>
+                          <StyledIconChecked color="green" />
+                        </StyledIconWrapper>
+                      )}
+
+                </StyledInputWrapper>
               </StyledLabelInput>
 
               <StyledLabelInput htmlFor="email">
                 <p>Email</p>
-                <div>
-                  <StyledInput
-                    type="email"
-                    name="email"
-                    id="email"
-                    placeholder="Email"
-                    value={values.email}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                  <StyledErrorMessage name="email" component="div" />
-                  {touched.email && !errors.email && (
-                    <StyledIconChecked color="green" />
-                  )}
-                </div>
+                <StyledInputWrapper>
+                  <div style={{ display: "flex", flexDirection: "column", color: "red"}
+                  }>
+                    <StyledInput
+                      type="email"
+                      name="email"
+                      id="email"
+                      placeholder="Email"
+                      value={values.email}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                    />
+                    <StyledErrorMessage name="email" component="div" />
+                  </div>
+                  {(errors.email && touched.email) && (
+                      <StyledIconWrapper>
+                        <StyledIconError color="red" />
+                      </StyledIconWrapper>
+                    )}
+                    {touched.email && !errors.email && (
+                      <StyledIconWrapper>
+                        <StyledIconChecked color="green" />
+                      </StyledIconWrapper>
+                    )}
+                </StyledInputWrapper>
               </StyledLabelInput>
             </StyledBlockInput>
             <StyledBtn type="submit">Save changes</StyledBtn>
