@@ -10,21 +10,19 @@ import { useParams } from 'react-router-dom';
 
 const CalendarPage = () => {
   const { currentDate } = useParams();
-  const [today, setToday] = useState(moment());
+  const date = moment(new Date(currentDate));
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const startDay = today.clone().startOf('month').startOf('week');
+  const startDay = date.clone().startOf('month').startOf('week');
 
   const prevHandler = type => {
-    setToday(prev => prev.clone().subtract(1, type));
-    const date = today.clone().subtract(1, type).toISOString().split('T')[0];
-    navigate(`/main/calendar/${type}/${date}`);
+    const newDate = date.clone().subtract(1, type).toISOString().split('T')[0];
+    navigate(`/main/calendar/${type}/${newDate}`);
   };
   const nextHandler = type => {
-    setToday(prev => prev.clone().add(1, type));
-    const date = today.clone().add(1, type).toISOString().split('T')[0];
-    navigate(`/main/calendar/${type}/${date}`);
+    const newDate = date.clone().add(1, type).toISOString().split('T')[0];
+    navigate(`/main/calendar/${type}/${newDate}`);
   };
 
   const currentYear = currentDate?.slice(0, 4);
@@ -39,11 +37,11 @@ const CalendarPage = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
       <CalendarToolbar
-        today={today}
+        today={date}
         prevHandler={prevHandler}
         nextHandler={nextHandler}
       />
-      <Outlet context={{ startDay, today, currentDate }} />
+      <Outlet context={{ startDay, today: date, currentDate }} />
     </div>
   );
 };
