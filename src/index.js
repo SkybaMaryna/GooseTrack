@@ -51,7 +51,8 @@ p {
   padding: 0;
   margin: 0;
 }
-body{
+
+body {
   &.dark-mode {
       background-color: var(--mainBlack);
 }
