@@ -189,7 +189,6 @@ const HomePage = () => {
               height="457"
             />
           )}
-
           {isTablet && (
             <img
               src={
