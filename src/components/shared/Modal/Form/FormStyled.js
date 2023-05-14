@@ -68,24 +68,14 @@ export const StyledDivTimePicker = styled.div`
     width: 163px;
   }
 
-  & .react-ios-time-picker-input {
+  .react-datepicker__input-container input {
+    background-color: transparent;
     border: none;
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 14px;
+    outline: none;
+    color: ${elementTextColor};
   }
-
-  & .react-ios-time-picker-container {
-    z-index: 1000;
-    background-color: var(--blackBackground);
-
-    & .react-ios-time-picker-btn-container {
-      & .react-ios-time-picker-btn {
-        color: #6a6a6b;
-      }
-    }
-  }
-
-  .react-ios-time-picker-popup {
-    align-items: center;
-  }
-
  
 `;
