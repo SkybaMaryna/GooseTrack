@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import { sideBackgroundColor } from 'redux/Theme/Theme';
 import styled from 'styled-components';
 
@@ -78,4 +79,14 @@ export const StyledImage = styled.img`
     height: 60px;
     margin-right: 10px;
   }
+`;
+
+export const StyledNavLink = styled(NavLink)`
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+`;
+
+export const StyledSpan = styled.span`
+  cursor: pointer;
 `;
