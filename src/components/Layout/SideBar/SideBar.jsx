@@ -3,7 +3,9 @@ import ButtonLogOut from '../LogoutBtn/LogoutBtn';
 import {
   StyledH2,
   StyledImage,
+  StyledNavLink,
   StyledSideBar,
+  StyledSpan,
   StyledWrapper,
 } from './SideBar.styled';
 import { useMediaRules } from 'hooks/mediaRules';
@@ -22,58 +24,59 @@ const SideBar = () => {
     <StyledSideBar>
       <div>
         <StyledWrapper>
-          {isMobile && (
-            <StyledImage
-              src={
-                isRetina
-                  ? require('./../../../images/logo/logo_mob@2x.png')
-                  : require('./../../../images/logo/logo_mob@1x.png')
-              }
-              alt="logo"
-              width="122"
-            />
-          )}
-          {isTablet && (
-            <StyledImage
-              src={
-                isRetina
-                  ? require('./../../../images/logo/logo_tab@2x.png')
-                  : require('./../../../images/logo/logo_tab@1x.png')
-              }
-              alt="logo"
-              width="156"
-            />
-          )}{' '}
-          {isDesktop && (
-            <StyledImage
-              src={
-                isRetina
-                  ? require('./../../../images/logo/logo_desk@2x.png')
-                  : require('./../../../images/logo/logo_desk@1x.png')
-              }
-              alt="logo"
-              width="201"
-            />
-          )}
-          <StyledH2>
-            G<i>oo</i>seTrack
-          </StyledH2>
+          <StyledNavLink to="/">
+            {isMobile && (
+              <StyledImage
+                src={
+                  isRetina
+                    ? require('./../../../images/logo/logo_mob@2x.png')
+                    : require('./../../../images/logo/logo_mob@1x.png')
+                }
+                alt="logo"
+                width="122"
+              />
+            )}
+            {isTablet && (
+              <StyledImage
+                src={
+                  isRetina
+                    ? require('./../../../images/logo/logo_tab@2x.png')
+                    : require('./../../../images/logo/logo_tab@1x.png')
+                }
+                alt="logo"
+                width="156"
+              />
+            )}{' '}
+            {isDesktop && (
+              <StyledImage
+                src={
+                  isRetina
+                    ? require('./../../../images/logo/logo_desk@2x.png')
+                    : require('./../../../images/logo/logo_desk@1x.png')
+                }
+                alt="logo"
+                width="201"
+              />
+            )}
+            <StyledH2>
+              G<i>oo</i>seTrack
+            </StyledH2>
+          </StyledNavLink>
           {!isDesktop &&
             (theme === 'light' ? (
-              <span onClick={closeMobileMenu}>
+              <StyledSpan onClick={closeMobileMenu}>
                 {isMobile ? <CgClose size={24} /> : <CgClose size={33} />}
-              </span>
+              </StyledSpan>
             ) : (
-              <span onClick={closeMobileMenu}>
+              <StyledSpan onClick={closeMobileMenu}>
                 {isMobile ? (
                   <CgClose size={24} color="#ffffff" />
                 ) : (
                   <CgClose size={33} color="#ffffff" />
                 )}
-              </span>
+              </StyledSpan>
             ))}
         </StyledWrapper>
-
         <UserNav />
       </div>
       <ButtonLogOut />

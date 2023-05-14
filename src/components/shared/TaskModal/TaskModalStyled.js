@@ -26,16 +26,16 @@ export const DivOverlay = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  max-width: 375px;
+  z-index: 2;
+  width: 100%;
   height: 100%;
   background-color: rgba(47, 48, 58, 0.2);
   overflow: hidden;
   opacity: 1;
-  visibility: visible;
-  transition: opacity 0.3s ease-in-out,
+  transition: opacity 0.3s ease-in-out, 
     left 0.3s ease-in-out;
 
   @media screen and (min-width: 768px){
-      max-width: 768px;
+     width: 100%;
     }
 `;

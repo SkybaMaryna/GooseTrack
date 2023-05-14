@@ -37,6 +37,9 @@ export const TaskForm = ({ closeModal, typeOfColumn, choosedDay }) => {
       toast.error('fields cannot be empty');
       return;
     }
+    if(!enterText){
+      return;
+    }
     const category = typeOfColumn.status.toLowerCase().replace(' ', '-');
 
     const taskObject = {

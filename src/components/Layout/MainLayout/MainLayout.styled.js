@@ -26,6 +26,7 @@ export const StyledMain = styled.main`
   background-color: ${mainBackgroundColor};
   flex-grow: 1;
   max-width: 375px;
+  position: relative;
 
   @media screen and (min-width: 768px) {
     padding: 24px 32px;

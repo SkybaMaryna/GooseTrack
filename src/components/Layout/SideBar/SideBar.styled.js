@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import { sideBackgroundColor } from 'redux/Theme/Theme';
 import styled from 'styled-components';
 
@@ -5,7 +6,7 @@ export const StyledSideBar = styled.div`
   display: flex;
   flex-direction: column;
   width: 225px;
-  height: 100vh;
+  min-height: 100vh;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 24px;
@@ -22,7 +23,6 @@ export const StyledSideBar = styled.div`
   }
   @media screen and (min-width: 1440px) {
     width: 289px;
-    height: 1087px;
     padding-left: 24px;
     padding-top: 32px;
     border-right: solid 1px var(--elementsGrey);
@@ -78,4 +78,14 @@ export const StyledImage = styled.img`
     height: 60px;
     margin-right: 10px;
   }
+`;
+
+export const StyledNavLink = styled(NavLink)`
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+`;
+
+export const StyledSpan = styled.span`
+  cursor: pointer;
 `;

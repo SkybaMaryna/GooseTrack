@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { secondTextColor } from 'redux/Theme/Theme';
+import { mainBackgroundColor, secondTextColor } from 'redux/Theme/Theme';
 import styled from 'styled-components';
 
 export const Name = styled.span`
@@ -21,7 +21,7 @@ export const Avatar = styled.div`
   align-items: center;
   border-radius: 50%;
   border: 1.8px solid var(--mainBlue);
-  background-color: var(--cardGrey);
+  background-color: ${mainBackgroundColor};
   justify-content: center;
   @media screen and (min-width: 768px) {
     width: 44px;

@@ -1,8 +1,15 @@
 import { Route, Routes, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { lazy, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { refreshThunk } from 'redux/Auth/authOperations';
+import { ThemeProvider } from 'styled-components';
+import { selectTheme } from '../redux/Theme/themeSelectors';
+import { logout } from 'redux/Auth/authSlice';
+import { Suspense } from 'react';
 import HomePage from 'pages/HomePage/HomePage';
 import LoginPage from 'pages/LoginPage/LoginPage';
 import RegisterPage from 'pages/RegisterPage/RegisterPage';
-import MainLayout from './Layout/MainLayout/MainLayout';
 import AccountPage from 'pages/AccountPage/AccountPage';
 import CalendarPage from 'pages/CalendarPage/CalendarPage';
 import ChoosedDay from './Calendar/ChoosedDay/ChoosedDay';
@@ -10,13 +17,9 @@ import ChoosedMonth from './Calendar/ChoosedMonth/ChoosedMonth';
 import NotFound from './NotFound/NotFound';
 import PrivateRoute from 'hoc/PrivateRoute';
 import PublicRoute from 'hoc/PublicRoute';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { refreshThunk } from 'redux/Auth/authOperations';
-import { ThemeProvider } from 'styled-components';
-import { selectTheme } from '../redux/Theme/themeSelectors';
-import axios from 'axios';
-import { logout } from 'redux/Auth/authSlice';
+import Loader from './shared/Loader/Loader';
+
+const MainLayout = lazy(() => import('./Layout/MainLayout/MainLayout'));
 
 export const App = () => {
   const theme = useSelector(selectTheme);
@@ -67,7 +70,9 @@ export const App = () => {
             path="/main"
             element={
               <PrivateRoute>
-                <MainLayout />
+                <Suspense fallback={<Loader />}>
+                  <MainLayout />
+                </Suspense>
               </PrivateRoute>
             }
           >
