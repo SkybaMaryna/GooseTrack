@@ -1,13 +1,15 @@
 import React from 'react';
 import {
+  AccountIcon,
+  CalendarIcon,
   IconWrapper,
   LinkWrapper,
   NavLinkStyled,
-  NavSecondaryTitle,
+  NavSecondaryTitleAcc,
+  NavSecondaryTitleCal,
   NavTitle,
   UserNavContainer,
 } from './UserNav.styled';
-import { BsCalendar, BsFillPersonCheckFill } from 'react-icons/bs';
 const date = new Date().toISOString().split('T')[0];
 const UserNav = () => {
   return (
@@ -16,16 +18,16 @@ const UserNav = () => {
       <LinkWrapper>
         <NavLinkStyled to="account">
           <IconWrapper>
-            <BsFillPersonCheckFill />
-            <NavSecondaryTitle>My account</NavSecondaryTitle>
+            <AccountIcon />
+            <NavSecondaryTitleAcc>My account</NavSecondaryTitleAcc>
           </IconWrapper>
         </NavLinkStyled>
       </LinkWrapper>
       <LinkWrapper>
         <NavLinkStyled to={`/main/calendar/month/${date}`}>
           <IconWrapper>
-            <BsCalendar />
-            <NavSecondaryTitle>Calendar</NavSecondaryTitle>
+            <CalendarIcon />
+            <NavSecondaryTitleCal>Calendar</NavSecondaryTitleCal>
           </IconWrapper>
         </NavLinkStyled>
       </LinkWrapper>

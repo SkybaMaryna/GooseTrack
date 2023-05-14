@@ -1,3 +1,4 @@
+import { calendarBackgroundColor, mainTextColor } from 'redux/Theme/Theme';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -8,7 +9,7 @@ export const Container = styled.div`
   border: 1px solid rgba(220, 227, 229, 0.8);
   border-radius: 8px;
   margin-bottom: 16px;
-  background-color: var(--mainWhite);
+  background-color: ${calendarBackgroundColor};
 `;
 
 export const WeekInfoWrapper = styled.div`
@@ -24,7 +25,7 @@ export const DayOfWeek = styled.div`
   font-weight: 600;
   font-size: 14px;
   line-height: 18px;
-  color: var(--textGrey);
+  color: ${mainTextColor};
   margin: 0px 0px 4px 0px;
 `;
 
@@ -33,6 +34,7 @@ export const DateWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 26px;
+  color: ${mainTextColor};
 `;
 
 export const DateContainer = styled.button`
@@ -43,7 +45,6 @@ export const DateContainer = styled.button`
   height: 26px;
   border-radius: 8px;
   background-color: transparent;
-  color: var(--mainBlack);
   padding: 0px 0px 0px 0px;
   border: none;
   cursor: pointer;

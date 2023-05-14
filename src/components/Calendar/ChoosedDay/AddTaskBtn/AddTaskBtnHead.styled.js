@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { BsPlusCircle } from 'react-icons/bs'
+import { mainTextColor } from 'redux/Theme/Theme';
 
 export const AddTaskBtnStyled = styled.button`
   position: absolute;
@@ -13,7 +14,7 @@ export const AddTaskBtnStyled = styled.button`
 `;
 
 export const Plus = styled(BsPlusCircle)`
-color: var(--mainBlack);
+color: ${mainTextColor};
 transition: all ease-in-out 250ms;
 stroke-width: 2%;
 width: 20px;

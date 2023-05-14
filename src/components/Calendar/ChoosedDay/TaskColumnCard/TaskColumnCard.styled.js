@@ -1,3 +1,4 @@
+import {mainTextColor, taskBackgroundColor } from 'redux/Theme/Theme';
 import styled from 'styled-components';
 
 export const TaskCardWrapper = styled.div`
@@ -9,7 +10,7 @@ export const TaskCardWrapper = styled.div`
   width: 300px;
   height: 112px;
   padding: 14px 10px 0px 14px;
-  background: var(--cardGrey);
+  background: ${taskBackgroundColor};
   border: 1px solid rgba(220, 227, 229, 0.8);
   border-radius: 8px;
 `;
@@ -17,7 +18,7 @@ export const TaskCardWrapper = styled.div`
 export const TaskCardDescription = styled.div`
   width: 100%;
   height: 100%;
-  color: var(--mainBlack);
+  color: ${mainTextColor};
   font-style: normal;
   font-weight: 500;
   font-size: 14px;

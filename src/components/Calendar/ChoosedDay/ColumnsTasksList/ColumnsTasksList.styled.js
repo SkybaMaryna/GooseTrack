@@ -1,3 +1,4 @@
+import { scrollBar, scrollBarThumb } from 'redux/Theme/Theme';
 import styled from 'styled-components';
 
 export const TasksListWrapper = styled.div`
@@ -15,12 +16,13 @@ export const TasksListWrapper = styled.div`
     width: 8px;
     height: 376px;
     display: true;
-    background: var(--scrollBarBg);
+    background: ${scrollBar};
     border-radius: 12px;
+    z-index: 2;
     
   }
   &::-webkit-scrollbar-thumb {
-    background: var(--scrollBar);
+    background: ${scrollBarThumb};
     border-radius: 12px;
   }
 `;

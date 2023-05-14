@@ -42,6 +42,7 @@
   /* Scroll-bar colors */
   --scrollBar: #e7e5e5;
   --scrollBarBg: #f2f2f2;
+  --darkScrollBarBg:#2d3037;
 }
 
 body {

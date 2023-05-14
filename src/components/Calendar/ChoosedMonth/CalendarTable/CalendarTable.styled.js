@@ -90,7 +90,9 @@ export const CalendarTableMoreBtn = styled.button`
   cursor: pointer;
   margin-top: 0;
   padding: 0;
+  display: none;
   @media screen and (min-width: 768px) {
+    display: inline-block;
     color: ${mainTextColor};
     background-color: ${calendarBackgroundColor};
   }

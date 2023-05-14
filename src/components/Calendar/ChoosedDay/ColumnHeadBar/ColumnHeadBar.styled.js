@@ -1,3 +1,4 @@
+import { mainTextColor } from 'redux/Theme/Theme';
 import styled from 'styled-components';
 
 export const TitleColumn = styled.div`
@@ -6,7 +7,7 @@ export const TitleColumn = styled.div`
   font-weight: 700;
   font-size: 20px;
   background-color: transparent;
-  color: var(--mainBlack);
+  color: ${mainTextColor};
   margin: 25px 0px 35px 25px;
 `;
 
