@@ -2,6 +2,10 @@ import {
   borderInputModal,
   elementTextColor,
   inputModal,
+  mainTextColor,
+  scrollBar,
+  scrollBarThumb,
+  taskBackgroundColor,
   textLabelInputModal,
 } from 'redux/Theme/Theme';
 import styled from 'styled-components';
@@ -72,6 +76,7 @@ export const StyledDivTimePicker = styled.div`
     border: none;
   }
 
+<<<<<<< Updated upstream
   & .react-ios-time-picker-container {
     z-index: 1000;
     background-color: var(--blackBackground);
@@ -88,4 +93,46 @@ export const StyledDivTimePicker = styled.div`
   }
 
  
+=======
+  .react-datepicker__time-container
+    .react-datepicker__time
+    .react-datepicker__time-box
+    ul.react-datepicker__time-list
+    li.react-datepicker__time-list-item--selected {
+    background-color: var(--mainBlue);
+    color: var(--mainWhite);
+    font-weight: bold;
+  }
+
+  .react-datepicker {
+    border-radius: 8px;
+    overflow: hidden;
+    &__time-container {
+      color: ${mainTextColor};
+    }
+
+    &__time {
+      background-color: ${taskBackgroundColor};
+      &-list {
+        &::-webkit-scrollbar {
+          width: 4px;
+          display: true;
+          background: ${scrollBar};
+          border-radius: 12px;
+        }
+        &::-webkit-scrollbar-thumb {
+          background: ${scrollBarThumb};
+          border-radius: 12px;
+        }
+      }
+    }
+
+    &__header {
+      background-color: ${taskBackgroundColor};
+    }
+    &-time__header {
+      color: ${mainTextColor};
+    }
+  }
+>>>>>>> Stashed changes
 `;
