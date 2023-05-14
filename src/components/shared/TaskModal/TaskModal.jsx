@@ -41,6 +41,7 @@ export const TaskModal = ({
     setIsVisible(false);
   }, [closeAll]);
 
+ 
   const handleKeyDown = useCallback(
     ev => {
       if (ev.key === 'Escape' || ev.target === ev.currentTarget) {

@@ -4,7 +4,27 @@ import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 import { RiErrorWarningLine } from "react-icons/ri";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { AccountFormInput, calendarBackgroundColor, elementTextHoverColor, mainTextColor } from 'redux/Theme/Theme';
+import {MdOutlineKeyboardArrowDown} from 'react-icons/md'
 
+export const ChevronDown = styled(MdOutlineKeyboardArrowDown)`
+position: absolute;
+top: 52%;
+left: 88%;
+cursor: pointer;
+&:hover {
+  color: ${elementTextHoverColor};
+}
+
+
+@media screen and (min-width: 768px) {
+  top: 50%;
+}
+@media screen and (min-width: 1440px) {
+  top: 50%;
+  left: 42%;
+}
+`
 export const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -13,19 +33,18 @@ export const StyledWrapper = styled.div`
   margin-right: auto;
   width: 100%;
   height: 100%;
-  background: #ffffff;
+  background: ${calendarBackgroundColor};
   border-radius: 16px;
  
   h2 {
     margin-top: 59px;
     margin-bottom: 4px;
     height: 18px;
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
     line-height: calc(18 / 14);
-    color: #343434;
+    color: ${mainTextColor};
     @media screen and (min-width: 768px) {
       margin-bottom: 8px;
       margin-top: 0px;
@@ -37,12 +56,11 @@ export const StyledWrapper = styled.div`
 
 export const StyledUser = styled.p`
   margin-bottom: 40px;
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
   font-size: 32px;
   line-height: calc(14 / 12);
-  color: #616161;
+  color: var(--textGrey);
   @media screen and (min-width: 768px) {
     font-size: 14px;
     line-height: calc(18 / 14);
@@ -72,7 +90,6 @@ export const StyledBlockInput = styled.div`
 
   p {
     margin-bottom: 8px;
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -96,7 +113,7 @@ export const StyledLabelInput = styled.label`
   font-weight: 400;
   font-size: 14px;
   line-height: calc(18 / 14);
-  color: #111111;
+  color: ${AccountFormInput};
 `;
 
 export const StyledInput = styled(Field)`
@@ -104,15 +121,16 @@ export const StyledInput = styled(Field)`
   height: 42px;
   margin-bottom: 18px;
   padding: 14px 18px;
-  border: 1px solid rgba(17, 17, 17, 0.15);
+  border: 1px solid var(--textGrey);
   border-radius: 8px;
-  background: #ffffff;
-  font-family: 'Inter';
+  background: transparent;
   font-style: normal;
+  font-family: 'Inter';
+
   font-weight: 600;
   font-size: 16px;
   line-height: calc(18 / 16);
-  color: #111111;
+  color: ${mainTextColor};
   @media screen and (min-width: 768px) {
     margin-bottom: 24px;
     width: 354px;
@@ -133,15 +151,15 @@ export const StyledDatePicker = styled(DatePicker)`
   height: 42px;
   margin-bottom: 18px;
   padding-left: 18px;
-  border: 1px solid rgba(17, 17, 17, 0.15);;
+  border: 1px solid var(--textGrey);
   border-radius: 8px;
-  background: #ffffff;
+  background: transparent;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
   line-height: calc(18 / 14);
-  color: #111111;
+  color: ${mainTextColor};
   @media screen and (min-width: 768px) {
     width: 354px;
     height: 46px;
@@ -149,6 +167,7 @@ export const StyledDatePicker = styled(DatePicker)`
     font-size: 16px;
     line-height: calc(18 / 16);
   }
+
   &:focus {
       border-color: #3e85f3;
       outline: none;

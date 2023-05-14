@@ -4,7 +4,6 @@ import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { selectUser } from 'redux/Auth/authSelectors';
 import { getUserInfoThunk, updateUserThunk } from 'redux/Auth/authOperations';
-
 import plus from './plus.png';
 import Icon from './icon.svg';
 
@@ -22,11 +21,11 @@ import {
   StyledContainerImg,
   StyledImgAvatar,
   StyledSvgAvatar,
-  StyledVectorPng,
   StyledBtn,
   StyledErrorMessage,
   StyledIconChecked,
   StyledIconError,
+  ChevronDown,
 } from './UserForm.styled';
 
 const validationSchema = Yup.object().shape({
@@ -160,7 +159,7 @@ const UserForm = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     placeholder="Your Name"
-                  ></StyledInput>
+                  />
                   <StyledErrorMessage name="name" component="div" />
                   {errors.name && touched.name && (
                     <StyledIconError color="red" />
@@ -182,7 +181,7 @@ const UserForm = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     placeholder="+380"
-                  ></StyledInput>
+                  />
                   <ErrorMessage name="phone" />
                   {errors.phone && touched.phone && (
                     <StyledIconError color="red" />
@@ -215,9 +214,7 @@ const UserForm = () => {
                     showYearDropdown
                     scrollableYearDropdown
                   />
-                  <StyledVectorPng>
-                    <use href={Icon + '#icon-chevron-right-new'}></use>
-                  </StyledVectorPng>
+                  <ChevronDown size={30}/>
                   <StyledErrorMessage name="birthday" component="div" />
                   {errors.birthday && touched.birthday && (
                     <StyledIconError color="red" />
@@ -238,7 +235,7 @@ const UserForm = () => {
                   value={values.skype ? values.skype : ''}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                ></StyledInput>
+                />
                 <StyledErrorMessage name="skype" component="div" />
                 {errors.skype && touched.skype && (
                   <StyledIconError color="red" />
@@ -259,7 +256,7 @@ const UserForm = () => {
                     value={values.email}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                  ></StyledInput>
+                  />
                   <StyledErrorMessage name="email" component="div" />
                   {touched.email && !errors.email && (
                     <StyledIconChecked color="green" />

@@ -5,6 +5,7 @@ export const StyledContainer = styled.div`
   display: flex;
   width: 100%;
   margin: 0 auto;
+  background-color: var(mainBackgroundColor);
 
   @media screen and (min-width: 480px) {
     min-width: 375px;
@@ -25,6 +26,7 @@ export const StyledMain = styled.main`
   background-color: ${mainBackgroundColor};
   flex-grow: 1;
   max-width: 375px;
+  position: relative;
 
   @media screen and (min-width: 768px) {
     padding: 24px 32px;

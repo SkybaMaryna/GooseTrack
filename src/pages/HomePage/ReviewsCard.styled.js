@@ -6,9 +6,9 @@ export const ReviewCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 24px;
+  gap: 20px;
   border-radius: 8px;
-  border: 1px solid var(--textGrey);
+  border: 1px solid var(--scrollBar);
   padding: 24px;
   overflow: hidden;
   @media screen and (min-width: 768px) {
@@ -35,7 +35,7 @@ export const ReviewAuthor = styled.h1`
 export const RangeStars = styled.div`
   width: 110px;
   height: 14px;
-  margin-top: 13px;
+  margin-top: 11px;
 `;
 export const ReviewText = styled.p`
   font-family: 'Inter';
@@ -44,7 +44,7 @@ export const ReviewText = styled.p`
   font-size: 14px;
   line-height: 1.29;
   color: rgba(17, 17, 17, 0.7);
-  margin: 0 auto 40px auto;
+  margin: 0 auto 36px auto;
   @media screen and (min-width: 768px) {
     margin-left: 68px;
   }
@@ -66,19 +66,17 @@ export const ButtonSwiperBox = styled.div`
     margin-top: 18px;
   }
 `;
-export const SwiperPrev = styled.div`
+export const SwiperButton = styled.div`
   width: 50px;
-  height: 50px;
+  height: 46px;
+  cursor: pointer;
+  &:hover {
+    background: var(--mainLightblue);
+    box-shadow: 4px 2px 10px rgba(136, 165, 191, 0.8);
+  }
   @media screen and (min-width: 768px) {
     width: 61px;
-    height: 61px;
+    height: 48px;
   }
 `;
-export const SwiperNext = styled.div`
-  width: 50px;
-  height: 50px;
-  @media screen and (min-width: 768px) {
-    width: 61px;
-    height: 61px;
-  }
-`;
+

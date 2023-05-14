@@ -31,11 +31,10 @@ export const DivOverlay = styled.div`
   height: 100%;
   background-color: rgba(47, 48, 58, 0.2);
   opacity: 1;
-  visibility: visible;
-  transition: opacity 0.3s ease-in-out,
+  transition: opacity 0.3s ease-in-out, 
     left 0.3s ease-in-out;
 
   @media screen and (min-width: 768px){
-      max-width: 768px;
+     width: 100%;
     }
 `;
