@@ -54,10 +54,10 @@ margin-top: 8px;
   }
 `
 export const StyledInputWrap = styled.div`
-max-width: 287px;
+width: 287px;
 position: relative;
 @media screen and (min-width: 768px) {
-  max-width: 400px;
+ width: 400px;
 }
 `
 export const StyledIconError = styled(RiErrorWarningLine)`
