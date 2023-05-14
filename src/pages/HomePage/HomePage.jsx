@@ -1,6 +1,7 @@
 import { useMediaQuery } from 'react-responsive';
 import AuthNavigate from 'components/shared/AuthNavigate/AuthNavigate';
 import {
+  BaseDiv,
   HeroGooseImg,
   HeroTitle,
   Herosection,
@@ -32,18 +33,32 @@ const HomePage = () => {
   const IsLoggedIn = useSelector(selectIsLoggedIn);
 
   return (
-    <div>
+    <BaseDiv>
       <Herosection>
-        <HeroGooseImg
-          src={
-            isRetina
-              ? require('../../images/heroSection/GOOSE_2_desk@2x.png')
-              : require('../../images/heroSection/GOOSE_2_desk@1x.png')
-          }
-          alt="goose welcome"
-          width="150"
-          height="149"
-        />
+        {isMobile && (
+            <HeroGooseImg
+              src={
+                isRetina
+                ? require('../../images/heroSection/GOOSE_2_mob@2x.png')
+                : require('../../images/heroSection/GOOSE_2_mob@1x.png')
+              }
+              alt="goose welcome"
+              width="142"
+              height="142"
+            />
+          )}
+          {(isTablet || isDesktop)  && (
+            <HeroGooseImg
+              src={
+                isRetina
+                ? require('../../images/heroSection/GOOSE_2_tab@2x.png')
+                : require('../../images/heroSection/GOOSE_2_tab@1x.png')
+              }
+              alt="goose welcome"
+              width="150"
+              height="149"
+            />
+          )}
         <HeroTitle>
           <div>
             G<i>oo</i>seTrack
@@ -207,7 +222,7 @@ const HomePage = () => {
           <ReviewsCards />
         </SwiperWraper>
       </ReviewSection>
-    </div>
+    </BaseDiv>
   );
 };
 

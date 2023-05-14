@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+
+export const BaseDiv = styled.div`
+background-color: var(--mainWhite)`;
+
 export const Herosection = styled.section`
   width: 100%;
   background-color: var(--mainBlue);
@@ -46,13 +50,13 @@ export const ReviewSection = styled.section`
 
 export const HeroGooseImg = styled.img`
   margin: 0 auto 32px auto;
-  width: 142px;
+  /* width: 142px;
   height: 142px;
 
   @media screen and (min-width: 768px) {
     width: 150px;
     height: 149px;
-  }
+  } */
 `;
 export const HeroTitle = styled.div`
   width: 219px;
@@ -175,7 +179,7 @@ export const MainTitle = styled.div`
     line-height: 1.1;
   }
 `;
-export const MainSubTitle = styled.h3`
+export const MainSubTitle = styled.h2`
   font-family: 'Inter';
   font-style: normal;
   font-weight: 700;

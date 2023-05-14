@@ -5,6 +5,7 @@ export const StyledContainer = styled.div`
   display: flex;
   width: 100%;
   margin: 0 auto;
+  background-color: var(mainBackgroundColor);
 
   @media screen and (min-width: 480px) {
     min-width: 375px;
