@@ -72,7 +72,6 @@ export const HeroTitle = styled.div`
     font-size: 120px;
     line-height: 1.5;
     margin-bottom: 40px;
-    /* margin-left:88px; */
   }
 `;
 export const NavButtonBox = styled.div`
