@@ -35,7 +35,6 @@ export const DayWrapper = styled.div`
   font-weight: 700;
   font-size: 10px;
   line-height: 1.4;
-  color: ${mainTextColor};
   
 
   @media screen and (min-width: 768px) {
@@ -53,7 +52,7 @@ export const CellWrapper = styled.div`
   &:nth-child(7n) {
     border-right: none;
   }
-  color: ${props => (props.isSelectedMonth ? ' #343434' : 'transparent')};
+  color: ${props => (props.isSelectedMonth ? mainTextColor : 'transparent')};
 
   @media screen and (min-width: 768px) {
     width: 100px;
