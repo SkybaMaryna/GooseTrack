@@ -9,8 +9,15 @@ const ThemeToggler = () => {
   const theme = useSelector(selectTheme);
   const dispatch = useDispatch();
 
+  const handleClick = () => {
+    dispatch(setTheme());
+    var body = document.getElementById('body');
+    var currentClass = body.className;
+    body.className = currentClass === 'light-mode' ? 'dark-mode' : 'light-mode';
+  };
+
   return (
-    <Button onClick={() => dispatch(setTheme())}>
+    <Button onClick={handleClick}>
       <Svg>
         {theme === 'light' ? (
           <FiMoon size={25} color="#3e85f3" />
