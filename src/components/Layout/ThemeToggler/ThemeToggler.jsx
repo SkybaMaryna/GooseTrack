@@ -13,9 +13,9 @@ const ThemeToggler = () => {
     <Button onClick={() => dispatch(setTheme())}>
       <Svg>
         {theme === 'light' ? (
-          <FiMoon size={26} color="#3e85f3" />
+          <FiMoon size={25} color="#3e85f3" />
         ) : (
-          <CgSun size={26} color="#3e85f3" />
+          <CgSun size={25} color="#3e85f3" />
         )}
       </Svg>
     </Button>
