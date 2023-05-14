@@ -96,3 +96,8 @@ export const blueButtonsHover = theme('mode', {
   light: 'var(--mainBlue)',
   dark: '#2B78EF',
 });
+
+export const AccountFormInput = theme('mode', {
+  light: 'var(--mainBlack)',
+  dark: 'var(--textGrey)'
+})
