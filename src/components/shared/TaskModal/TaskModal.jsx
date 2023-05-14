@@ -38,6 +38,7 @@ export const TaskModal = ({
 
   const close = useCallback(() => {
     closeAll();
+    setIsVisible(false);
   }, [closeAll]);
 
  

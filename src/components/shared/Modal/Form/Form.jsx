@@ -1,21 +1,23 @@
 import {
-  StyledInput,
+  // StyledInput,
   StyledInputText,
   InputWrapper,
   StyledInputContainer,
   StyledLabel,
+  StyledDivTimePicker,
 } from './FormStyled';
+
+import { TimePicker } from 'react-ios-time-picker';
 
 export const Form = ({
   titleSetter,
   startSetter,
   endSetter,
-  editText,
-  startText,
-  endText,
-  onBlurFu,
-  onFocusFu,
+  enterText,
+  startTime,
+  endTime,
 }) => {
+console.log(enterText);
   return (
     <form  autoComplete="off">
       <InputWrapper>
@@ -25,33 +27,25 @@ export const Form = ({
           type="text"
           name="text"
           onChange={titleSetter}
-          value={editText}
+          value={enterText}
         />
       </InputWrapper>
       <StyledInputContainer>
         <InputWrapper>
           <StyledLabel htmlFor="">Start</StyledLabel>
-          <StyledInput
-            type="text"
-            name="start"
-            onChange={startSetter}
-            value={startText}
-            onBlur={onBlurFu}
-            onFocus={onFocusFu}
-          />
+          <StyledDivTimePicker>
+          <TimePicker onChange={startSetter} value={startTime} />
+          </StyledDivTimePicker>
+        
         </InputWrapper>
         <InputWrapper>
           <StyledLabel htmlFor="">End</StyledLabel>
-          <StyledInput
-            type="text"
-            name="end"
-            onChange={endSetter}
-            value={endText}
-            onBlur={onBlurFu}
-            onFocus={onFocusFu}
-          />
+          <StyledDivTimePicker>
+          <TimePicker onChange={endSetter} value={endTime}/>
+          </StyledDivTimePicker>    
         </InputWrapper>
       </StyledInputContainer>
     </form>
   );
 };
+

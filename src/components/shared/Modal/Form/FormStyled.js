@@ -1,10 +1,15 @@
-import { borderInputModal, elementTextColor, inputModal, textLabelInputModal } from 'redux/Theme/Theme';
+import {
+  borderInputModal,
+  elementTextColor,
+  inputModal,
+  textLabelInputModal,
+} from 'redux/Theme/Theme';
 import styled from 'styled-components';
 
 export const StyledInputText = styled.input`
-  border-radius: 8px; 
-  border: ${borderInputModal};  
-  color: ${elementTextColor };
+  border-radius: 8px;
+  border: ${borderInputModal};
+  color: ${elementTextColor};
   background-color: ${inputModal};
   cursor: text;
   width: 100%;
@@ -44,7 +49,7 @@ export const StyledLabel = styled.label`
   color: ${textLabelInputModal};
 `;
 
-export const StyledInput = styled.input`
+export const StyledDivTimePicker = styled.div`
   outline: none;
   width: 126px;
   height: 42px;
@@ -59,7 +64,28 @@ export const StyledInput = styled.input`
   font-size: 14px;
   line-height: 1.29;
   border-radius: 8px;
-  @media screen and (min-width: 769px) {
+  @media screen and (min-width: 768px) {
     width: 163px;
   }
+
+  & .react-ios-time-picker-input {
+    border: none;
+  }
+
+  & .react-ios-time-picker-container {
+    z-index: 1000;
+    background-color: var(--blackBackground);
+
+    & .react-ios-time-picker-btn-container {
+      & .react-ios-time-picker-btn {
+        color: #6a6a6b;
+      }
+    }
+  }
+
+  .react-ios-time-picker-popup {
+    align-items: center;
+  }
+
+ 
 `;

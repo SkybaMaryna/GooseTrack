@@ -27,10 +27,9 @@ export const DivOverlay = styled.div`
   top: 0;
   left: 0;
   z-index: 2;
-  width: 100%;
+  min-width: 100%;
   height: 100%;
   background-color: rgba(47, 48, 58, 0.2);
-  overflow: hidden;
   opacity: 1;
   transition: opacity 0.3s ease-in-out, 
     left 0.3s ease-in-out;
