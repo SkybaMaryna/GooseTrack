@@ -16,13 +16,12 @@ const PeriodPaginator = ({ prevHandler, nextHandler, type }) => {
 
   return (
     <DivWrapper>
-      <div>
-        <TitleWrapper>
-          {type === 'month'
-            ? currentDate.slice(3, currentDate.length)
-            : currentDate}
-        </TitleWrapper>
-      </div>
+      <TitleWrapper>
+        {type === 'month'
+          ? currentDate.slice(3, currentDate.length)
+          : currentDate}
+      </TitleWrapper>
+
       <ButtonsWrapper>
         <ButtonWrapper1 onClick={() => prevHandler(type)}>&lt;</ButtonWrapper1>
         <ButtonWrapper2 onClick={() => nextHandler(type)}>&gt;</ButtonWrapper2>
