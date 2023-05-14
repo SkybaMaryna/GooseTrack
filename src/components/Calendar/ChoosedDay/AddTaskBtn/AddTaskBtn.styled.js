@@ -1,10 +1,13 @@
-import {GoPlus} from 'react-icons/go'
-import { addTaskBtnColor, addTaskBtnHover, mainTextColor, sideBackgroundColor } from 'redux/Theme/Theme';
+import { GoPlus } from 'react-icons/go';
+import {
+  addTaskBtnColor,
+  mainTextColor,
+  sideBackgroundColor,
+} from 'redux/Theme/Theme';
 import styled from 'styled-components';
 
-
 export const AddTaskBtnStyled = styled.button`
-display: flex;
+  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -23,19 +26,17 @@ display: flex;
       color: var(--mainWhite);
     }
   }
-
 `;
 
 export const OutlinePlus = styled(GoPlus)`
-color: ${mainTextColor};
-height: 14px;
-width: 14px;
-transition: all ease-in-out 250ms;
-${AddTaskBtnStyled}:hover & {
-  color: ${sideBackgroundColor};
-}
-
-`
+  color: ${mainTextColor};
+  height: 14px;
+  width: 14px;
+  transition: all ease-in-out 250ms;
+  ${AddTaskBtnStyled}:hover & {
+    color: ${sideBackgroundColor};
+  }
+`;
 
 export const AddTaskBtnIconStyled = styled.div``;
 
