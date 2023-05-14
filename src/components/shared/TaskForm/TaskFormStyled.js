@@ -33,7 +33,7 @@ cursor: pointer;
     background-color: ${blueButtonsHover};
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 768px) {
     width:182px;
     height: 48px;
 }
@@ -64,7 +64,7 @@ cursor: pointer;
     color: white;
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 768px) {
     width:144px;
     height: 48px;
 }

@@ -31,7 +31,7 @@ cursor: pointer;
     background-color: ${blueButtonsHover};
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 768px) {
     width:340px;
     height: 48px;
 }
