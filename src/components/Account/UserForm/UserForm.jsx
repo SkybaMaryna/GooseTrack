@@ -26,55 +26,30 @@ import {
   StyledBtn,
   StyledErrorMessage,
   StyledIconChecked,
-  StyledIconError
+  StyledIconError,
 } from './UserForm.styled';
-
-// const validationSchema = Yup.object({
-//   name: Yup.string()
-//     .max(15, 'Length must be less then 15')
-//     .required('Your name is required'),
-//   birthday: Yup.date(),
-//   email: Yup.string()
-//     .email('Invalid e-mail')
-//     .required('Your e-mail is required'),
-//   skype: Yup.string().max(16),
-// });
 
 const validationSchema = Yup.object().shape({
   name: Yup.string()
-      .max(15, 'Length must be less then 15')
-      .required('Your name is required'),
+    .max(15, 'Length must be less then 15')
+    .required('Your name is required'),
   email: Yup.string()
-      .email('Invalid e-mail')
-      .required('Your e-mail is required'),
+    .email('Invalid e-mail')
+    .required('Your e-mail is required'),
   birthday: Yup.date().nullable(),
   phone: Yup.string()
-      .matches(
-          /^\+380\d{9}$/,
-          'Enter your phone number in format +380'
-      )
-      .nullable(),
-  skype: Yup.string()
-      .max(16, 'Length must be less then 16')
-      .nullable(),
+    .matches(/^\+380\d{9}$/, 'Enter your phone number in format +380')
+    .nullable(),
+  skype: Yup.string().max(16, 'Length must be less then 16').nullable(),
 });
-
 
 const UserForm = () => {
   const userInfo = useSelector(selectUser);
-
-  const [userImgUrl, setUserImgUrl] = useState(null);
-
-  const [newBirthday, setNewBirthday] = useState(null);
-
-  const [isUpdateForm, setIsUpdateForm] = useState(null);
-
-  const [isOpen, setIsOpen] = useState(false);
-
   const dispatch = useDispatch();
-
-  const [updatedData, setUpdatedData] = useState({});
-
+  const [userImgUrl, setUserImgUrl] = useState(null);
+  const [newBirthday, setNewBirthday] = useState(null);
+  const [isUpdateForm, setIsUpdateForm] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -134,7 +109,6 @@ const UserForm = () => {
             formData.append('userImgUrl', userImgUrl);
           }
           await dispatch(updateUserThunk(formData));
-          setUpdatedData(values);
         }}
         validationSchema={validationSchema}
       >
@@ -188,7 +162,9 @@ const UserForm = () => {
                     placeholder="Your Name"
                   ></StyledInput>
                   <StyledErrorMessage name="name" component="div" />
-                  {(errors.name && touched.name) && <StyledIconError  color='red'/>} 
+                  {errors.name && touched.name && (
+                    <StyledIconError color="red" />
+                  )}
                   {touched.name && !errors.name && (
                     <StyledIconChecked color="green" />
                   )}
@@ -208,10 +184,12 @@ const UserForm = () => {
                     placeholder="+380"
                   ></StyledInput>
                   <ErrorMessage name="phone" />
-                  {(errors.phone && touched.phone) && <StyledIconError  color='red'/>}
-                    {touched.phone && !errors.phone && (
-                      <StyledIconChecked color="green" />
-                    )}
+                  {errors.phone && touched.phone && (
+                    <StyledIconError color="red" />
+                  )}
+                  {touched.phone && !errors.phone && (
+                    <StyledIconChecked color="green" />
+                  )}
                 </div>
               </StyledLabelInput>
 
@@ -236,16 +214,17 @@ const UserForm = () => {
                     onFocus={() => setIsOpen(true)}
                     showYearDropdown
                     scrollableYearDropdown
-                    
                   />
                   <StyledVectorPng>
                     <use href={Icon + '#icon-chevron-right-new'}></use>
                   </StyledVectorPng>
-                  <StyledErrorMessage name="birthday" component="div"/>
-                  {(errors.birthday && touched.birthday) && <StyledIconError  color='red'/>}
-                      {touched.birthday && !errors.birthday && (
-                        <StyledIconChecked color="green" />
-                      )}
+                  <StyledErrorMessage name="birthday" component="div" />
+                  {errors.birthday && touched.birthday && (
+                    <StyledIconError color="red" />
+                  )}
+                  {touched.birthday && !errors.birthday && (
+                    <StyledIconChecked color="green" />
+                  )}
                 </div>
               </StyledLabelInput>
 
@@ -260,11 +239,13 @@ const UserForm = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                 ></StyledInput>
-                <StyledErrorMessage name="skype" component="div"/>
-                {(errors.skype && touched.skype) && <StyledIconError  color='red'/>}
-                      {touched.skype && !errors.skype && (
-                        <StyledIconChecked color="green" />
-                      )}
+                <StyledErrorMessage name="skype" component="div" />
+                {errors.skype && touched.skype && (
+                  <StyledIconError color="red" />
+                )}
+                {touched.skype && !errors.skype && (
+                  <StyledIconChecked color="green" />
+                )}
               </StyledLabelInput>
 
               <StyledLabelInput htmlFor="email">
@@ -280,7 +261,6 @@ const UserForm = () => {
                     onBlur={handleBlur}
                   ></StyledInput>
                   <StyledErrorMessage name="email" component="div" />
-                  {/* {(errors.email && touched.email) && <StyledIconError  color='red'/>} */}
                   {touched.email && !errors.email && (
                     <StyledIconChecked color="green" />
                   )}
