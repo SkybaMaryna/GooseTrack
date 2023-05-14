@@ -18,6 +18,7 @@ import NotFound from './NotFound/NotFound';
 import PrivateRoute from 'hoc/PrivateRoute';
 import PublicRoute from 'hoc/PublicRoute';
 import Loader from './shared/Loader/Loader';
+import moment from 'moment';
 
 const MainLayout = lazy(() => import('./Layout/MainLayout/MainLayout'));
 
@@ -25,6 +26,7 @@ export const App = () => {
   const theme = useSelector(selectTheme);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  moment.updateLocale('en', { week: { dow: 1 } });
 
   useEffect(() => {
     dispatch(refreshThunk());

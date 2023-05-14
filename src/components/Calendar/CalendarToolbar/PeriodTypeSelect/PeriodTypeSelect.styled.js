@@ -10,7 +10,7 @@ export const List = styled.ul`
   display: flex;
   margin-top: 18px;
 
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px){
     margin-top: 0;
   }
 `;
@@ -38,13 +38,13 @@ export const StyledNavLink = styled(NavLink)`
     border-radius: 0 8px 8px 0;
   }
 
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     &.day {
       padding: 8px 26px;
     }
   }
 
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     font-size: 16px;
   }
 `;

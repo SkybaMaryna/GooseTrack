@@ -45,7 +45,7 @@ export const DayWrapper = styled.div`
 export const CellWrapper = styled.div`
   width: 47px;
   height: 94px;
-  cursor: pointer;
+  cursor: ${props => (props.isSelectedMonth ? 'pointer' : 'auto')};;
   padding: 2px;
   border-block-end: 1px solid rgba(220, 227, 229, 0.8);
   border-inline-end: 1px solid rgba(220, 227, 229, 0.8);
