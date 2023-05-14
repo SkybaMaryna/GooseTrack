@@ -1,3 +1,4 @@
+import { mainTextColor } from 'redux/Theme/Theme';
 import styled from 'styled-components';
 
 export const LogoutButton = styled.div`
@@ -16,4 +17,5 @@ export const ButtonWraper = styled.div`
 
 export const StyledP = styled.div`
   padding-top: 16px;
+  color: ${mainTextColor};
 `;

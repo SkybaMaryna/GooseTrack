@@ -67,8 +67,6 @@ export const EditForm = ({ taskFromCard, closeModal }) => {
     let timeOfEnd = endText.slice(0, 2).concat(endText.slice(3, 5));
 
     if (Number(timeOfStart) >= Number(timeOfEnd)) {
-      // setStartText('');
-      // setEndText('');
       status = 'invalid';
     }
     return status;
@@ -198,13 +196,6 @@ export const EditForm = ({ taskFromCard, closeModal }) => {
 
     dispatch(updateTask(taskForUpdate, id));
   };
-
-  // useEffect(() => {
-  //   setEditText(prevState => (prevState = taskFromCard.title));
-  //   setStartText(prevState => (prevState = taskFromCard.start));
-  //   setEndText(prevState => (prevState = taskFromCard.end));
-  //   setPriorities(prevState => (prevState = taskFromCard.priority));
-  // }, [taskFromCard]);
 
   useEffect(() => {
     if (priorities === 'High') {

@@ -1,4 +1,3 @@
-// import { FiLogOut } from 'react-icons/fi';
 import { Button, NavLinkStyled } from './CalendarButtom.styled';
 const date = new Date().toISOString().split('T')[0];
 const CalendarButton = () => {
