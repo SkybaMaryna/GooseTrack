@@ -7,24 +7,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { AccountFormInput, calendarBackgroundColor, elementTextHoverColor, mainTextColor } from 'redux/Theme/Theme';
 import {MdOutlineKeyboardArrowDown} from 'react-icons/md'
 
-export const ChevronDown = styled(MdOutlineKeyboardArrowDown)`
-position: absolute;
-top: 52%;
-left: 88%;
-cursor: pointer;
-&:hover {
-  color: ${elementTextHoverColor};
-}
 
-
-@media screen and (min-width: 768px) {
-  top: 50%;
-}
-@media screen and (min-width: 1440px) {
-  top: 50%;
-  left: 42%;
-}
-`
 export const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -114,6 +97,7 @@ export const StyledLabelInput = styled.label`
   font-size: 14px;
   line-height: calc(18 / 14);
   color: ${AccountFormInput};
+  height: auto;
 `;
 
 export const StyledInput = styled(Field)`
@@ -299,32 +283,58 @@ export const StyledBtn = styled.button`
 `;
 
 export const StyledErrorMessage = styled(ErrorMessage) `
-  position: relative;
+  position: absolute;
+  top: 50px;
 font-weight: 400;
-font-size: 12px;
+font-size: 10px;
 line-height: 14px;
 color: #DA1414;
 
-  /* background-color: #ff0000;
-  color: #ffffff;
-  padding: 10px;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  top: -20px;
-  left: 0; */
 `
 
 export const StyledIconError = styled(RiErrorWarningLine)`
 position: relative;
-/* right: 30px;
-top: 55%; */
-transform: translateY(-50%);
+height: 25px;
+width: 25px;
+transform: translateY(-20%);
 `
 
 
 export const StyledIconChecked = styled(IoIosCheckmarkCircleOutline)`
 position: relative;
-/* right: 20px;
-top: 51%; */
-/* transform: translateY(-50%); */
+height: 25px;
+width: 25px;
+transform: translateY(-20%);
+`
+
+export const StyledInputWrapper = styled.div`
+  position: relative;
+  width: 100%;
+`
+
+export const StyledIconWrapper = styled.div`
+  position: absolute;
+  top: 42%;
+  right: 4px;
+  transform: translateY(-50%);
+ `
+
+ 
+export const ChevronDown = styled(MdOutlineKeyboardArrowDown)`
+position: absolute;
+top: 52%;
+left: 88%;
+cursor: pointer;
+&:hover {
+  color: ${elementTextHoverColor};
+}
+
+
+@media screen and (min-width: 768px) {
+  top: 50%;
+}
+@media screen and (min-width: 1440px) {
+  top: 50%;
+  left: 42%;
+}
 `
