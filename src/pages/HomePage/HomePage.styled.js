@@ -48,6 +48,7 @@ export const HeroGooseImg = styled.img`
   margin: 0 auto 32px auto;
   width: 142px;
   height: 142px;
+
   @media screen and (min-width: 768px) {
     width: 150px;
     height: 149px;

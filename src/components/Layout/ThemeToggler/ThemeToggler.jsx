@@ -8,11 +8,12 @@ import { FiMoon } from 'react-icons/fi';
 const ThemeToggler = () => {
   const theme = useSelector(selectTheme);
   const dispatch = useDispatch();
+  const body = document.getElementById('body');
+  body.classList.add(`${theme}-mode`);
 
   const handleClick = () => {
     dispatch(setTheme());
-    var body = document.getElementById('body');
-    var currentClass = body.className;
+    const currentClass = body.className;
     body.className = currentClass === 'light-mode' ? 'dark-mode' : 'light-mode';
   };
 
