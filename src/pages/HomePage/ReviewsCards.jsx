@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 import { fetchReviews } from 'redux/Reviews/reviewsOperations';
 import { selectReviews } from 'redux/Reviews/reviewsSelectors';
-import { FiUser } from 'react-icons/fi';
 import {
   AuthorBox,
   Avatar,
@@ -12,26 +11,22 @@ import {
   ReviewAuthor,
   ReviewCard,
   ReviewText,
-  SwiperNext,
-  SwiperPrev,
+  SwiperButton,
 } from './ReviewsCard.styled';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import {
-  HiOutlineArrowNarrowLeft,
-  HiOutlineArrowNarrowRight,
-} from 'react-icons/hi';
+// import {HiArrowLongLeft, HiArrowLongRight } from 'react-icons/hi2';
+import {FcButtingIn} from 'react-icons/fc'
+import { CgArrowLongLeft, CgArrowLongRight } from "react-icons/cg";
 
 const ReviewsCards = () => {
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
   const isTablet = useMediaQuery({
     query: '(min-width: 767px) and (max-width: 1439px)',
   });
-  // const isDesktop = useMediaQuery({ query: '(min-width: 1440px)' });
   const reviews = useSelector(selectReviews);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -54,7 +49,7 @@ const ReviewsCards = () => {
               <ReviewCard>
                 <AuthorBox>
                   <Avatar>
-                    <FiUser size={48} fill="var(--cardLightYellow)" />
+                    <FcButtingIn size={48}/>
                   </Avatar>
                   <div>
                     <ReviewAuthor>{review.name}</ReviewAuthor>
@@ -87,11 +82,16 @@ const ReviewsCards = () => {
               <ReviewCard>
                 <AuthorBox>
                   <Avatar>
-                    <FiUser size={48} />
+                    <FcButtingIn size={48} />
                   </Avatar>
                   <div>
                     <ReviewAuthor>{review.name}</ReviewAuthor>
-                    <RangeStars>⭐⭐⭐⭐⭐</RangeStars>
+                    <img
+                        src={require('../../images/mainPage/stars.png')}
+                        alt="five stars"
+                        width="110"
+                        height="14"
+                      />
                   </div>
                 </AuthorBox>
                 <ReviewText>{review.comment}</ReviewText>
@@ -101,12 +101,12 @@ const ReviewsCards = () => {
         </Swiper>
       )}
       <ButtonSwiperBox>
-        <SwiperPrev id="my-prev-button">
-          <HiOutlineArrowNarrowLeft size={50} />
-        </SwiperPrev>
-        <SwiperNext id="my-next-button">
-          <HiOutlineArrowNarrowRight size={50} />
-        </SwiperNext>
+        <SwiperButton id="my-prev-button">
+          <CgArrowLongLeft size={50} color="grey"/>
+            </SwiperButton>
+        <SwiperButton id="my-next-button">
+          <CgArrowLongRight size={50}  color="grey"/>
+        </SwiperButton>
       </ButtonSwiperBox>
     </div>
   );

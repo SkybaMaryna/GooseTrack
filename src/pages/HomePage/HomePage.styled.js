@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Herosection = styled.section`
   width: 100%;
+  /* height: 100vh; */
   background-color: var(--mainBlue);
   margin-top: 0;
   margin-bottom: 64px;
