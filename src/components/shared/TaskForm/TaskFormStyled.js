@@ -1,4 +1,5 @@
 import { BiPlus } from "react-icons/bi";
+import { blueButtonsHover } from "redux/Theme/Theme";
 import styled from "styled-components";
 
 export const ButtonsWrapper = styled.div`
@@ -16,11 +17,12 @@ align-items: center;
 justify-content: center;
 width: 135px;
 height: 42px;
-background: #EFEFEF;
+background: var(--mainBlue);
 border-radius: 8px;
 border-color: transparent;
+box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
 padding: 12px, 40px;
-color: black;
+color: var(--mainWhite);
 font-weight: 600;
 font-size: 14px;
 line-height: 18px;
@@ -28,12 +30,7 @@ transition: 0.5s;
 outline: none;
 cursor: pointer;
 &:hover {
-    background-color: var(--mainBlue);
-    color: white;
-
-   .StyledPlusIcon {
-    color: white;
-   }    
+    background-color: ${blueButtonsHover};
 }
 
 @media screen and (min-width: 769px) {
@@ -43,8 +40,7 @@ cursor: pointer;
 
 `
 export const StyledPlusIcon = styled(BiPlus)`
-color: black;
-transition: 0.5s;
+color: var(--mainWhite);
 `
 
 

@@ -1,9 +1,8 @@
-import { ModalCloseWrapper } from './CrossStyled';
-import { CgClose } from 'react-icons/cg';
+import { CrossIconStyled, ModalCloseWrapper } from './CrossStyled';
 export const Cross = ({ func }) => {
   return (
     <ModalCloseWrapper onClick={func}>
-      <CgClose />
+      <CrossIconStyled/>
     </ModalCloseWrapper>
   );
 };

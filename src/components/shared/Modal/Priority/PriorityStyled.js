@@ -1,3 +1,4 @@
+import { calendarHoverColor } from 'redux/Theme/Theme';
 import styled from 'styled-components';
 
 export const PriorityWraper = styled.div`
@@ -56,5 +57,6 @@ export const StyledPar = styled.p`
   font-weight: 600;
   font-size: 12px;
   line-height: 1.17;
+  color: ${calendarHoverColor};
   cursor: pointer;
 `;

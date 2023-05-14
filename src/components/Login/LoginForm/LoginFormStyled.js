@@ -3,6 +3,7 @@ import { RiErrorWarningLine } from "react-icons/ri";
 import { IoIosCheckmarkCircleOutline } from 'react-icons/io';
 import styled from "styled-components";
 
+
 export const StyledForm = styled(Formik)`
 max-width: 335px;
 display: flex;
@@ -10,13 +11,9 @@ flex-direction: column;
 align-items: center;
 `
 export const StyledFormInsight = styled(Form)`
-/* position: absolute; 
-top: 50%; 
-left: 50%;
-transform: translate(-50%, -50%); */
 width: 100%;
 display: flex;
-background-color: white;
+background-color: var(--mainWhite);
 flex-direction: column;
 align-items: left;
 text-align: left;
@@ -91,9 +88,6 @@ padding: 14px;
   border-color: black;
   
 }
-/* &:valid {
-  border-color: green;
-} */
 &:invalid {
   border-color: red;
   outline: none;

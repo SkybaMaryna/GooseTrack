@@ -1,10 +1,11 @@
+import { sideBackgroundColor } from 'redux/Theme/Theme';
 import styled from 'styled-components';
 
 export const ModalBody = styled.div`
   width: 303px;
   height: 336px;
   position: fixed;
-  background-color: var(--mainWhite);
+  background-color: ${sideBackgroundColor};
   z-index: 2;
   top: 50%;
   left: 50%;
@@ -27,7 +28,7 @@ export const DivOverlay = styled.div`
   left: 0;
   max-width: 375px;
   height: 100%;
-  background-color: rgba(47, 48, 58, 0.6);
+  background-color: rgba(47, 48, 58, 0.2);
   overflow: hidden;
   opacity: 1;
   visibility: visible;
