@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Button = styled.button`
-  /* border-color: var(--mainWhite); */
   border: none;
   border-radius: 16px;
   font-family: 'Inter';
@@ -16,6 +15,7 @@ export const Button = styled.button`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
   &:hover {
     background-color: #2b78ef;
   }
