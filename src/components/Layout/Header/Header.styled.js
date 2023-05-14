@@ -48,6 +48,7 @@ export const Accent = styled.span`
 export const Svg = styled.span`
   width: 24px;
   height: 24px;
+  cursor: pointer;
 
   @media screen and (min-width: 768px) {
     width: 34px;
