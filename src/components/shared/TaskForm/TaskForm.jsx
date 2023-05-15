@@ -33,7 +33,7 @@ export const TaskForm = ({ closeModal, typeOfColumn, choosedDay }) => {
       toast.error('End Time of your task can not be less then Start Time');
       return;
     }
-    if (enterText.trim().length === 0) {
+    if (enterText.length === 0) {
       toast.error('Fields cannot be empty');
       return;
     }

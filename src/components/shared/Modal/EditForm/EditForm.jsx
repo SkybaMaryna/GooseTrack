@@ -34,7 +34,7 @@ export const EditForm = ({ taskFromCard, closeModal }) => {
     if (editText.length > 255) {
       toast.error('Title cannot be longer than 255 characters');
     }
-    setEditText(editText.trim());
+    setEditText(editText);
   }, [editText]);
 
   const timeFormValidation = () => {

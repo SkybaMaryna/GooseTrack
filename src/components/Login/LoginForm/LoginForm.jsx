@@ -37,9 +37,8 @@ const LoginForm = () => {
     >
       {formik => (
         <StyledFormInsight>
-          {/* <pre>{JSON.stringify(formik, null, 2)}</pre> */}
           <StyledTitle>Log In</StyledTitle>
-          <StyledLabel>Email</StyledLabel>
+          <StyledLabel isError={formik.errors.email}>Email</StyledLabel>
           <StyledInputWrap>
             <StyledInput
               type="email"
@@ -52,16 +51,15 @@ const LoginForm = () => {
             {formik.touched.email && !formik.errors.email && (
               <StyledIconChecked color="green" />
             )}
-            <StyledIconError color="red" display="none" />
           </StyledInputWrap>
           <StyledError name="email" component="div" />
-          <StyledLabel>Password</StyledLabel>
+          <StyledLabel isError={formik.errors.password}>Password</StyledLabel>
           <StyledInputWrap>
             <StyledInput
               type="password"
               name="password"
               placeholder="......."
-            />
+             />
             {formik.errors.password && formik.touched.password && (
               <StyledIconError color="red" />
             )}

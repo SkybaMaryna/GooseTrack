@@ -21,7 +21,7 @@ export const registerThunk = createAsyncThunk(
       return res.data;
     } catch (error) {
       if (error.message === 'Request failed with status code 409') {
-        toast.error('User with email roxenn34@gmail.com already exist');
+        toast.error(`User with this email  already exist`);
       } else {
         toast.error(
           `enter valid email: min 6, max 63 characters, except .ru, .su, .рус, .рф,.москва etc`
