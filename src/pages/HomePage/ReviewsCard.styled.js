@@ -67,12 +67,18 @@ export const ButtonSwiperBox = styled.div`
   }
 `;
 export const SwiperButton = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+border-radius: 16px;
   width: 50px;
   height: 46px;
   cursor: pointer;
+  transition: all ease-in-out 400ms;
   &:hover {
     background: var(--mainLightblue);
-    box-shadow: 4px 2px 10px rgba(136, 165, 191, 0.8);
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+            1px 4px 6px rgba(0, 0, 0, 0.16);
   }
   @media screen and (min-width: 768px) {
     width: 61px;
