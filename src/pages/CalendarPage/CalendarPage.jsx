@@ -3,13 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { useState } from 'react';
 import { fetchTasks } from 'redux/Tasks/tasksOperations';
 import { CalendarToolbar } from 'components/Calendar/CalendarToolbar/CalendarToolbar';
 import { useParams } from 'react-router-dom';
 
 const CalendarPage = () => {
-  const { currentDate } = useParams();
+  const params = useParams();
+  const currentDate = params.currentDate ?? params.currentDay;
   const date = moment(new Date(currentDate));
   const dispatch = useDispatch();
   const navigate = useNavigate();
