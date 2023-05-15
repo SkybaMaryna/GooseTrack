@@ -25,7 +25,7 @@ export const StyledWrapper = styled.div`
     height: 18px;
     font-style: normal;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 18px;
     line-height: calc(18 / 14);
     color: ${mainTextColor};
     @media screen and (min-width: 768px) {
@@ -41,7 +41,7 @@ export const StyledUser = styled.p`
   margin-bottom: 40px;
   font-style: normal;
   font-weight: 600;
-  font-size: 32px;
+  font-size: 12px;
   line-height: calc(14 / 12);
   color: var(--textGrey);
   @media screen and (min-width: 768px) {
@@ -70,6 +70,7 @@ export const StyledBlockInput = styled.div`
   justify-content: center;
   width: 299px;
   height: 392px;
+  margin-bottom: 8px;
 
   p {
     margin-bottom: 8px;
@@ -105,6 +106,7 @@ export const StyledInput = styled(Field)`
   height: 42px;
   margin-bottom: 18px;
   padding: 14px 18px;
+  padding-right: 28px;
   border: 1px solid var(--textGrey);
   border-radius: 8px;
   background: transparent;
