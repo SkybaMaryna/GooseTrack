@@ -38,7 +38,7 @@ const LoginForm = () => {
       {formik => (
         <StyledFormInsight>
           <StyledTitle>Log In</StyledTitle>
-          <StyledLabel isError={formik.errors.email}>Email</StyledLabel>
+          <StyledLabel isError={formik.errors.email && formik.touched.email}>Email</StyledLabel>
           <StyledInputWrap>
             <StyledInput
               type="email"
@@ -53,7 +53,7 @@ const LoginForm = () => {
             )}
           </StyledInputWrap>
           <StyledError name="email" component="div" />
-          <StyledLabel isError={formik.errors.password}>Password</StyledLabel>
+          <StyledLabel isError={formik.errors.password && formik.touched.password}>Password</StyledLabel>
           <StyledInputWrap>
             <StyledInput
               type="password"

@@ -59,7 +59,7 @@ export const TaskForm = ({ closeModal, typeOfColumn, choosedDay }) => {
     let startValue = startDate.toLocaleTimeString('en-UK');
     startValue = startValue.substring(0, startValue.lastIndexOf(':'));
     if (startValue >= end) {
-      setEnd(startValue);
+      toast.error('Start Time of your task can not be bigger then End Time');
     }
     setStart(startValue);
   };
