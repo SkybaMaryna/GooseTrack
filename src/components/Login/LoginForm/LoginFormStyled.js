@@ -43,20 +43,12 @@ margin-bottom: 32px;
   }
 `
 export const StyledLabel = styled.label`
-color: ${props => (props.isError ? 'red' : 'green' || 'inherit') }
+color: ${props => (props.isError ? 'red' : 'green' || 'inherit') };
 font-weight: 600;
 font-size: 12px;
 line-height: 15px;
 margin-bottom: 8px;
 margin-top: 8px;
-
- .active__good {
-    color: green;
- }
-
- .active__bad {
-  color: red;
- }
 
 
 @media screen and (min-width: 768px) {
