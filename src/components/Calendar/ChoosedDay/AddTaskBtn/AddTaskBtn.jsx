@@ -17,11 +17,8 @@ export const AddTaskBtn = ({ getTypeOfColumn, title }) => {
   return (
     <>
       <AddTaskBtnStyled onClick={openModal}>
-      <OutlinePlus/>
-        {' '}
-        <AddTaskBtnTextStyled>Add task</AddTaskBtnTextStyled>
+        <OutlinePlus /> <AddTaskBtnTextStyled>Add task</AddTaskBtnTextStyled>
       </AddTaskBtnStyled>
     </>
   );
 };
-// export default AddTaskBtn;

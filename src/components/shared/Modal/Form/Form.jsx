@@ -1,6 +1,5 @@
 import ReactDatePicker from 'react-datepicker';
 import {
-  // StyledInput,
   StyledInputText,
   InputWrapper,
   StyledInputContainer,

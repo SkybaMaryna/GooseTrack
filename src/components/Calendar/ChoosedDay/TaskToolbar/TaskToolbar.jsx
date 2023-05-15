@@ -18,7 +18,6 @@ import { useEffect, useState } from 'react';
 import { fetchTasks, updateTask } from 'redux/Tasks/tasksOperations';
 import { toast } from 'react-toastify';
 
-
 export const TaskToolbar = ({ task, getTask }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -93,5 +92,3 @@ export const TaskToolbar = ({ task, getTask }) => {
     </>
   );
 };
-
-// export default TaskToolbar;
